@@ -41,11 +41,11 @@
                       (mu4e-refile-folder . "/expd/Archive")
                       (mu4e-trash-folder . "/expd/Trash")
                       (mu4e-compose-signature .
-                        (concat
-                          "Regards,\n"
-                          "Stephen Cott\n"
-                          "Senior Systems Engineer\n"
-                          "IS-Core - Enterprise Core Platform\n"))))
+					      (concat
+                          "Regards,\\"
+                          "*Stephen Cott*\\"
+                          "Senior Systems Engineer\\"
+                          "IS-Core - Enterprise Core Platform\\"))))
 
              (make-mu4e-context
               :name "Proton"
@@ -88,8 +88,24 @@
                          :query "maildir:/proton/INBOX")))
 
 (setq mu4e-headers-unread-mark '("u" . "✉"))
+
 (defun cotste/mailview ()
   (olivetti-set-width 0.5)
   (olivetti-mode))
+
+(add-hook 'mu4e-compose-mode-hook 'cotste/mailview)
+(add-hook 'mu4e-view-mode-hook 'cotste/mailview)
+
+;; Org Mime for sending HTML emails
+(use-package org-mime
+  :config
+  (setq org-mime-export-options '(:section-numbers nil
+				  :with-author nil
+				  :with-toc nil)))
+
+;; Turn off auto-save for mail drafts to avoid filling up Drats
+(add-hook 'mu4e-compose-mode-hook #'(lambda()
+                                      (auto-save-mode -1)))
+
 
 (provide 'setup-mail)

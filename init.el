@@ -26,8 +26,9 @@
 (require 'setup-org)
 (require 'setup-roam)
 (require 'setup-mail)
-(require 'setup-theme)
 (require 'setup-vc)
 (require 'setup-writing)
 (require 'setup-shell)
-
+(require 'setup-completion)
+(require 'setup-minibuffer)
+(require 'setup-ui)
