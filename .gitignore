@@ -1,5 +1,9 @@
+\#*
 tramp
 org-roam.db
 .org-id-locations
 transient/
 .local/
+eln-cache/
+auto-save-list/
+url/

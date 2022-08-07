@@ -1,5 +1,8 @@
 ;; My UI and theme customizations
 
+;; Set up fonts
+(set-face-attribute 'default nil :family "Iosevka Nerd Font" :height 110)
+
 ;; Modus options
 
 (setq modus-themes-completions
