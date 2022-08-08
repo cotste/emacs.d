@@ -90,8 +90,8 @@
 (setq mu4e-headers-unread-mark '("u" . "✉"))
 
 (defun cotste/mailview ()
-  (olivetti-set-width 0.5)
-  (olivetti-mode))
+  (olivetti-mode)
+  (olivetti-set-width 0.7))
 
 (add-hook 'mu4e-compose-mode-hook 'cotste/mailview)
 (add-hook 'mu4e-view-mode-hook 'cotste/mailview)

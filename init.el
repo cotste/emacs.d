@@ -32,3 +32,4 @@
 (require 'setup-completion)
 (require 'setup-minibuffer)
 (require 'setup-ui)
+(require 'setup-config)
