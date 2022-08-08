@@ -4,7 +4,7 @@
   :init
   (setq org-roam-v2-ack t)
   :custom
-  (org-roam-directory "~/Documents/notes")
+  (org-roam-directory "~/notes")
   (org-roam-capture-templates
    '(("d" "default" plain
       "%?"

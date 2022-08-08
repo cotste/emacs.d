@@ -7,7 +7,7 @@
     (use-package mu4e
       :bind ("C-c m m" . mu4e)
       :config
-      (setq user-mail-address "stephen.cott@expeditors.com")
+      ;;(setq user-mail-address "stephen.cott@expeditors.com")
       (setq mu4e-change-filenames-when-moving t)
       (setq mu4e-update-interval (* 10 60))
       (setq mu4e-html2text-command "w3m -T text/html" ; how to hanfle html-formatted emails
@@ -23,7 +23,7 @@
             message-sendmail-envelope-from 'header
             mail-envelope-from 'header)
 
-      (setq mu4e-get-mail-command "mbsync -a")
+      (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc -a")
       (setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
 
       (setq mu4e-contexts
@@ -48,17 +48,17 @@
                           "IS-Core - Enterprise Core Platform\\"))))
 
              (make-mu4e-context
-              :name "Proton"
+              :name "Fastmail"
               :match-func
               (lambda (msg)
                 (when msg
-                  (string-match-p "^/Proton" (mu4e-message-field msg :maildir))))
-              :vars '((user-mail-address . "stephencott@pm.me")
+                  (string-match-p "^/Fastmail" (mu4e-message-field msg :maildir))))
+              :vars '((user-mail-address . "steve@stephencott.com")
                       (user-full-name . "Stephen Cott")
-                      (mu4e-drafts-folder . "/proton/Drafts")
-                      (mu4e-sent-folder . "/proton/Sent")
-                      (mu4e-refile-folder . "/proton/Archive")
-                      (mu4e-trash-folder . "/proton/Trash")))
+                      (mu4e-drafts-folder . "/fastmail/Drafts")
+                      (mu4e-sent-folder . "/fastmail/Sent")
+                      (mu4e-refile-folder . "/fastmail/Archive")
+                      (mu4e-trash-folder . "/fastmail/Trash")))
              (make-mu4e-context
               :name "Gmail"
               :match-func
@@ -83,9 +83,9 @@
                          :query "maildir:/gmail/INBOX"))
 
       (add-to-list 'mu4e-bookmarks
-                 '(:name "Proton"
-                         :key ?p
-                         :query "maildir:/proton/INBOX")))
+                 '(:name "Fastmail"
+                         :key ?f
+                         :query "maildir:/fastmail/INBOX")))
 
 (setq mu4e-headers-unread-mark '("u" . "✉"))
 
