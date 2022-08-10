@@ -68,7 +68,7 @@
   		  (mu4e-bookmarks . (
 				     ("maildir:/fastmail/INBOX" "Inbox" ?i)
 				     ("date:today..now AND to:steve@stephencott.com" "Today's Mail" ?t)
-				     ("date:today..now AND to:stephencott@gmail.com" "Today's Mail(Gmail)" ?g)))))
+				     ("date:today..now AND to:stephencott@gmail.com AND maildir:/fastmail" "Today's Mail(Gmail)" ?g)))))
 	 
 	 (make-mu4e-context
 	  :name "Gmail"
