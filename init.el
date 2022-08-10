@@ -42,3 +42,4 @@
 (require 'setup-minibuffer)
 (require 'setup-ui)
 (require 'setup-config)
+(require 'setup-keybindings)
