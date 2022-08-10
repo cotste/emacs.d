@@ -19,9 +19,12 @@
 
   (setq send-mail-function 'sendmail-send-it
 	sendmail-program "/usr/bin/msmtp"
-	mail-specify-envelope-from t
-	message-sendmail-envelope-from 'header
-	mail-envelope-from 'header)
+	message-sendmail-extra-arguments '("--read-envelope-from"))
+;;	mail-specify-envelope-from t
+;;	message-sendmail-envelope-from 'header
+;;	mail-envelope-from 'header)
+
+
 
   (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc -a")
   (setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
@@ -40,6 +43,9 @@
 		  (mu4e-sent-folder . "/expd/Sent")
 		  (mu4e-refile-folder . "/expd/Archive")
 		  (mu4e-trash-folder . "/expd/Trash")
+		  (mu4e-bookmarks . (
+				     ("maildir:/expd/INBOX" "Inbox" ?i)
+				     ("date:today..now AND to:stephen.cott@expeditors.com" "Today's Mail" ?t)))
 		  (mu4e-compose-signature .
 					  (concat
 		      "Regards,\\"
@@ -58,7 +64,12 @@
 		  (mu4e-drafts-folder . "/fastmail/Drafts")
 		  (mu4e-sent-folder . "/fastmail/Sent")
 		  (mu4e-refile-folder . "/fastmail/Archive")
-		  (mu4e-trash-folder . "/fastmail/Trash")))
+		  (mu4e-trash-folder . "/fastmail/Trash")
+  		  (mu4e-bookmarks . (
+				     ("maildir:/fastmail/INBOX" "Inbox" ?i)
+				     ("date:today..now AND to:steve@stephencott.com" "Today's Mail" ?t)
+				     ("date:today..now AND to:stephencott@gmail.com" "Today's Mail(Gmail)" ?g)))))
+	 
 	 (make-mu4e-context
 	  :name "Gmail"
 	  :match-func
@@ -70,24 +81,34 @@
 		  (mu4e-drafts-folder . "/gmail/[Gmail]/Drafts")
 		  (mu4e-sent-folder . "/gmail/[Gmail]/Sent Mail")
 		  (mu4e-refile-folder . "/gmail/[Gmail]/Archive")
-		  (mu4e-trash-folder . "/gmail/[Gmail]/Trash")))))
+		  (mu4e-trash-folder . "/gmail/[Gmail]/Trash")
+		  (mu4e-bookmarks . (
+				     ("maildir:/gmail/INBOX" "Inbox" ?i)
+				     ("date:today..now AND to:stephencott@gmail.com" "Today's Mail" ?t))))))))
 
-  (add-to-list 'mu4e-bookmarks
-	     '(:name "Expeditors"
-	       :key ?e
-	       :query "maildir:/expd/INBOX"))
+  ;; (add-to-list 'mu4e-bookmarks
+  ;; 	     '(:name "Expeditors"
+  ;; 	       :key ?e
+  ;; 	       :query "maildir:/expd/INBOX"))
 
-  (add-to-list 'mu4e-bookmarks
-	     '(:name "Gmail"
-		     :key ?g
-		     :query "maildir:/gmail/INBOX"))
+  ;; (add-to-list 'mu4e-bookmarks
+  ;; 	     '(:name "Gmail"
+  ;; 		     :key ?g
+  ;; 		     :query "maildir:/gmail/INBOX"))
 
-  (add-to-list 'mu4e-bookmarks
-	     '(:name "Fastmail"
-		     :key ?f
-		     :query "maildir:/fastmail/INBOX")))
+  ;; (add-to-list 'mu4e-bookmarks
+  ;; 	     '(:name "Fastmail"
+  ;; 		     :key ?f
+  ;; 		     :query "maildir:/fastmail/INBOX")))
 
 (setq mu4e-headers-unread-mark '("u" . "✉"))
+
+;; Configure mu4e fonts
+;;(custom-set-faces
+ ;; '(mu4e-header-face ((t (:family "Noto Sans Mono"))))
+ ;; '(mu4e-header-highlight-face ((t (:inherit))))
+ ;; '(mu4e-unread-face ((t (:family "Noto Sans Mono"))))
+ ;; '(mu4e-title-face ((t (:family "Noto Sans Mono")))))
 
 (defun cotste/mailview ()
   (olivetti-mode)

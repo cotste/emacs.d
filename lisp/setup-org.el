@@ -10,6 +10,6 @@
 
 
 ;; Agenda configuration
-(setq org-agenda-files '("~/Documents/notes"))
+(setq org-agenda-files '("~/notes"))
 
 (provide 'setup-org)
