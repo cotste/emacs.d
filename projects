@@ -1,0 +1,4 @@
+;;; -*- lisp-data -*-
+(("~/.emacs.d/")
+ ("~/repos/ado-emacs/")
+ ("~/repos/prots-dots/"))
