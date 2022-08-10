@@ -7,6 +7,10 @@
 (use-package mu4e
   :bind ("C-c m m" . mu4e)
   :config
+
+  ;; Pull mu4e-org for helper functions
+  (require 'mu4e-org)
+  
   ;;(setq user-mail-address "stephen.cott@expeditors.com")
   (setq mu4e-change-filenames-when-moving t)
   (setq mu4e-update-interval (* 10 60))
@@ -19,10 +23,10 @@
 
   (setq send-mail-function 'sendmail-send-it
 	sendmail-program "/usr/bin/msmtp"
-	message-sendmail-extra-arguments '("--read-envelope-from"))
-;;	mail-specify-envelope-from t
+;;	message-sendmail-extra-arguments '("--read-envelope-from"))
+	mail-specify-envelope-from t
 ;;	message-sendmail-envelope-from 'header
-;;	mail-envelope-from 'header)
+	mail-envelope-from 'header)
 
 
 
@@ -45,6 +49,7 @@
 		  (mu4e-trash-folder . "/expd/Trash")
 		  (mu4e-bookmarks . (
 				     ("maildir:/expd/INBOX" "Inbox" ?i)
+				     ("maildir:/expd/*" "All Mail" ?a)
 				     ("date:today..now AND to:stephen.cott@expeditors.com" "Today's Mail" ?t)))
 		  (mu4e-compose-signature .
 					  (concat
@@ -67,8 +72,9 @@
 		  (mu4e-trash-folder . "/fastmail/Trash")
   		  (mu4e-bookmarks . (
 				     ("maildir:/fastmail/INBOX" "Inbox" ?i)
-				     ("date:today..now AND to:steve@stephencott.com" "Today's Mail" ?t)
-				     ("date:today..now AND to:stephencott@gmail.com AND maildir:/fastmail" "Today's Mail(Gmail)" ?g)))))
+				     ("maildir:/fastmail/*" "All Mail" ?a)
+				     ("date:today..now AND to:steve@stephencott.com AND maildir:/fastmail/*" "Today's Mail" ?t)
+				     ("date:today..now AND to:stephencott@gmail.com AND maildir:/fastmail/*" "Today's Mail(Gmail)" ?g)))))
 	 
 	 (make-mu4e-context
 	  :name "Gmail"
@@ -84,6 +90,7 @@
 		  (mu4e-trash-folder . "/gmail/[Gmail]/Trash")
 		  (mu4e-bookmarks . (
 				     ("maildir:/gmail/INBOX" "Inbox" ?i)
+				     ("maildir:/gmail/*" "All Mail" ?a)
 				     ("date:today..now AND to:stephencott@gmail.com" "Today's Mail" ?t))))))))
 
   ;; (add-to-list 'mu4e-bookmarks

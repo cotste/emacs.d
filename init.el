@@ -32,6 +32,8 @@
    browse-url-generic-args     '("/c" "start")
    browse-url-browser-function #'browse-url-generic))
 
+(setq tab-always-indent 'complete)
+
 (require 'setup-org)
 (require 'setup-roam)
 (require 'setup-mail)
@@ -43,3 +45,4 @@
 (require 'setup-ui)
 (require 'setup-config)
 (require 'setup-keybindings)
+(require 'setup-programming)
