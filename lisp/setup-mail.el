@@ -20,6 +20,8 @@
 	mu4e-view-show-images t                   ; show images in the view buffer
 	mu4e-compose-signature-auto-include nil   ; I don't wanta message signature
 	mu4e-use-fancy-chars t)
+  (setq mu4e-split-view 'vertical)
+  (setq mu4e-headers-visible-columns 100)
 
   (setq send-mail-function 'sendmail-send-it
 	sendmail-program "/usr/bin/msmtp"
@@ -27,8 +29,6 @@
 	mail-specify-envelope-from t
 ;;	message-sendmail-envelope-from 'header
 	mail-envelope-from 'header)
-
-
 
   (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc -a")
   (setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
@@ -50,7 +50,7 @@
 		  (mu4e-bookmarks . (
 				     ("maildir:/expd/INBOX" "Inbox" ?i)
 				     ("maildir:/expd/*" "All Mail" ?a)
-				     ("date:today..now AND to:stephen.cott@expeditors.com" "Today's Mail" ?t)))
+				     ("date:today..now AND to:stephen.cott@expeditors.com AND maildir:/expd/*" "Today's Mail" ?t)))
 		  (mu4e-compose-signature .
 					  (concat
 		      "Regards,\\"
@@ -91,7 +91,7 @@
 		  (mu4e-bookmarks . (
 				     ("maildir:/gmail/INBOX" "Inbox" ?i)
 				     ("maildir:/gmail/*" "All Mail" ?a)
-				     ("date:today..now AND to:stephencott@gmail.com" "Today's Mail" ?t))))))))
+				     ("date:today..now AND to:stephencott@gmail.com AND maildir:/gmail/*" "Today's Mail" ?t))))))))
 
   ;; (add-to-list 'mu4e-bookmarks
   ;; 	     '(:name "Expeditors"

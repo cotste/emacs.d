@@ -31,4 +31,10 @@
   :config
   (require 'restclient))
 
+;; Setup Rainbow Delimiters
+(use-package rainbow-delimiters
+  :hook (
+	 (prog-mode-hook . rainbow-delimiters-mode)
+	 (emacs-lisp-mode . rainbow-delimiters-mode)))
+
 (provide 'setup-programming)

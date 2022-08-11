@@ -3,7 +3,11 @@
 
 (use-package olivetti
   :config (olivetti-set-width 78)
-  :hook ((org-mode text-mode info-mode) . olivetti-mode))
+  :hook ((org-mode mu4e-view-mode mu4e-compose-mode info-mode) . olivetti-mode))
 
+(use-package flyspell-correct
+  :after flyspell
+  :bind
+  (:map flyspell-mode-map ("C-;" . 'flyspell-correct-wrapper)))
 
 (provide 'setup-writing)

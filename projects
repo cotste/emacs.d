@@ -1,4 +1,6 @@
 ;;; -*- lisp-data -*-
 (("~/.emacs.d/")
+ ("~/repos/expd/ecp/azure/infrastructure/")
+ ("~/notes/")
  ("~/repos/ado-emacs/")
  ("~/repos/prots-dots/"))

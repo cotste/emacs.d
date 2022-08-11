@@ -32,6 +32,12 @@
    browse-url-generic-args     '("/c" "start")
    browse-url-browser-function #'browse-url-generic))
 
+;; Set up some paths
+;;(setq default-directory "~/")
+;;(add-to-list 'exec-path "~/bin")
+;;(add-to-list 'exec-path "/home/chq-stephenco/.nvm/versions/node/v17.9.0/bin")
+
+;; Set tab to completion - might get rid of this in the future
 (setq tab-always-indent 'complete)
 
 (require 'setup-org)
@@ -46,3 +52,16 @@
 (require 'setup-config)
 (require 'setup-keybindings)
 (require 'setup-programming)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("3b228dab7cbc6d14ea583e0bb5c857284a01d9489c0e24f5ecc4845e77dc84b0" "d548ac4bb4c8c0ba8f22476f5afcea11b7f1754065eefb118e1324f8a74883fb" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "e3b2bad7b781a968692759ad12cb6552bc39d7057762eefaf168dbe604ce3a4b" default)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
