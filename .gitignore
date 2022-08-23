@@ -7,3 +7,7 @@ transient/
 eln-cache/
 auto-save-list/
 url/
+.cache/
+projects
+bookmarks
+/.lsp-session-v1

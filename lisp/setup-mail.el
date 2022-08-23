@@ -21,13 +21,11 @@
 	mu4e-compose-signature-auto-include nil   ; I don't wanta message signature
 	mu4e-use-fancy-chars t)
   (setq mu4e-split-view 'vertical)
-  (setq mu4e-headers-visible-columns 100)
+  (setq mu4e-headers-visible-columns 78)
 
   (setq send-mail-function 'sendmail-send-it
 	sendmail-program "/usr/bin/msmtp"
-;;	message-sendmail-extra-arguments '("--read-envelope-from"))
 	mail-specify-envelope-from t
-;;	message-sendmail-envelope-from 'header
 	mail-envelope-from 'header)
 
   (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc -a")
@@ -50,7 +48,8 @@
 		  (mu4e-bookmarks . (
 				     ("maildir:/expd/INBOX" "Inbox" ?i)
 				     ("maildir:/expd/*" "All Mail" ?a)
-				     ("date:today..now AND to:stephen.cott@expeditors.com AND maildir:/expd/*" "Today's Mail" ?t)))
+				     ("date:today..now AND to:stephen.cott@expeditors.com AND maildir:/expd/*" "Today's Mail" ?t)
+				     ("maildir:/expd/* AND flag:unread" "All Unread" ?u)))
 		  (mu4e-compose-signature .
 					  (concat
 		      "Regards,\\"
@@ -93,36 +92,22 @@
 				     ("maildir:/gmail/*" "All Mail" ?a)
 				     ("date:today..now AND to:stephencott@gmail.com AND maildir:/gmail/*" "Today's Mail" ?t))))))))
 
-  ;; (add-to-list 'mu4e-bookmarks
-  ;; 	     '(:name "Expeditors"
-  ;; 	       :key ?e
-  ;; 	       :query "maildir:/expd/INBOX"))
-
-  ;; (add-to-list 'mu4e-bookmarks
-  ;; 	     '(:name "Gmail"
-  ;; 		     :key ?g
-  ;; 		     :query "maildir:/gmail/INBOX"))
-
-  ;; (add-to-list 'mu4e-bookmarks
-  ;; 	     '(:name "Fastmail"
-  ;; 		     :key ?f
-  ;; 		     :query "maildir:/fastmail/INBOX")))
 
 (setq mu4e-headers-unread-mark '("u" . "✉"))
 
-;; Configure mu4e fonts
-;;(custom-set-faces
- ;; '(mu4e-header-face ((t (:family "Noto Sans Mono"))))
- ;; '(mu4e-header-highlight-face ((t (:inherit))))
- ;; '(mu4e-unread-face ((t (:family "Noto Sans Mono"))))
- ;; '(mu4e-title-face ((t (:family "Noto Sans Mono")))))
-
 (defun cotste/mailview ()
   (olivetti-mode)
-  (olivetti-set-width 0.7))
+  (olivetti-set-width 0.7)
+  ;;; Insert my work signature at compose time on all reply's and forwards
+
+  (when (eq mu4e-compose-type 'reply)
+  (message-goto-body)
+  (goto-char (point-min))
+  (message "Some text")))
 
 (add-hook 'mu4e-compose-mode-hook 'cotste/mailview)
 (add-hook 'mu4e-view-mode-hook 'cotste/mailview)
+;;(add-hook 'mu4e-compose-mode-hook 'cotste/mu4e-reply-forward-sig)
 
 ;; Org Mime for sending HTML emails
 (use-package org-mime
@@ -131,9 +116,12 @@
 				  :with-author nil
 				  :with-toc nil)))
 
-;; Turn off auto-save for mail drafts to avoid filling up Drats
+;; Turn off auto-save for mail drafts to avoid filling up Drafts
 (add-hook 'mu4e-compose-mode-hook #'(lambda()
                                       (auto-save-mode -1)))
 
+(defun cotste/mu4e-reply-forward-sig ()
+ )
+ 
 
 (provide 'setup-mail)

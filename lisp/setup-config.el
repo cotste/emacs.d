@@ -4,6 +4,6 @@
   (interactive)
   (find-file user-init-file))
 
-(bind-key "C-c c i" 'cotste/edit-init-file)
+(bind-key "C-c e i" 'cotste/edit-init-file)
 
 (provide 'setup-config)
