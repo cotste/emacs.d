@@ -42,15 +42,17 @@
 ;; FlucUI (FlatUI) Theme
 (use-package flucui-themes)
 
+(use-package doom-themes)
+
 ;; Load theme
 
 (load-theme 'modus-operandi)
 ;;(load-theme 'lambda-light)
-;;(load-them 'flucui-light)
+;;(load-theme 'flucui-light)
 ;;(load-theme 'sanityinc-tomorrow-day)
 ;;(load-theme 'leuven)
 ;;(load-theme 'nord)
-
+;;(load-theme 'doom-tokyo-night)
 
 
 ;; All the icons stuff

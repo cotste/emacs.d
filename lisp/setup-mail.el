@@ -55,7 +55,8 @@
 		      "Regards,\\"
 		      "*Stephen Cott*\\"
 		      "Senior Systems Engineer\\"
-		      "IS-Core - Enterprise Core Platform\\"))))
+		      "IS-Core - Enterprise Core Platform\\"))
+		  (message-cite-style . message-cite-style-outlook)))
 
 	 (make-mu4e-context
 	  :name "Fastmail"
@@ -102,8 +103,13 @@
 
   (when (eq mu4e-compose-type 'reply)
   (message-goto-body)
-  (goto-char (point-min))
-  (message "Some text")))
+  (insert (concat
+	   "\n\n"
+	   "Regards, \\\\ \n"
+	   "*Stephen Cott* \\\\ \n"
+	   "Senior Systems Engineer \\\\ \n"
+	   "IS-Core - Enterprise Core Platform \\\\ \n"))
+  (message-goto-body)))
 
 (add-hook 'mu4e-compose-mode-hook 'cotste/mailview)
 (add-hook 'mu4e-view-mode-hook 'cotste/mailview)
