@@ -20,7 +20,7 @@
 	mu4e-view-show-images t                   ; show images in the view buffer
 	mu4e-compose-signature-auto-include nil   ; I don't wanta message signature
 	mu4e-use-fancy-chars t)
-  (setq mu4e-split-view 'vertical)
+  (setq mu4e-split-view 'horizontal)
   (setq mu4e-headers-visible-columns 78)
 
   (setq send-mail-function 'sendmail-send-it
@@ -47,9 +47,10 @@
 		  (mu4e-trash-folder . "/expd/Trash")
 		  (mu4e-bookmarks . (
 				     ("maildir:/expd/INBOX" "Inbox" ?i)
-				     ("maildir:/expd/*" "All Mail" ?a)
-				     ("date:today..now AND to:stephen.cott@expeditors.com AND maildir:/expd/*" "Today's Mail" ?t)
-				     ("maildir:/expd/* AND flag:unread" "All Unread" ?u)))
+				     ("maildir:/expd/* AND not maildir:/expd/Trash" "All Mail" ?a)
+				     ("date:today..now AND maildir:/expd/* AND not maildir:/expd/Trash" "Today's Mail" ?t)
+				     ("maildir:/expd/* AND flag:unread AND not maildir:/expd/Trash" "All Unread" ?u)
+				     ("maildir:/expd/* AND from:gm.gitlab@expeditors.com AND not maildir:/expd/Trash" "Gitlab" ?g)))
 		  (mu4e-compose-signature .
 					  (concat
 		      "Regards,\\"
@@ -91,7 +92,7 @@
 		  (mu4e-bookmarks . (
 				     ("maildir:/gmail/INBOX" "Inbox" ?i)
 				     ("maildir:/gmail/*" "All Mail" ?a)
-				     ("date:today..now AND to:stephencott@gmail.com AND maildir:/gmail/*" "Today's Mail" ?t))))))))
+				     ("date:today..now AND to:stephencott@gmail.com AND maildir:/gmail/*" "Today's Mail" ?t)))))))) ;; End of mu4e use-package
 
 
 (setq mu4e-headers-unread-mark '("u" . "✉"))
@@ -111,8 +112,8 @@
 	   "IS-Core - Enterprise Core Platform \\\\ \n"))
   (message-goto-body)))
 
-(add-hook 'mu4e-compose-mode-hook 'cotste/mailview)
-(add-hook 'mu4e-view-mode-hook 'cotste/mailview)
+;;(add-hook 'mu4e-compose-mode-hook 'cotste/mailview)
+;;(add-hook 'mu4e-view-mode-hook 'cotste/mailview)
 ;;(add-hook 'mu4e-compose-mode-hook 'cotste/mu4e-reply-forward-sig)
 
 ;; Org Mime for sending HTML emails

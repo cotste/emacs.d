@@ -1,9 +1,25 @@
 
-
+;;; Code:
 ;; Install and configure Marginalia
 
 (use-package marginalia
   :init
   (marginalia-mode))
 
+(use-package embark
+  :bind
+  (("C-." . embark-act)
+   ("C-;" . embark-dwim)
+   ("C-h B" . embark-bindings))
+  :config
+  ;; Hide the mode line of the Embark live/completions buffers
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                 nil
+                 (window-parameters (mode-line-format . none)))))
+
+(use-package embark-consult
+  :after (embark consult))
+
 (provide 'setup-minibuffer)
+;;; setup-minibuffer.el ends here

@@ -1,13 +1,49 @@
-;; My UI and theme customizations
+;;; Package -- My UI and theme customizations
+;;; Commentary:
 
+;;; Code:
 ;; Set up fonts
-(set-face-attribute 'default nil :family "Roboto Mono Nerd Font" :height 110)
-;;(set-face-attribute 'default nil :family "Fantasque Sans Mono" :height 110)
+(set-face-attribute 'default nil :family "Roboto Mono Nerd Font" :height 100)
+;;(set-face-attribute 'default nil :family "Fantasque Sans Mono" :height 90)
 (set-face-attribute 'fixed-pitch nil :family "Roboto Mono Nerd Font")
 (set-face-attribute 'fixed-pitch-serif nil :family "SpaceMono Nerd Font")
 
-;; Modus options
+(setq default-frame-alist '((undecorated . t)))
+(setq frame-resize-pixelwise t)
 
+;;;;; Set some default frame settings
+(setq-default initial-frame-alist
+              (append (list
+                       ;;'(fullscreen . maximized)
+                       ;; '(width . 175)
+                       ;; '(height . 60)
+                       '(internal-border-width . 18)
+                       '(tool-bar-lines . 0)
+                       '(vertical-scroll-bars . nil)
+                       '(horizontal-scroll-bars . nil)
+                       )))
+(setq-default default-frame-alist
+              (append (list
+                       '(frame-title-format . nil)
+                       '(internal-border-width . 18)
+                       '(tool-bar-lines . 0)
+                       '(vertical-scroll-bars . nil)
+                       '(horizontal-scroll-bars . nil)
+                       )))
+;; Add some space on both sides of frames
+(set-fringe-mode 10)
+
+;; Add a header line to put some space at the top of the window
+;;(setq-default header-line-format " ")
+;;(set-face-attribute 'header-line nil :height 1.1 :background "#FFFFFF")
+
+;; Set the window divider color
+;; needs to be adjusted per theme
+(setq window-divider-default-right-width 1)
+(set-face-attribute 'window-divider nil :foreground "#90A4AE")
+(window-divider-mode)
+
+;; Modus options
 (setq modus-themes-completions
       '((matches . (extrabold background intense))))
 ;;(setq modus-themes-syntax '(green-strings alt-syntax yellow-comments))
@@ -28,6 +64,15 @@
 (setq modus-themes-italic-constructs t)
 (setq modus-themes-modeline '(3d moody accented))
 
+;; (setq modus-themes-operandi-color-overrides
+;;       '((blue . "#275ccf")
+;; 	 (cyan . "#000000")
+;; 	 (green . "#00ff00")
+;; 	 (yellow . "#00ff00")
+;; 	 (magenta-alt-other . "#115511")
+;; 	 (magenta-alt . "#00ff00")
+;; 	 (magenta . "#ffff00")))
+
 ;; Lambda Theme
 (use-package lambda-themes
   :straight (:type git :host github :repo "lambda-emacs/lambda-themes"))
@@ -42,17 +87,29 @@
 ;; FlucUI (FlatUI) Theme
 (use-package flucui-themes)
 
+(use-package flatui-theme)
+
 (use-package doom-themes)
+
+;; Nano Theme
+(use-package nano-theme
+  :straight (:type git :site github :repo "rougier/nano-theme"))
+
+(use-package apropospriate-theme)
 
 ;; Load theme
 
-(load-theme 'modus-operandi)
-;;(load-theme 'lambda-light)
-;;(load-theme 'flucui-light)
-;;(load-theme 'sanityinc-tomorrow-day)
+;;(load-theme 'flatui t)
+;;(load-theme 'tango t)
+(load-theme 'nano-light t)
+;;(load-theme 'modus-operandi)
+;;(load-theme 'lambda-light t)
+;;(load-theme 'flucui-light t)
+;;(load-theme 'sanityinc-tomorrow-day t)
 ;;(load-theme 'leuven)
-;;(load-theme 'nord)
-;;(load-theme 'doom-tokyo-night)
+;;(load-theme 'nord t)
+;;(load-theme 'doom-tokyo-night t)
+;;(load-theme 'doom-nord-light t)
 
 
 ;; All the icons stuff
@@ -65,7 +122,4 @@
   (all-the-icons-completion-mode)
   (add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup))
   
-  
-
-
 (provide 'setup-ui)

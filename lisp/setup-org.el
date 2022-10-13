@@ -8,7 +8,9 @@
    ("C-c x o" . org-clock-out))
   :config
   (setq org-todo-keywords
-	'((sequence "TODO" "DOING" "|" "DONE" "CANCELLED"))))
+	'((sequence "TODO" "DOING" "|" "DONE" "CANCELLED")))
+  (setq org-indent-mode t)
+  (setq visual-line-mode t))
 
 (use-package org-bullets
   :after org
@@ -20,4 +22,9 @@
 ;; Agenda configuration
 (setq org-agenda-files '("~/notes"))
 
+;; Export configurations
+
+(use-package ox-hugo)
+
+(use-package ox-gfm)
 (provide 'setup-org)
