@@ -1,4 +1,11 @@
+;;; Package: --- My init.el
+;;; Commentary:
+
+;;; Code:
+
 ;; Setup mail
+
+(eval-when-compile (require 'use-package))
 
 (setq mu4e-mu-binary "/usr/bin/mu")
 
@@ -128,7 +135,10 @@
                                       (auto-save-mode -1)))
 
 (defun cotste/mu4e-reply-forward-sig ()
- )
+  "Configure reply and forwarding signatures."
+  )
  
 
 (provide 'setup-mail)
+
+;;; setup-mail.el ends here

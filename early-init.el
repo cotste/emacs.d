@@ -1,9 +1,25 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
-
-
-
+;;;;; Set some default frame settings
+(setq-default initial-frame-alist
+              (append (list
+                       ;;'(fullscreen . maximized)
+                       ;; '(width . 175)
+                       ;; '(height . 60)
+                       '(internal-border-width . 18)
+                       '(tool-bar-lines . 0)
+                       '(vertical-scroll-bars . nil)
+                       '(horizontal-scroll-bars . nil)
+                       )))
+(setq-default default-frame-alist
+              (append (list
+                       '(frame-title-format . nil)
+                       '(internal-border-width . 18)
+                       '(tool-bar-lines . 0)
+                       '(vertical-scroll-bars . nil)
+                       '(horizontal-scroll-bars . nil)
+		       )))
 ;; Turn off decoration to get rid of the titlebar
 
 ;; Temporarily disabling removing the decoration while I work on this config
@@ -31,6 +47,8 @@
 ;;(setq backup-directory-alist
 ;;      `("." . ,(concat user-cache-directory "backups")))
 
+;; Set the custom file
+(setq custom-file "~/.config/emacs/custom.el")
 
 ;; Native Compilation stuff
 (when (boundp 'native-comp-eln-load-path)
@@ -40,3 +58,5 @@
 	native-comp-deferred-compilation t))
 
 (setq warning-minimum-level :error)
+
+;;; early-init.el ends here

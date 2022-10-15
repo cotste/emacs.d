@@ -1,4 +1,10 @@
+;;; Package: --- setup-org.el
+;;; Commentary:
 
+;;; Code:
+
+(eval-when-compile (require 'use-package))
+		   
 ;; Install Org - prefer built-in
 (use-package org
   :straight (:type built-in)
@@ -18,13 +24,14 @@
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
-
 ;; Agenda configuration
 (setq org-agenda-files '("~/notes"))
 
 ;; Export configurations
-
 (use-package ox-hugo)
 
 (use-package ox-gfm)
+
 (provide 'setup-org)
+
+;;; setup-org.el ends here
