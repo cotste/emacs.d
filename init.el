@@ -5,6 +5,8 @@
 
 (require 'custom-functions)
 
+;;;;; Set some default frame settings
+
 (when (host-is-chaos)
   (message "The host is chaos"))
 

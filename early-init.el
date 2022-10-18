@@ -1,25 +1,37 @@
+;;; package --- early-init.el
+;;; Commentary:
+;;; Code:
+
+;;(require 'custom-functions)
+
+(defun host-is-chq-aidaib ()
+  "Return non-nil if hostname is chq-aidaib"
+  (string-equal (system-name) "CHQ-AIDAIB-LX"))
+
+(when (host-is-chq-aidaib)
+  (setq-default initial-frame-alist
+		(append (list
+			 ;;'(fullscreen . maximized)
+                         '(width . 200)
+                         '(height . 52)
+			 '(internal-border-width . 18)
+;;			 '(tool-bar-lines . 0)
+			 '(vertical-scroll-bars . nil)
+			 '(horizontal-scroll-bars . nil)
+			 )))
+  (setq-default default-frame-alist
+		(append (list
+			 ;;'(frame-title-format . nil)
+			 '(internal-border-width . 18)
+;;			 '(tool-bar-lines . 0)
+			 '(vertical-scroll-bars . nil)
+			 '(horizontal-scroll-bars . nil)
+			 ))))
+
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
-;;;;; Set some default frame settings
-(setq-default initial-frame-alist
-              (append (list
-                       ;;'(fullscreen . maximized)
-                       ;; '(width . 175)
-                       ;; '(height . 60)
-                       '(internal-border-width . 18)
-                       '(tool-bar-lines . 0)
-                       '(vertical-scroll-bars . nil)
-                       '(horizontal-scroll-bars . nil)
-                       )))
-(setq-default default-frame-alist
-              (append (list
-                       '(frame-title-format . nil)
-                       '(internal-border-width . 18)
-                       '(tool-bar-lines . 0)
-                       '(vertical-scroll-bars . nil)
-                       '(horizontal-scroll-bars . nil)
-		       )))
+
 ;; Turn off decoration to get rid of the titlebar
 
 ;; Temporarily disabling removing the decoration while I work on this config
@@ -58,5 +70,7 @@
 	native-comp-deferred-compilation t))
 
 (setq warning-minimum-level :error)
+
+(provide 'early-init)
 
 ;;; early-init.el ends here

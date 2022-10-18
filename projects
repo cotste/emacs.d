@@ -1,6 +1,6 @@
 ;;; -*- lisp-data -*-
-(("~/.config/emacs/")
- ("~/.emacs.d/")
+(("~/.emacs.d/")
+ ("~/.config/emacs/")
  ("~/.emacs.d/emacs.d/")
  ("~/repos/expd/ecp/azure/infrastructure/")
  ("~/notes/")

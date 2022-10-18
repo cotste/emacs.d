@@ -12,7 +12,7 @@
 (set-face-attribute 'fixed-pitch nil :family "Roboto Mono")
 (set-face-attribute 'fixed-pitch-serif nil :family "SpaceMono Nerd Font")
 
-(setq default-frame-alist '((undecorated . t)))
+;;(setq default-frame-alist '((undecorated . t)))
 (setq frame-resize-pixelwise t)
 
 ;;;;; Set some default frame settings
