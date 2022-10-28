@@ -101,7 +101,7 @@
 ;;(use-package apropospriate-theme)
 
 ;; Load theme
-(load-theme 'doom-tomorrow-night t)
+(load-theme 'doom-tokyo-night t)
 
 ;; All the icons stuff
 (use-package all-the-icons
@@ -115,6 +115,13 @@
 (use-package doom-modeline
   :init
   (doom-modeline-mode 1))
+
+;; Install and configure ace window
+(use-package ace-window
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+
+(global-set-key (kbd "M-o") 'ace-window)
 
 (provide 'setup-ui)
 

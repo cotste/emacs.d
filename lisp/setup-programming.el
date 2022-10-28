@@ -13,11 +13,16 @@
   :commands lsp-ui-mode)
 
 ;; Java LSP
-(use-package lsp-java)
-;;  :config
-;;  (setq lsp-java-configuration-runtimes '[(:name "JavaSE-1.8"
-;;                                                 :path "/usr/lib/jvm/java-1.8.0-openjdk-amd64"
-;;                                                 :default t)]))
+(use-package lsp-java
+  :config
+  (setq lsp-java-configuration-runtimes '[(:name "JavaSE-1.8"
+                                                 :path "/usr/lib/jvm/java-1.8.0-openjdk-amd64"
+                                                 :default nil)
+					  (:name "JavaSE-17"
+						 :path "/usr/lib/jvm/java-1.17.0-openjdk-amd64"
+						 :default t)]))
+
+(require 'dap-java)
 
 (require 'lsp-java-boot)
 ;; Completion setup and config
@@ -58,6 +63,8 @@
   :config
   (progn
     (setq treemacs-indentation 1)))
+
+(use-package company)
 
 (provide 'setup-programming)
 

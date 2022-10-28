@@ -4,13 +4,36 @@
 ;;; Code:
 
 ;; Check if host is chaos
+
+(defvar cotste-light-theme 'doom-tomorrow-day)
+(defvar cotste-dark-theme 'doom-tomorrow-night)
+(defvar cotste-current-theme "light")
+
 (defun host-is-chaos ()
   "Return non-nil if hostname is chaos."
   (string-equal (system-name) "chaos"))
 
-(defun host-is-chq-aidaib ()
-  "Return non-nil if hostname is chq-aidaib"
-  (string-equal (system-name) "chq-aidaib"))
+(defun host-is-pan ()
+  "Return non-nil if hostname is pan."
+  (string-equal (system-name) "pan"))
+
+(defun cotste-theme-switch ()
+  "Disable current theme and prompt for new theme."
+  (interactive)
+  (cond
+   ((string-equal cotste-current-theme "light")
+    (disable-theme (car custom-enabled-themes))
+    (load-theme cotste-dark-theme t)
+    (setq cotste-current-theme "dark"))
+   ((string-equal cotste-current-theme "dark")
+    (disable-theme (car custom-enabled-themes))
+    (load-theme cotste-light-theme t)
+    (setq cotste-current-theme "light"))))
+
+(defun my-org-confirm-babel-evaluate (lang body)
+  "Add languages to babel evaluate for no confirm."
+  (not (member lang '("C" "sh" "shell"))))
+
 
 (provide 'custom-functions)
 

@@ -7,6 +7,8 @@
 
 (eval-when-compile (require 'use-package))
 
+(require 'custom-functions)
+
 (setq mu4e-mu-binary "/usr/bin/mu")
 
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e/")
@@ -35,7 +37,12 @@
 	mail-specify-envelope-from t
 	mail-envelope-from 'header)
 
-  (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc -a")
+  (when (host-is-pan)
+    (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc expd"))
+
+  (when (host-is-chaos)
+    (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc fastmail gmail"))
+  
   (setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
 
   (setq mu4e-contexts

@@ -4,11 +4,11 @@
 
 ;;(require 'custom-functions)
 
-(defun host-is-chq-aidaib ()
-  "Return non-nil if hostname is chq-aidaib"
-  (string-equal (system-name) "CHQ-AIDAIB-LX"))
+(defun host-is-pan ()
+  "Return non-nil if hostname is pan"
+  (string-equal (system-name) "pan"))
 
-(when (host-is-chq-aidaib)
+(when (host-is-pan)
   (setq-default initial-frame-alist
 		(append (list
 			 ;;'(fullscreen . maximized)
