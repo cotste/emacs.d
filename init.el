@@ -3,19 +3,14 @@
 
 ;;; Code:
 
+
 (require 'custom-functions)
-
-;;;;; Set some default frame settings
-
-(when (host-is-chaos)
-  (message "The host is chaos"))
 
 (setq flycheck-emacs-lisp-load-path 'inherit)
 
 ;; Auto save backup location
 (setq backup-directory-alist
       `((".*" . ,(concat user-cache-directory "backups"))))
-
 
 ;; Boot strap straight
 (defvar bootstrap-version)
@@ -52,9 +47,14 @@
 ;; Set tab to completion - might get rid of this in the future
 (setq tab-always-indent 'complete)
 
-(setq scroll-step 1)
-(setq scroll-conservatively 10000)
-(setq scroll-margin 8)
+;; Turn off the stupid bell
+(setq visible-bell t)
+
+;; Set up some sane scrolling
+(setq scroll-step 1
+      scroll-conservatively 10000
+      scroll-margin 8
+      pixel-scroll-precision-mode t)
 
 (require 'setup-org)
 (require 'setup-roam)
@@ -69,19 +69,8 @@
 (require 'setup-keybindings)
 (require 'setup-programming)
 
-(add-hook 'org-mode-hook 'cotste/auto-push)
+(require 'wgrep)
 
-;;(global-set-key (kbd "C-c c") 'org-capture)
-;;(global-set-key (kbd "C-c a") 'org-agenda)
-;;(global-set-key (kbd "C-c x i") 'org-clock-in)
-;;(global-set-key (kbd "C-c x o") 'org-clock-out)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
