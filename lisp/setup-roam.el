@@ -11,8 +11,8 @@
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
      ("m" "Music" plain
-      "\n* Album\nTitle: ${title}\nArtist: %^{Artist}\nYear: %^{Year}\nPurchased: %t\n\n* Summary\n\n%?\n\n* Notes"
-      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: :Music:%^{Media Type}")
+      "\n* ${Title} - ${Artist}\nTitle: ${title}\nArtist: %^{Artist}\nYear: %^{Year}\nPurchased: %t\n\n* Summary\n\n%?\n\n* Notes"
+      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+category: Music\n#+filetags: %^{Media Type}")
       :unnarrowed t)))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
