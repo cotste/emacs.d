@@ -30,10 +30,14 @@
     (load-theme cotste-light-theme t)
     (setq cotste-current-theme "light"))))
 
-(defun my-org-confirm-babel-evaluate (lang body)
+(defun cotste/confirm-babel-evaluate (lang body)
   "Add languages to babel evaluate for no confirm."
   (not (member lang '("C" "sh" "shell"))))
 
+(defun cotste/auto-push ()
+    "Turn on auto push and auto add files."
+  (setq gac-automatically-push-p t)
+  (setq gac-automatically-add-new-files-p t))
 
 (provide 'custom-functions)
 

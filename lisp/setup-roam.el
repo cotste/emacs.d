@@ -9,6 +9,10 @@
    '(("d" "default" plain
       "%?"
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)
+     ("m" "Music" plain
+      "\n* Album\nTitle: ${title}\nArtist: %^{Artist}\nYear: %^{Year}\nPurchased: %t\n\n* Summary\n\n%?\n\n* Notes"
+      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: :Music:%^{Media Type}")
       :unnarrowed t)))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
@@ -18,9 +22,11 @@
 	       ("C-M-i" . completion-at-point)
                ("C-c n y" . org-roam-dailies-capture-yesterday)
                ("C-c n t" . org-roam-dailies-capture-tomorrow)
-               ("C-c n c" . org-roam-dailies-goto-today)))
+               ("C-c n j" . org-roam-dailies-goto-today)))
   :config
   (require 'org-roam-dailies)
   (org-roam-db-autosync-mode))
 
 (provide 'setup-roam)
+
+;;; setup-roam.el ends here

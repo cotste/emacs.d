@@ -69,6 +69,13 @@
 (require 'setup-keybindings)
 (require 'setup-programming)
 
+(add-hook 'org-mode-hook 'cotste/auto-push)
+
+;;(global-set-key (kbd "C-c c") 'org-capture)
+;;(global-set-key (kbd "C-c a") 'org-agenda)
+;;(global-set-key (kbd "C-c x i") 'org-clock-in)
+;;(global-set-key (kbd "C-c x o") 'org-clock-out)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

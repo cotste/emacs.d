@@ -1,3 +1,4 @@
+
 ;;; Package: --- setup-org.el
 ;;; Commentary:
 
@@ -8,22 +9,33 @@
 ;; Install Org - prefer built-in
 (use-package org
   :straight (:type built-in)
-  :bind
-  (("C-c a" . org-agenda)
+  :bind (("C-c c" . org-capture)
+   ("C-c a" . org-agenda)
    ("C-c x i" . org-clock-in)
-   ("C-c x o" . org-clock-out)
-   ("C-c c" . org-capture))
+   ("C-c x o" . org-clock-out))
+
   :config
   (setq org-todo-keywords
 	'((sequence "TODO" "DOING" "|" "DONE" "CANCELLED")))
-  (setq org-indent-mode t)
-  (setq visual-line-mode t))
+
+
+ (add-hook 'org-mode-hook(lambda ()
+			    (visual-line-mode 1)
+			    (electric-indent-local-mode -1)
+			    (org-indent-mode t))))
+
+(setq org-capture-templates
+      '(("m" "Meeting" entry (file "~/notes/meetings.org")
+         "* %? :MEETING: \n%^T\n")
+
+        ("t" "Task" entry (file "~/notes/tasks.org")
+         "* TODO %? :NONE: \nDEADLINE: %^T\n")))
 
 (use-package org-present)
 
 (use-package org-bullets
   :after org
-;;  :hook (org-mode . org-bullets-mode)
+  :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
@@ -35,15 +47,18 @@
 
 (use-package ox-gfm)
 
-(add-hook 'org-mode-hook
-	  (lambda () (electric-indent-local-mode -1))
-	  (lambda () (visual-line-mode t)))
+;; (add-hook 'org-mode-hook
+;; 	  (lambda () (electric-indent-local-mode -1)))
+;; (add-hook 'org-mode-hook
+;; 	  (lambda () (visual-line-mode t)))
+;; (add-hook 'org-mode-hook
+;; 	  (lambda () (org-indent-mode t)))
 
 (org-babel-do-load-languages
 'org-babel-load-languages
 '((shell . t)))
 
-(setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
+(setq org-confirm-babel-evaluate 'cotste/confirm-babel-evaluate)
 
 (provide 'setup-org)
 
