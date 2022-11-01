@@ -1,0 +1,21 @@
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+ '(custom-safe-themes
+   '("7e377879cbd60c66b88e51fad480b3ab18d60847f31c435f15f5df18bdb18184" "e1f4f0158cd5a01a9d96f1f7cdcca8d6724d7d33267623cc433fe1c196848554" default))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(terraform--resource-name-face ((t (:foreground "dim gray" :weight bold))))
+ '(terraform--resource-type-face ((t (:foreground "black"))))
+  ;; '(treemacs-directory-collapsed-face ((t (:inherit treemacs-directory-face :height 0.8))))
+ ;; '(treemacs-directory-face ((t (:inherit font-lock-function-name-face :height 0.8))))
+ ;; '(treemacs-file-face ((t (:inherit default :height 0.8))))
+ ;; '(treemacs-root-face ((t (:inherit font-lock-constant-face :height 0.8))))
+;; '(treemacs-root-unreadable-face ((t (:inherit treemacs-root-face :height 0.8)))))
+)
