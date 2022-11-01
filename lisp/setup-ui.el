@@ -2,12 +2,12 @@
 ;;; Commentary:
 
 ;;; Code:
-;; Set up fonts
-
 (eval-when-compile (require 'use-package))
 
-(set-face-attribute 'default nil :family "RobotoMono Nerd Font" :height 110)
-;;(set-face-attribute 'default nil :family "Iosevka" :height 120)
+;; Set up fonts
+
+(set-face-attribute 'default nil :family "Roboto Mono Nerd Font" :height 105)
+;;(set-face-attribute 'default nil :family "Iosevka" :height 100)
 ;;(set-face-attribute 'default nil :family "Fantasque Sans Mono" :height 90)
 (set-face-attribute 'fixed-pitch nil :family "Roboto Mono")
 (set-face-attribute 'fixed-pitch-serif nil :family "SpaceMono Nerd Font")
@@ -48,25 +48,26 @@
 ;;(window-divider-mode)
 
 ;; Modus options
-(setq modus-themes-completions
+(defvar modus-themes-completions
       '((matches . (extrabold background intense))))
-(setq modus-themes-syntax '(green-strings alt-syntax yellow-comments))
- (setq modus-themes-mixed-fonts t)
- (setq modus-themes-headings
-       '((1 . (variable-pitch 1.4))
-         (2 . (fixed-pitch-serif 1.3))
-         (3 . (fixed-pitch-serif 1.2))
-         (4 . (fixed-pitch-serif 1.1))
-         (5 . (fixed-pitch-serif 1.0))
-         (6 . (fixed-pitch-serif 1.0))))
- (setq modus-themes-vivendi-color-overrides
-       '((bg-main . "#24283b")
-         (bg-dim . "#24283b")
-         (bg-alt . "#35394c")))
- (setq modus-themes-fringes 'nil)
- (setq modus-themes-bold-constructs t)
- (setq modus-themes-italic-constructs t)
- (setq modus-themes-modeline '(3d moody accented))
+
+;;(setq modus-themes-syntax '(green-strings alt-syntax yellow-comments))
+(setq masodus-themes-mixed-fonts t)
+(setq modus-themes-headings
+      '((1 . (variable-pitch 1.4))
+        (2 . (fixed-pitch-serif 1.3))
+        (3 . (fixed-pitch-serif 1.2))
+        (4 . (fixed-pitch-serif 1.1))
+        (5 . (fixed-pitch-serif 1.0))
+        (6 . (fixed-pitch-serif 1.0))))
+(setq modus-themes-vivendi-color-overrides
+      '((bg-main . "#24283b")
+        (bg-dim . "#24283b")
+        (bg-alt . "#35394c")))
+(setq modus-themes-fringes 'nil)
+(setq modus-themes-bold-constructs t)
+(setq modus-themes-italic-constructs t)
+(setq modus-themes-modeline '(3d moody accented))
 
 ;; (setq modus-themes-operandi-color-overrides
 ;;       '((blue . "#275ccf")
@@ -82,6 +83,7 @@
 ;;  :straight (:type git :host github :repo "lambda-emacs/lambda-themes"))
 
 ;; Nord theme
+
 ;;(use-package nord-theme)
 
 ;; SanityInc Tomorrow theme
@@ -101,12 +103,12 @@
 ;;(use-package apropospriate-theme)
 
 ;; Load theme
-(load-theme 'doom-tokyo-night t)
 
 ;; All the icons stuff
 (use-package all-the-icons
   :if (display-graphic-p))
 
+;; All the icons
 (use-package all-the-icons-completion
   :config
   (all-the-icons-completion-mode)
