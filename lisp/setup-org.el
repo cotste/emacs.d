@@ -1,8 +1,7 @@
-
-;;; Package: --- setup-org.el
+;;; Package: --- setup-org
 ;;; Commentary:
-
 ;;; Code:
+
 
 (eval-when-compile (require 'use-package))
 		   
@@ -15,6 +14,7 @@
    ("C-c x o" . org-clock-out))
 
   :config
+
   (setq org-todo-keywords
 	'((sequence "TODO" "DOING" "|" "DONE" "CANCELLED")))
 
@@ -47,18 +47,12 @@
 
 (use-package ox-gfm)
 
-;; (add-hook 'org-mode-hook
-;; 	  (lambda () (electric-indent-local-mode -1)))
-;; (add-hook 'org-mode-hook
-;; 	  (lambda () (visual-line-mode t)))
-;; (add-hook 'org-mode-hook
-;; 	  (lambda () (org-indent-mode t)))
-
 (org-babel-do-load-languages
 'org-babel-load-languages
 '((shell . t)))
 
 (setq org-confirm-babel-evaluate 'cotste/confirm-babel-evaluate)
+
 
 (provide 'setup-org)
 

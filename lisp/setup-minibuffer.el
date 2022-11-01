@@ -1,7 +1,11 @@
+;;; Package: --- setup-minibuffer.el
+;;; Commentary:
 
 ;;; Code:
-;; Install and configure Marginalia
 
+(eval-when-compile (require 'use-package))
+
+;; Install and configure Marginalia
 (use-package marginalia
   :init
   (marginalia-mode))
@@ -22,4 +26,5 @@
   :after (embark consult))
 
 (provide 'setup-minibuffer)
+
 ;;; setup-minibuffer.el ends here
