@@ -71,20 +71,6 @@
 
 (require 'wgrep)
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(terraform--resource-name-face ((t (:foreground "dim gray" :weight bold))))
- '(terraform--resource-type-face ((t (:foreground "black"))))
- ;; '(treemacs-directory-collapsed-face ((t (:inherit treemacs-directory-face :height 0.8))))
- ;; '(treemacs-directory-face ((t (:inherit font-lock-function-name-face :height 0.8))))
- ;; '(treemacs-file-face ((t (:inherit default :height 0.8))))
- ;; '(treemacs-root-face ((t (:inherit font-lock-constant-face :height 0.8))))
- ;; '(treemacs-root-unreadable-face ((t (:inherit treemacs-root-face :height 0.8)))))
- )
-
 (load-theme 'modus-operandi t)
 
 (provide 'init)
