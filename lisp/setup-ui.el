@@ -7,33 +7,14 @@
 ;; Set up fonts
 
 (set-face-attribute 'default nil :family "Roboto Mono Nerd Font" :height 105)
-;;(set-face-attribute 'default nil :family "Iosevka" :height 100)
+;;(set-face-attribute 'default nil :family "Iosevka" :height 110)
 ;;(set-face-attribute 'default nil :family "Fantasque Sans Mono" :height 90)
-(set-face-attribute 'fixed-pitch nil :family "Roboto Mono")
-(set-face-attribute 'fixed-pitch-serif nil :family "SpaceMono Nerd Font")
+;;(set-face-attribute 'fixed-pitch nil :family "Roboto Mono")
+;;(set-face-attribute 'fixed-pitch-serif nil :family "SpaceMono Nerd Font")
 
 ;;(setq default-frame-alist '((undecorated . t)))
 (setq frame-resize-pixelwise t)
 
-;;;;; Set some default frame settings
-;; (setq-default initial-frame-alist
-;;               (append (list
-;;                        ;;'(fullscreen . maximized)
-;;                        ;; '(width . 175)
-;;                        ;; '(height . 60)
-;;                        '(internal-border-width . 18)
-;;                        '(tool-bar-lines . 0)
-;;                        '(vertical-scroll-bars . nil)
-;;                        '(horizontal-scroll-bars . nil)
-;;                        )))
-;; (setq-default default-frame-alist
-;;               (append (list
-;;                        '(frame-title-format . nil)
-;;                        '(internal-border-width . 18)
-;;                        '(tool-bar-lines . 0)
-;;                        '(vertical-scroll-bars . nil)
-;;                        '(horizontal-scroll-bars . nil)
-;; 		       )))
 ;; Add some space on both sides of frames
 (set-fringe-mode 10)
 

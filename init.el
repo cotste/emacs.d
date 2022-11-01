@@ -85,6 +85,8 @@
  ;; '(treemacs-root-unreadable-face ((t (:inherit treemacs-root-face :height 0.8)))))
  )
 
+(load-theme 'modus-operandi t)
+
 (provide 'init)
 
 ;;; init.el ends here
