@@ -64,7 +64,7 @@
   (progn
     (setq treemacs-indentation 1)))
 
-(use-package company)
+;;(use-package company)
 
 (provide 'setup-programming)
 

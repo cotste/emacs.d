@@ -10,12 +10,10 @@ url/
 .cache/
 bookmarks
 /.lsp-session-v1
-projects/
-bookmarks
 projects
 /.dap-breakpoints
 /history
 /request/
 /themes/
 /workspace/
-bookmarks/
+
