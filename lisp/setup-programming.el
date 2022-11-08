@@ -4,7 +4,7 @@
 ;; LSP Setup and config
 (use-package lsp-mode
   :hook
-  ((c++-mode terraform-mode yaml-mode js-mode java-mode) . lsp-deferred)
+  ((c++-mode terraform-mode yaml-mode js-mode java-mode rust-mode) . lsp-deferred)
   :commands lsp
   :config
   (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map))
@@ -63,6 +63,23 @@
   :config
   (progn
     (setq treemacs-indentation 1)))
+
+;; Set up Rust
+
+(use-package rust-mode)
+
+;; Force indents to use spaces instead of tabs in rust-mode
+(add-hook 'rust-mode-hook
+          (lambda () (setq indent-tabs-mode nil)))
+
+;; Prettify symbols in Rust mode
+(add-hook 'rust-mode-hook
+          (lambda () (prettify-symbols-mode)))
+
+(use-package cargo)
+
+;; Install rustic
+(use-package rustic)
 
 ;;(use-package company)
 
