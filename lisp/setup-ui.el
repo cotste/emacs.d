@@ -49,6 +49,7 @@
 (setq modus-themes-bold-constructs t)
 (setq modus-themes-italic-constructs t)
 (setq modus-themes-modeline '(3d moody accented))
+(setq modus-themes-org-blocks 'gray-background)
 
 ;; (setq modus-themes-operandi-color-overrides
 ;;       '((blue . "#275ccf")

@@ -14,9 +14,9 @@
   (set-face-attribute 'magit-branch-local nil :family "Roboto" :height 140 :weight 'bold)
   (set-face-attribute 'magit-diff-file-heading nil :family "Roboto" :height 110))
 
-(use-package git-auto-commit-mode
-  :config
-  (setq gac-automatically-push-p t)
-  (setq gac-automatically-add-new-files-p t))
+;; (use-package git-auto-commit-mode
+;;   :config
+;;   (setq gac-automatically-push-p t)
+;;   (setq gac-automatically-add-new-files-p t))
 		       
 (provide 'setup-vc)
