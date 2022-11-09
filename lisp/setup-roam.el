@@ -18,11 +18,11 @@
          ("C-c n f" . org-roam-node-find)
          ("C-c n i" . org-roam-node-insert)
          ("C-c n d" . org-roam-dailies-capture-today)
+	 ("C-c n j" . org-roam-dailies-goto-today))
          (:map org-mode-map
 	       ("C-M-i" . completion-at-point)
                ("C-c n y" . org-roam-dailies-capture-yesterday)
-               ("C-c n t" . org-roam-dailies-capture-tomorrow)
-               ("C-c n j" . org-roam-dailies-goto-today)))
+               ("C-c n t" . org-roam-dailies-capture-tomorrow)))
   :config
   (require 'org-roam-dailies)
   (org-roam-db-autosync-mode))
