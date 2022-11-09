@@ -13,6 +13,10 @@
   "Return non-nil if hostname is chaos."
   (string-equal (system-name) "chaos"))
 
+(defun host-is-devo ()
+  "Return non-nil if hostname is devo."
+  (string-equal (system-name) "devo"))
+
 (defun host-is-pan ()
   "Return non-nil if hostname is pan."
   (string-equal (system-name) "pan"))
