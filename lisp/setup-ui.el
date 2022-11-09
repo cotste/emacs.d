@@ -9,7 +9,7 @@
 (set-face-attribute 'default nil :family "Roboto Mono Nerd Font" :height 105)
 ;;(set-face-attribute 'default nil :family "Iosevka" :height 110)
 ;;(set-face-attribute 'default nil :family "Fantasque Sans Mono" :height 90)
-;;(set-face-attribute 'fixed-pitch nil :family "Roboto Mono")
+(set-face-attribute 'fixed-pitch nil :family "Roboto Mono")
 ;;(set-face-attribute 'fixed-pitch-serif nil :family "SpaceMono Nerd Font")
 
 ;;(setq default-frame-alist '((undecorated . t)))
@@ -50,6 +50,7 @@
 (setq modus-themes-italic-constructs t)
 (setq modus-themes-modeline '(3d moody accented))
 (setq modus-themes-org-blocks 'gray-background)
+(setq modus-themes-mixed-fonts t)
 
 ;; (setq modus-themes-operandi-color-overrides
 ;;       '((blue . "#275ccf")
