@@ -21,6 +21,10 @@
   "Return non-nil if hostname is pan."
   (string-equal (system-name) "pan"))
 
+(defun host-is-moros ()
+  "Return non-nil if hostname is moros - Fedora 37 at work."
+  (string-equal (system-name) "moros"))
+
 (defun cotste-theme-switch ()
   "Disable current theme and prompt for new theme."
   (interactive)

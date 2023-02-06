@@ -42,6 +42,9 @@
   (when (host-is-pan)
     (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc expd"))
 
+    (when (host-is-moros)
+    (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc expd"))
+
   (when (host-is-chaos)
     (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc Fastmail Gmail"))
 
