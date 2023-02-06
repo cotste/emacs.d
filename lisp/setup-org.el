@@ -23,7 +23,8 @@
 			    (visual-line-mode 1)
 			    (electric-indent-local-mode -1)
 			    (org-indent-mode t)
-			    (variable-pitch-mode 1))))
+			    (variable-pitch-mode 1)
+			    (flyspell-mode 1))))
 
 (setq org-capture-templates
       '(("m" "Meeting" entry (file "~/notes/meetings.org")

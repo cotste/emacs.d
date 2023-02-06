@@ -43,10 +43,10 @@
     (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc expd"))
 
   (when (host-is-chaos)
-    (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc fastmail gmail"))
+    (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc Fastmail Gmail"))
 
   (when (host-is-devo)
-    (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc fastmail gmail"))
+    (setq mu4e-get-mail-command "mbsync -c ~/.config/mbsync/mbsyncrc Fastmail Gmail"))
   
   (setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
 
