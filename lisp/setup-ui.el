@@ -79,6 +79,8 @@
 
 (use-package doom-themes)
 
+(use-package catppuccin-theme)
+
 ;; Nano Theme
 ;;(use-package nano-theme
 ;;  :straight (:type git :site github :repo "rougier/nano-theme"))

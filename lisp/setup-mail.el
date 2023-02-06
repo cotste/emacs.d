@@ -1,4 +1,6 @@
 ;;; Package: --- My init.el
+
+
 ;;; Commentary:
 
 ;;; Code:
@@ -64,16 +66,21 @@
 		  (mu4e-trash-folder . "/expd/Trash")
 		  (mu4e-bookmarks . (
 				     ("maildir:/expd/INBOX" "Inbox" ?i)
-				     ("maildir:/expd/* AND not maildir:/expd/Trash" "All Mail" ?a)
-				     ("date:today..now AND maildir:/expd/* AND not maildir:/expd/Trash" "Today's Mail" ?t)
-				     ("maildir:/expd/* AND flag:unread AND not maildir:/expd/Trash" "All Unread" ?u)
+				     ("maildir:/expd/* AND not maildir:/expd/Trash AND not maildir:/expd/Sent" "All Mail" ?a)
+				     ("date:today..now AND maildir:/expd/* AND not maildir:/expd/Trash AND not maildir:/expd/Sent" "Today's Mail" ?t)
+				     ("maildir:/expd/* AND flag:unread AND not maildir:/expd/Trash AND not maildir:/expd/Sent" "All Unread" ?u)
+				     ("maildir:/expd/Sent AND not maildir:/expd/Trash" "Sent" ?d)
+				     ("maildir:/expd/* AND from:servicedeskmanager.noreply@expeditors.com AND not maildir:/expd/Trash" "Service Desk" ?s)
+				     ("maildir:/expd/* AND not maildir:/expd/Trash AND from:Office365Alerts@microsoft.com OR from:quarantine@messaging.microsoft.com" "O365" ?o)
+				     ("maildir:/expd/* AND from:azure-noreply@microsoft.com AND not maildir:/expd/Trash" "Azure" ?m)
+				     ("maildir:/expd/* AND flag:calendar AND not maildir:/expd/Trash" "Calendar" ?c)
 				     ("maildir:/expd/* AND from:gm.gitlab@expeditors.com AND not maildir:/expd/Trash" "Gitlab" ?g)))
 		  (mu4e-compose-signature .
 					  (concat
-		      "Regards,\\"
-		      "*Stephen Cott*\\"
-		      "Senior Systems Engineer\\"
-		      "IS-Core - Enterprise Core Platform\\"))
+		      ":Regards,\\"
+		      ":<b>Stephen Cott</b>\\"
+		      ":Senior Systems Engineer\\"
+		      ":IS-Core - Enterprise Core Platform\\"))
 		  (message-cite-style . message-cite-style-outlook)))
 
 	 (make-mu4e-context

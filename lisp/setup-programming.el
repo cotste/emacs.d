@@ -2,9 +2,11 @@
 
 ;;; Code:
 ;; LSP Setup and config
+
+
 (use-package lsp-mode
   :hook
-  ((c++-mode terraform-mode yaml-mode js-mode java-mode rust-mode) . lsp-deferred)
+  ((c++-mode terraform-mode yaml-mode js-mode java-mode rust-mode shell-mode go-mode json-mode) . lsp-deferred)
   :commands lsp
   :config
   (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map))
@@ -25,6 +27,7 @@
 (require 'dap-java)
 
 (require 'lsp-java-boot)
+
 ;; Completion setup and config
 (use-package corfu
   :custom
@@ -33,11 +36,18 @@
   :init
   (global-corfu-mode))
 
+(setq tab-always-indent 'complete)
+(setq completion-cycle-threshold nil) ; Show all completion candidates
+
 ;; Terraform setup and config
 (use-package terraform-mode)
 
 ;; YAML setup and config
-(use-package yaml-mode)
+(use-package yaml-mode
+  :hook ('yaml-mode-hook . 'linum-mode))
+
+;; Docker/Containerfile mode
+(use-package dockerfile-mode)
 
 ;; Flycheck
 (use-package flycheck
@@ -64,6 +74,9 @@
   (progn
     (setq treemacs-indentation 1)))
 
+(use-package treemacs-all-the-icons
+  :init (treemacs-load-theme 'all-the-icons))
+
 ;; Set up Rust
 
 (use-package rust-mode)
@@ -80,6 +93,12 @@
 
 ;; Install rustic
 (use-package rustic)
+
+;; Install go-mode
+(use-package go-mode)
+
+;; Turn on line numbers for all prog-mode buffers
+(add-hook 'prog-mode-hook 'linum-mode)
 
 ;;(use-package company)
 

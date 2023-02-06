@@ -43,6 +43,8 @@
 ;;(setq default-directory "~/")
 ;;(add-to-list 'exec-path "~/bin")
 ;;(add-to-list 'exec-path "/home/chq-stephenco/.nvm/versions/node/v17.9.0/bin")
+(add-to-list 'exec-path "/home/chq-stephenco/bin")
+(add-to-list 'exec-path "/home/chq-stephenco/go/bin")
 
 ;; Set tab to completion - might get rid of this in the future
 (setq tab-always-indent 'complete)

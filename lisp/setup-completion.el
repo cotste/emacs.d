@@ -6,6 +6,7 @@
 		   
 ;; Install and setup Orderless
 (use-package orderless
+  :straight (:host github :repo "oantolin/orderless")
   :custom
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles basic partial-completion)))))
