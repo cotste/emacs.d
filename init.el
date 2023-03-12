@@ -45,6 +45,7 @@
 ;;(add-to-list 'exec-path "/home/chq-stephenco/.nvm/versions/node/v17.9.0/bin")
 (add-to-list 'exec-path "/home/chq-stephenco/bin")
 (add-to-list 'exec-path "/home/chq-stephenco/go/bin")
+(add-to-list 'exec-path "/home/chq-stephenco/.local/bin")
 
 ;; Set tab to completion - might get rid of this in the future
 (setq tab-always-indent 'complete)
@@ -59,7 +60,7 @@
       pixel-scroll-precision-mode t)
 
 (require 'setup-org)
-(require 'setup-roam)
+(require 'setup-notes)
 (require 'setup-mail)
 (require 'setup-vc)
 (require 'setup-writing)
@@ -70,10 +71,16 @@
 (require 'setup-config)
 (require 'setup-keybindings)
 (require 'setup-programming)
+(require 'setup-rss)
 
 (require 'wgrep)
 
-(load-theme 'modus-operandi t)
+;;(load-theme 'modus-operandi t)
+
+(setq catppuccin-flavor 'latte)
+;;(load-theme 'catppuccin t)
+(load-theme 'nano-light t)
+(nano-modeline-mode)
 
 (provide 'init)
 

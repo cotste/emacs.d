@@ -6,10 +6,10 @@
 
 ;; Set up fonts
 
-(set-face-attribute 'default nil :family "Roboto Mono Nerd Font" :height 105)
-;;(set-face-attribute 'default nil :family "Iosevka" :height 110)
+(set-face-attribute 'default nil :family "RobotoMono Nerd Font" :height 115)
+;;(set-face-attribute 'default nil :family "Iosevka Term" :height 110 :weight 'regular)
 ;;(set-face-attribute 'default nil :family "Fantasque Sans Mono" :height 90)
-(set-face-attribute 'fixed-pitch nil :family "Roboto Mono")
+(set-face-attribute 'fixed-pitch nil :family "RobotoMono Nerd Font" :height 115)
 ;;(set-face-attribute 'fixed-pitch-serif nil :family "SpaceMono Nerd Font")
 
 ;;(setq default-frame-alist '((undecorated . t)))
@@ -81,9 +81,11 @@
 
 (use-package catppuccin-theme)
 
-;; Nano Theme
-;;(use-package nano-theme
-;;  :straight (:type git :site github :repo "rougier/nano-theme"))
+(use-package lab-themes)
+
+(straight-use-package '(nano-theme :type git :host github
+                                   :repo "rougier/nano-theme"))
+
 
 ;;(use-package apropospriate-theme)
 
@@ -99,9 +101,16 @@
   (all-the-icons-completion-mode)
   (add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup))
 
-(use-package doom-modeline
-  :init
-  (doom-modeline-mode 1))
+;;; Modeline configs
+(straight-use-package '(nano-modeline :type git :host github
+				      :repo "rougier/nano-modeline"))
+
+(straight-use-package '(minibuffer-header :type git :host github
+					  :repo "rougier/minibuffer-header"))
+
+;; (use-package doom-modeline
+;;   :init
+;;   (doom-modeline-mode 1))
 
 ;; Install and configure ace window
 (use-package ace-window

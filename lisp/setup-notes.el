@@ -29,6 +29,16 @@
 
   (org-roam-db-autosync-mode))
 
-(provide 'setup-roam)
+;; Install and configure denote
+(use-package denote
+  :config
+  (setq denote-directory (expand-file-name "~/notes/denote"))
+  (setq denote-known-keywords '("emacs" "ecp" "devops"))
+  :bind
+  (("C-c n n" . denote-create-note)
+   ("C-c n N" . denote-type)
+   ("C-c n r" . denote-rename-file)))
 
-;;; setup-roam.el ends here
+(provide 'setup-notes)
+
+;;; setup-notes.el ends here

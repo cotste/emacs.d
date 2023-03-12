@@ -4,26 +4,26 @@
 
 ;;(require 'custom-functions)
 
-(defun host-is-pan ()
-  "Return non-nil if hostname is pan"
-  (string-equal (system-name) "pan"))
+(defun host-is-moros ()
+  "Return non-nil if hostname is moros"
+  (string-equal (system-name) "moros"))
 
-(when (host-is-pan)
+(when (host-is-moros)
   (setq-default initial-frame-alist
 		(append (list
-			 ;;'(fullscreen . maximized)
-                         '(width . 200)
-                         '(height . 52)
+;;			 '(fullscreen . maximized)
+;;                         '(width . 200)
+;;                         '(height . 52)
 			 '(internal-border-width . 18)
-;;			 '(tool-bar-lines . 0)
+			 '(tool-bar-lines . 0)
 			 '(vertical-scroll-bars . nil)
 			 '(horizontal-scroll-bars . nil)
 			 )))
   (setq-default default-frame-alist
 		(append (list
-			 ;;'(frame-title-format . nil)
+			 '(frame-title-format . nil)
 			 '(internal-border-width . 18)
-;;			 '(tool-bar-lines . 0)
+			 '(tool-bar-lines . 0)
 			 '(vertical-scroll-bars . nil)
 			 '(horizontal-scroll-bars . nil)
 			 ))))

@@ -122,7 +122,14 @@
 				     ("date:today..now AND to:stephencott@gmail.com AND maildir:/gmail/*" "Today's Mail" ?t)))))))) ;; End of mu4e use-package
 
 
-(setq mu4e-headers-unread-mark '("u" . "✉"))
+(setq mu4e-headers-unread-mark '("u" . "")
+      mu4e-headers-new-mark '("n" . "")
+      mu4e-headers-attach-mark '("a" . "")
+      mu4e-headers-thread-root-prefix '("+" . "")
+      mu4e-headers-thread-child-prefix '("-" . "↪")
+      mu4e-headers-passed-mark '("p" . "&")
+      mu4e-headers-draft-mark '("d" . "#"))
+
 
 (defun cotste/mailview ()
   (olivetti-mode)

@@ -6,27 +6,32 @@
 
 (use-package lsp-mode
   :hook
-  ((c++-mode terraform-mode yaml-mode js-mode java-mode rust-mode shell-mode go-mode json-mode) . lsp-deferred)
+  ((c++-mode terraform-mode yaml-mode js-mode rust-mode shell-mode go-mode json-mode) . lsp-deferred)
   :commands lsp
   :config
-  (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map))
+  (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
+  (setq lsp-headerline-breadcrumb-enable nil)
+  (setq lsp-disabled-clients '(tfls)))
 
 (use-package lsp-ui
-  :commands lsp-ui-mode)
+  :commands lsp-ui-mode
+  :config (setq lsp-ui-doc-max-width 50)
+  (setq lsp-ui-doc-position 'top)
+  (setq lsp-ui-doc-border "dark violet"))
 
 ;; Java LSP
-(use-package lsp-java
-  :config
-  (setq lsp-java-configuration-runtimes '[(:name "JavaSE-1.8"
-                                                 :path "/usr/lib/jvm/java-1.8.0-openjdk-amd64"
-                                                 :default nil)
-					  (:name "JavaSE-17"
-						 :path "/usr/lib/jvm/java-1.17.0-openjdk-amd64"
-						 :default t)]))
+;; (use-package lsp-java
+;;   :config
+;;   (setq lsp-java-configuration-runtimes '[(:name "JavaSE-1.8"
+;;                                                  :path "/usr/lib/jvm/java-1.8.0-openjdk-amd64"
+;;                                                  :default nil)
+;; 					  (:name "JavaSE-17"
+;; 						 :path "/usr/lib/jvm/java-1.17.0-openjdk-amd64"
+;; 						 :default t)]))
 
-(require 'dap-java)
+;;(require 'dap-java)
 
-(require 'lsp-java-boot)
+;;(require 'lsp-java-boot)
 
 ;; Completion setup and config
 (use-package corfu
@@ -42,9 +47,14 @@
 ;; Terraform setup and config
 (use-package terraform-mode)
 
+(setq lsp-semantic-tokens-enable t)
+(setq lsp-semantic-tokens-honor-refresh-requests t)
+(setq lsp-terraform-ls-enable-show-reference t)
+
+
 ;; YAML setup and config
 (use-package yaml-mode
-  :hook ('yaml-mode-hook . 'linum-mode))
+  :hook ('yaml-mode-hook . 'display-line-numbers-mode))
 
 ;; Docker/Containerfile mode
 (use-package dockerfile-mode)
@@ -74,8 +84,10 @@
   (progn
     (setq treemacs-indentation 1)))
 
-(use-package treemacs-all-the-icons
-  :init (treemacs-load-theme 'all-the-icons))
+(use-package lsp-treemacs)
+
+(use-package treemacs-all-the-icons)
+(treemacs-load-theme 'all-the-icons)
 
 ;; Set up Rust
 
@@ -98,9 +110,15 @@
 (use-package go-mode)
 
 ;; Turn on line numbers for all prog-mode buffers
-(add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;;(use-package company)
+
+(straight-use-package '(kafka-cli :type git :host github
+				  :repo "ebbywiselyn/emacs-kafka"))
+
+(setq kafka-cli-bin-path "/home/chq-stephenco/.local/bin/kafka_2.13-3.1.0/bin")
+(setq kafka-cli-config-path "/home/chq-stephenco/.local/bin/kafka_2.13-3.1.0/bin")
 
 (provide 'setup-programming)
 
