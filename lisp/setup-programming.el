@@ -11,7 +11,15 @@
   :config
   (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
   (setq lsp-headerline-breadcrumb-enable nil)
-  (setq lsp-disabled-clients '(tfls)))
+  (setq lsp-disabled-clients '(tfls))
+  (setq lsp-completion-provider :none))
+
+(defun corfu-lsp-setup ()
+  ;;; Attempt to make corfu use orderless.
+  (setq-local completion-styles '(orderless)
+	      completion-category-defaults nil))
+
+(add-hook 'lsp-mode-hook #'corfu-lsp-setup)
 
 (use-package lsp-ui
   :commands lsp-ui-mode
