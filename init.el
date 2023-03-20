@@ -59,6 +59,7 @@
       scroll-margin 8
       pixel-scroll-precision-mode t)
 
+(require 'setup-ui)
 (require 'setup-org)
 (require 'setup-notes)
 (require 'setup-mail)
@@ -67,11 +68,11 @@
 (require 'setup-shell)
 (require 'setup-completion)
 (require 'setup-minibuffer)
-(require 'setup-ui)
 (require 'setup-config)
 (require 'setup-keybindings)
 (require 'setup-programming)
 (require 'setup-rss)
+(require 'setup-hydra)
 
 (require 'wgrep)
 
