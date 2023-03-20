@@ -47,6 +47,12 @@
   (setq gac-automatically-push-p t)
   (setq gac-automatically-add-new-files-p t))
 
+(defun cotste/browse-url-with-eww ()
+  (eww-browse-url (thing-at-point-url-at-point)))
+
+(defun cotste/browse-url-with-gui ()
+  (browse-url (thing-at-point-url-at-point)))
+
 (provide 'custom-functions)
 
 ;;; custom-functions.el ends here
