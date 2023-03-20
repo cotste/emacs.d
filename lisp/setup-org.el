@@ -15,6 +15,20 @@
 
   :config
 
+  ;;; Make Org Agenda headers a bit bigger
+  (set-face-attribute 'org-agenda-structure nil :height 140)
+  
+  ;;; Set Org heading sizes
+  (set-face-attribute 'org-level-1 nil :height 1.5)
+  (set-face-attribute 'org-level-2 nil :height 1.4)
+  (set-face-attribute 'org-level-3 nil :height 1.3)
+  (set-face-attribute 'org-level-4 nil :height 1.2)
+  (set-face-attribute 'org-level-5 nil :height 1.1)
+
+  ;;; Set table font to monospace
+  (set-face-attribute 'org-table nil :family "RobotoMono Nerd Font")
+  (set-face-attribute 'org-block nil :family "RobotoMono Nerd Font")
+
   (setq org-todo-keywords
 	'((sequence "TODO" "PROG" "INTR" "|" "DONE" "CANCELLED")))
 
@@ -24,7 +38,8 @@
 			    (electric-indent-local-mode -1)
 			    (org-indent-mode t)
 			    (variable-pitch-mode 1)
-			    (flyspell-mode 1))))
+			    (flyspell-mode 1)
+			    (org-modern-mode))))
 
 (setq org-capture-templates
       '(("m" "Meeting" entry (file "~/notes/gtd/meetings.org")
@@ -35,16 +50,20 @@
 
 (use-package org-present)
 
-(use-package org-bullets
-  :after org
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("○" "◉" "●" "○" "●" "○" "●")))
+(use-package org-modern)
+
+;; (use-package org-bullets
+;;   :after org
+;;   :hook (org-mode . org-bullets-mode)
+;;   :custom
+;;   (org-bullets-bullet-list '("○" "◉" "●" "○" "●" "○" "●")))
 
 ;; Agenda configuration
 (setq org-agenda-files '("~/notes/gtd"))
+(setq org-agenda-window-setup 'current)
 
-(setq org-use-tag-inheritance nil)
+(setq org-use-tag-inheritance t)
+(setq org-tags-exclude-from-inheritance '("FEATURE" "STORY" "TASK"))
 
 (setq org-agenda-custom-commands
       '((" " "Agenda"
@@ -54,26 +73,31 @@
 	  (todo "")
 	  (agenda "")))
 	("w" "ECP Sprints"
-	 ((tags
+	 ((tags-todo
 	   "REFILE"
 	   ((org-agenda-overriding-header "To Refile")))
 	  (tags
 	   "FEATURE"
-	   ((org-agenda-overriding-header "Features")))
+	   ((org-agenda-overriding-header "Features")
+	   (org-agenda-files '("~/notes/gtd/current-pi.org"))))
 	  (tags-todo
 	   "STORY"
-	   ((org-agenda-overriding-header "Stories")))
+	   ((org-agenda-overriding-header "Stories")
+	   (org-agenda-files '("~/notes/gtd/current-pi.org"))))
 	  (tags-todo
 	   "TASK"
-	   ((org-agenda-overriding-header "Tasks")))
+	   ((org-agenda-overriding-header "Tasks")
+	   (org-agenda-files '("~/notes/gtd/current-pi.org"))))
 	  (agenda "")))
 	("p" "Personal"
 	 ((tags
 	   "PERS"
 	   ((org-agenda-overriding-header "Tagged Personal")))))))
 
-(setq org-refile-targets '((nil :maxlevel . 9)
-			   (org-agenda-files :maxlevel . 9)))
+
+
+(setq org-refile-targets '((nil :maxlevel . 3)
+			   (org-agenda-files :maxlevel . 3)))
 
 ;; Export configurations
 
@@ -94,7 +118,8 @@
 ;; Org Babel
 (org-babel-do-load-languages
 'org-babel-load-languages
-'((shell . t)))
+'((shell . t)
+  (sql . t)))
 
 (setq org-confirm-babel-evaluate 'cotste/confirm-babel-evaluate)
 
