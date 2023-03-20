@@ -48,9 +48,13 @@
   (setq gac-automatically-add-new-files-p t))
 
 (defun cotste/browse-url-with-eww ()
+  "Browse the url at point with eww."
+  (interactive)
   (eww-browse-url (thing-at-point-url-at-point)))
 
 (defun cotste/browse-url-with-gui ()
+  "Browse the url at point with the defaul GUI browser."
+  (interactive)
   (browse-url (thing-at-point-url-at-point)))
 
 (provide 'custom-functions)
