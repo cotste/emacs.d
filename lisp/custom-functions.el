@@ -57,6 +57,46 @@
   (interactive)
   (browse-url (thing-at-point-url-at-point)))
 
+(defun cotste/browse-safelink-url ()
+  "Browse a safelink URL at point with GUI browser."
+  (interactive)
+  
+  ;;;(browse-url (cotste/decode-safelink(thing-at-point-url-at-point))))
+  (message (thing-at-point-url-at-point)))
+
+(require 'url-parse)
+(defun cotste/decode-safelink (url)
+  "Given a url string this function returns the corresponding decoded url."
+      (let* ((query (url-filename (url-generic-parse-url url)))
+             (url (cadr (assoc ".*/?url" (url-parse-query-string query) (lambda (pat x) (string-match-p x pat)))))
+             (path (replace-regexp-in-string "3Dhttps" "https" (url-unhex-string url))))
+        (url-encode-url (replace-regexp-in-string (rx "/" (>= 20 (any "#$%&*^@"))) "" path)))
+      url)
+
+(defvar sjc-denote-silos
+  '("~/notes/denote"
+    "~/notes/denote/daily"
+    "~/notes/denote/blog"))
+
+(defvar sjc-denote-silo-commands
+  '(denote
+    denote-template))
+
+(defun sjc-select-denote-silo (silo command)
+  "Select a SILO and the COMMAND to run in that silo."
+  (interactive
+   (list (completing-read "Select a silo: " sjc-denote-silos nil t)
+	 (intern (completing-read "Run command in silo: "
+				  sjc-denote-silo-commands nil t))))
+   (let ((denote-directory silo))
+     (call-interactively command)))
+
+(defun sjc-denote-regex-search ()
+  (interactive
+  (let ((default-directory "~/notes/denote"))
+   (project-find-regexp (read-regexp "Notes search (regex): ")))))
+
+
 (provide 'custom-functions)
 
 ;;; custom-functions.el ends here

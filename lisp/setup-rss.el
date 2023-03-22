@@ -10,7 +10,9 @@
 	'("https://fasterthanli.me/rss"
 	  "https://blog.while-true-do.io/rss"
 	  "https://codewalkers.net/feed/"
-	  "https://karthinks.com/index.xml")))
+	  "https://karthinks.com/index.xml"
+	  "https://ochagavia.nl/blog/index.xml"
+	  "https://takeonrules.com/index.xml")))
 
 (provide 'setup-rss)
 
