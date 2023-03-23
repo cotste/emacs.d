@@ -78,6 +78,22 @@
 	 ((tags-todo
 	   "REFILE"
 	   ((org-agenda-overriding-header "To Refile")))
+	  (agenda
+	   ""
+	   ((org-agenda-overriding-header "Due Today")
+	    (org-agenda-span 'day)
+	    (org-agenda-time-grid nil)
+	    (org-agenda-entry-types '(:deadline))
+	    (org-deadline-warning-days 0)
+	    (org-agenda-show-all-dates nil)))
+ 	  (agenda
+	   ""
+	   ((org-agenda-overriding-header "Today's Meetings")
+	    (org-agenda-span 'day)
+	    (org-agenda-time-grid nil)
+	    (org-agenda-entry-types '(:scheduled))
+	    (org-deadline-warning-days 0)
+	    (org-agenda-show-all-dates nil)))
 	  (tags
 	   "FEATURE"
 	   ((org-agenda-overriding-header "Features")

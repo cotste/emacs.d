@@ -59,7 +59,9 @@
     ("s" sjc-select-denote-silo "Select Denote Silo" :exit t))
    "Notes"
    (("l" notes-list "Notes List" :exit t)
-    ("f" sjc-denote-regex-search "Search Notes (text)" :exit t))))
+    ("f" sjc-denote-regex-search "Search Notes (text)" :exit t))
+   "Links"
+   (("F" denote-link-find-file "Open Denote Link" :exit t))))
 
 (pretty-hydra-define hydra-time
   (:title hydra--time-title :quit-key "q")
