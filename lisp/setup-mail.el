@@ -25,7 +25,7 @@
   ;;(setq user-mail-address "stephen.cott@expeditors.com")
   (setq mu4e-change-filenames-when-moving t)
   (setq mu4e-update-interval (* 10 60))
-  (setq mu4e-html2text-command "w3m -T text/html" ; how to hanfle html-formatted emails
+  (setq mu4e-html2text-command "mu4e-shr2text" ;;"w3m -T text/html" ; how to hanfle html-formatted emails
 	mu4e-update-interval 300                  ; seconds between each mail retrieval
 	mu4e-headers-auto-update t                ; avoid to type `g' to update
 	mu4e-view-show-images t                   ; show images in the view buffer

@@ -12,6 +12,8 @@
 (set-face-attribute 'fixed-pitch nil :family "RobotoMono Nerd Font" :height 115)
 ;;(set-face-attribute 'fixed-pitch-serif nil :family "SpaceMono Nerd Font")
 
+
+
 ;;(setq default-frame-alist '((undecorated . t)))
 (setq frame-resize-pixelwise t)
 
@@ -110,7 +112,7 @@
 
 ;; (use-package doom-modeline
 ;;   :init
-;;   (doom-modeline-mode 1))
+;;   (doom-modeline-mode 0))
 
 ;; Install and configure ace window
 (use-package ace-window

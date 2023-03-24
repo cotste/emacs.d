@@ -83,6 +83,10 @@
 ;;(load-theme 'catppuccin t)
 (load-theme 'nano-light t)
 (nano-modeline-mode)
+(recentf-mode)
+
+;;; Custom Font settings
+(set-face-attribute 'xref-file-header nil :weight 'bold)
 
 (provide 'init)
 

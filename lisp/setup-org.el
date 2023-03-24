@@ -30,7 +30,9 @@
   (set-face-attribute 'org-block nil :family "RobotoMono Nerd Font")
 
   (setq org-todo-keywords
-	'((sequence "TODO" "PROG" "INTR" "|" "DONE" "CANCELLED")))
+	'((sequence "TODO(t)" "PROG(p)" "INTR(i)" "|" "DONE(d)" "CANCELLED(c!)")))
+  (setq org-log-into-drawer "LOGBOOK")
+  (setq org-use-fast-todo-selection t)
 
 
  (add-hook 'org-mode-hook(lambda ()
@@ -43,7 +45,7 @@
 
 (setq org-capture-templates
       '(("m" "Meeting" entry (file "~/notes/gtd/meetings.org")
-         "* %? :MEETING: \n%^T\n")
+         "* TODO %? :MEETING: \n%SCHEDULED: %^T\n")
 
         ("t" "Task" entry (file "~/notes/gtd/inbox.org")
          "* TODO %? :NONE: \nDEADLINE: %^T\n")))
@@ -76,6 +78,22 @@
 	 ((tags-todo
 	   "REFILE"
 	   ((org-agenda-overriding-header "To Refile")))
+	  (agenda
+	   ""
+	   ((org-agenda-overriding-header "Due Today")
+	    (org-agenda-span 'day)
+	    (org-agenda-time-grid nil)
+	    (org-agenda-entry-types '(:deadline))
+	    (org-deadline-warning-days 0)
+	    (org-agenda-show-all-dates nil)))
+ 	  (agenda
+	   ""
+	   ((org-agenda-overriding-header "Today's Meetings")
+	    (org-agenda-span 'day)
+	    (org-agenda-time-grid nil)
+	    (org-agenda-entry-types '(:scheduled))
+	    (org-deadline-warning-days 0)
+	    (org-agenda-show-all-dates nil)))
 	  (tags
 	   "FEATURE"
 	   ((org-agenda-overriding-header "Features")
@@ -102,7 +120,7 @@
 ;; Export configurations
 
 ;; Export locations
-(defvar org-export-output-directory-prefix "export_" "Prefix of directory used for \"org-mode\" export.")
+(defvar org-export-output-directory-prefix "~/exports/export_" "Prefix of directory used for \"org-mode\" export.")
 
 (defadvice org-export-output-file-name (before org-add-export-dir activate)
   "Modifies org-export to place exported files in a different directory."
