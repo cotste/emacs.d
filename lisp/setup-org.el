@@ -29,6 +29,8 @@
   (set-face-attribute 'org-table nil :family "RobotoMono Nerd Font")
   (set-face-attribute 'org-block nil :family "RobotoMono Nerd Font")
 
+  (setq org-hide-emphasis-markers t)
+
   (setq org-todo-keywords
 	'((sequence "TODO(t)" "PROG(p)" "INTR(i)" "|" "DONE(d)" "CANCELLED(c!)")))
   (setq org-log-into-drawer "LOGBOOK")
