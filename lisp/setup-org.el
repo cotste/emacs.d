@@ -26,8 +26,9 @@
   (set-face-attribute 'org-level-5 nil :height 1.1)
 
   ;;; Set table font to monospace
-  (set-face-attribute 'org-table nil :family "RobotoMono Nerd Font")
-  (set-face-attribute 'org-block nil :family "RobotoMono Nerd Font")
+  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
 
   (setq org-hide-emphasis-markers t)
 
@@ -47,10 +48,16 @@
 
 (setq org-capture-templates
       '(("m" "Meeting" entry (file "~/notes/gtd/meetings.org")
-         "* TODO %? :MEETING: \n%SCHEDULED: %^T\n")
+         "* TODO %? :MEETING: \nSCHEDULED: %^T\n")
 
-        ("t" "Task" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? :NONE: \nDEADLINE: %^T\n")))
+        ("g" "TODO" entry (file "~/notes/gtd/inbox.org")
+         "* TODO %? :NONE: \nDEADLINE: %^T\n")
+	("f" "Feature" entry (file "~/notes/gtd/inbox.org")
+         "* %? :FEATURE: \nDEADLINE: %^T\n")
+	("s" "Story" entry (file "~/notes/gtd/inbox.org")
+         "* TODO %? :STORY: \nDEADLINE: %^T\n")
+	("t" "Task" entry (file "~/notes/gtd/inbox.org")
+         "* TODO %? :TASK: \nDEADLINE: %^T\n")))
 
 (use-package org-present)
 

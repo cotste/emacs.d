@@ -7,9 +7,10 @@
 ;; Set up fonts
 
 (set-face-attribute 'default nil :family "RobotoMono Nerd Font" :height 115)
+(set-face-attribute 'variable-pitch nil :family "Source Sans Pro" :height 115)
+(set-face-attribute 'fixed-pitch nil :family "RobotoMono Nerd Font" :height 115)
 ;;(set-face-attribute 'default nil :family "Iosevka Term" :height 110 :weight 'regular)
 ;;(set-face-attribute 'default nil :family "Fantasque Sans Mono" :height 90)
-(set-face-attribute 'fixed-pitch nil :family "RobotoMono Nerd Font" :height 115)
 ;;(set-face-attribute 'fixed-pitch-serif nil :family "SpaceMono Nerd Font")
 
 
