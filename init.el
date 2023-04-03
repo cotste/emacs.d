@@ -1,4 +1,4 @@
-;;; Package: --- My init.el
+;; Package: --- My init.el
 ;;; Commentary:
 
 ;;; Code:
@@ -53,6 +53,23 @@
 
 ;; Turn off the stupid bell
 (setq visible-bell t)
+
+;; Put backup files in /tmp
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory)))
+
+;;; Clean up old backup files
+(message "Deleting old backup files...")
+(let ((week (* 60 60 24 7))
+      (current (float-time (current-time))))
+  (dolist (file (directory-files temporary-file-directory t))
+    (when (and (backup-file-name-p file)
+               (> (- current (float-time (fifth (file-attributes file))))
+                  week))
+      (message "%s" file)
+      (delete-file file))))
 
 ;; Set up some sane scrolling
 (setq scroll-step 1
