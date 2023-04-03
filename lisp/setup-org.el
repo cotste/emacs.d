@@ -83,6 +83,14 @@
 	   ((org-agenda-overriding-header "To Refile")))
 	  (todo "")
 	  (agenda "")))
+	("p" "Personal"
+	 ((tags-todo
+	   "REFILE"
+	   ((org-agenda-overriding-header "To Refile")))
+	  (todo
+	   ""
+	   ((org-agenda-overriding-header "Personal TODOs")
+	    (org-agenda-files '("~/notes/gtd/personal.org"))))))
 	("w" "ECP Sprints"
 	 ((tags-todo
 	   "REFILE"
