@@ -97,11 +97,15 @@
 	   ((org-agenda-overriding-header "To Refile")))
 	  (agenda
 	   ""
-	   ((org-agenda-overriding-header "Due Today")
+	   ((org-agenda-overriding-header "Due Today/Tomorrow")
+	    (org-agenda-files '("~/notes/gtd/ecp.org"
+				"~/notes/gtd/current-pi.org"
+				"~/notes/gtd/meetings.org"
+				"~/notes/gtd/mundality.org"))
 	    (org-agenda-span 'day)
 	    (org-agenda-time-grid nil)
 	    (org-agenda-entry-types '(:deadline))
-	    (org-deadline-warning-days 0)
+	    (org-deadline-warning-days 1)
 	    (org-agenda-show-all-dates nil)))
  	  (agenda
 	   ""
