@@ -120,6 +120,10 @@
 ;; Turn on line numbers for all prog-mode buffers
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
+;;; Markdown configurations
+(setq markdown-command "cmark")
+(add-hook 'markdown-mode-hook 'auto-fill-mode)
+
 ;;(use-package company)
 
 (straight-use-package '(kafka-cli :type git :host github
