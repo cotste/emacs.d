@@ -77,6 +77,8 @@
       scroll-margin 8
       pixel-scroll-precision-mode t)
 
+(setq fill-column 80)
+
 (require 'setup-ui)
 (require 'setup-org)
 (require 'setup-notes)
@@ -94,12 +96,12 @@
 
 (require 'wgrep)
 
-;;(load-theme 'modus-operandi t)
+(load-theme 'modus-operandi t)
 
 (setq catppuccin-flavor 'latte)
 ;;(load-theme 'catppuccin t)
-(load-theme 'nano-light t)
-(nano-modeline-mode)
+;;(load-theme 'nano-light t)
+;;(nano-modeline-mode)
 (recentf-mode)
 
 ;;; Custom Font settings

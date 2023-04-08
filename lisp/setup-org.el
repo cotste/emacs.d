@@ -39,10 +39,11 @@
 
 
  (add-hook 'org-mode-hook(lambda ()
-			    (visual-line-mode 1)
+			    (visual-line-mode 0)
 			    (electric-indent-local-mode -1)
 			    (org-indent-mode t)
 			    (variable-pitch-mode 1)
+			    (auto-fill-mode 1)
 			    (flyspell-mode 1)
 			    (org-modern-mode))))
 

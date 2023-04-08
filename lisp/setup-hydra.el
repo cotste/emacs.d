@@ -59,7 +59,11 @@
     ("s" sjc-select-denote-silo "Select Denote Silo" :exit t))
    "Notes"
    (("l" notes-list "Notes List" :exit t)
+    ("d" (dired "~/notes/denote") "Notes Directory" :exit t)
     ("f" sjc-denote-regex-search "Search Notes (text)" :exit t))
+   "Journal"
+   (("e" sjc/list-diary-notes "Journal Notes" :exit t)
+    ("j" sjc/new-diary-note "Create Diary" :exit t))
    "Links"
    (("F" denote-link-find-file "Open Denote Link" :exit t))))
 
@@ -69,7 +73,7 @@
    (("i" org-clock-in "Clock In" :exit t)
     ("o" org-clock-out "Clock Out" :exit t)
     ("g" org-clock-goto "Goto Current Clock" :exit t)
-    ("t" (find-file "~/notes/gtd/clocktable.org") "Open Time Sheet (non-func)" :exit t))
+    ("t" (find-file "~/notes/gtd/clocktable.org") "Open Time Sheet" :exit t))
    "Dates"
    (("c" calendar "Open Calendar" :exit t)
     ("D" org-deadline "Set Deadline" :exit t)

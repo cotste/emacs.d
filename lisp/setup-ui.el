@@ -111,9 +111,9 @@
 (straight-use-package '(minibuffer-header :type git :host github
 					  :repo "rougier/minibuffer-header"))
 
-;; (use-package doom-modeline
-;;   :init
-;;   (doom-modeline-mode 0))
+ (use-package doom-modeline
+   :init
+   (doom-modeline-mode 1))
 
 ;; Install and configure ace window
 (use-package ace-window
