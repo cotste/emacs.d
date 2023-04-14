@@ -14,6 +14,8 @@
 ;;(set-face-attribute 'fixed-pitch-serif nil :family "SpaceMono Nerd Font")
 
 
+;;; Tab settings
+(setq tab-width 4)
 
 ;;(setq default-frame-alist '((undecorated . t)))
 (setq frame-resize-pixelwise t)
