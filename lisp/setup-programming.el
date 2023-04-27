@@ -119,6 +119,10 @@
 
 ;; Turn on line numbers for all prog-mode buffers
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'hcl-mode-hook 'display-line-numbers-mode)
+(add-hook 'terraform-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook (lambda ()
+					(setq tab-width 2)))
 
 ;;; Markdown configurations
 (setq markdown-command "cmark")
