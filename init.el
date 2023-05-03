@@ -73,10 +73,10 @@
 (setq visible-bell t)
 
 ;; Put backup files in /tmp
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory)))
+;; (setq backup-directory-alist
+;;       `((".*" . ,temporary-file-directory)))
+;; (setq auto-save-file-name-transforms
+;;       `((".*" ,temporary-file-directory)))
 
 ;;; Clean up old backup files
 ;; (message "Deleting old backup files...")
@@ -114,7 +114,7 @@
 
 (require 'wgrep)
 
-(load-theme 'modus-operandi t)
+(load-theme 'doom-gruvbox t)
 
 (setq catppuccin-flavor 'latte)
 ;;(load-theme 'catppuccin t)

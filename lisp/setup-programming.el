@@ -6,7 +6,7 @@
 
 (use-package lsp-mode
   :hook
-  ((c++-mode terraform-mode yaml-mode js-mode rust-mode shell-mode go-mode json-mode) . lsp-deferred)
+  ((c++-mode terraform-mode yaml-mode js-mode rust-mode shell-script-mode go-mode json-mode) . lsp-deferred)
   :commands lsp
   :config
   (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
@@ -14,12 +14,16 @@
   (setq lsp-disabled-clients '(tfls))
   (setq lsp-completion-provider :none))
 
-(defun corfu-lsp-setup ()
-  ;;; Attempt to make corfu use orderless.
-  (setq-local completion-styles '(orderless)
-	      completion-category-defaults nil))
+(setq lsp-semantic-tokens-enable t)
+(setq lsp-semantic-tokens-honor-refresh-requests t)
+(setq lsp-terraform-ls-enable-show-reference t)
 
-(add-hook 'lsp-mode-hook #'corfu-lsp-setup)
+;; (defun corfu-lsp-setup ()
+;;   ;;; Attempt to make corfu use orderless.
+;;   (setq-local completion-styles '(orderless)
+;; 	      completion-category-defaults nil))
+
+;;(add-hook 'lsp-mode-hook #'corfu-lsp-setup)
 
 (use-package lsp-ui
   :commands lsp-ui-mode
@@ -55,14 +59,10 @@
 ;; Terraform setup and config
 (use-package terraform-mode)
 
-(setq lsp-semantic-tokens-enable t)
-(setq lsp-semantic-tokens-honor-refresh-requests t)
-(setq lsp-terraform-ls-enable-show-reference t)
-
-
 ;; YAML setup and config
 (use-package yaml-mode
   :hook ('yaml-mode-hook . 'display-line-numbers-mode))
+
 
 ;; Docker/Containerfile mode
 (use-package dockerfile-mode)
