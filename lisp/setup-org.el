@@ -47,6 +47,10 @@
 			    (flyspell-mode 1)
 			    (org-modern-mode))))
 
+;;; End of org-mode use-package
+
+(setq org-startup-with-inline-images t)
+
 (setq org-capture-templates
       '(("m" "Meeting" entry (file "~/notes/gtd/meetings.org")
          "* TODO %? :MEETING: \nSCHEDULED: %^T\n")

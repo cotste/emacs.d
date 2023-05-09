@@ -8,8 +8,9 @@
 
 ;;(set-face-attribute 'default nil :family "RobotoMono Nerd Font" :height 100)
 ;;(set-face-attribute 'default nil :family "Inconsolata" :height 115 :weight 'Regular)
-(set-face-attribute 'default nil :family "Iosevka Extended" :height 105)
-(set-face-attribute 'variable-pitch nil :family "Source Sans Pro" :height 105)
+(set-face-attribute 'default nil :family "Iosevka Extended" :height 110)
+;;(set-face-attribute 'variable-pitch nil :family "Source Sans Pro" :height 120)
+(set-face-attribute 'variable-pitch nil :family "iA Writer Quattro V" :height 110)
 ;;(set-face-attribute 'fixed-pitch nil :family "RobotoMono Nerd Font" :height 100)
 (set-face-attribute 'fixed-pitch nil :family "Iosevka Extended" :height 105 :weight 'regular)
 ;;(set-face-attribute 'default nil :family "Fantasque Sans Mono" :height 115)
@@ -39,7 +40,7 @@
 (defvar modus-themes-completions
       '((matches . (extrabold background intense))))
 
-;;(setq modus-themes-syntax '(green-strings alt-syntax yellow-comments))
+(setq modus-themes-syntax '(green-strings alt-syntax yellow-comments))
 (setq masodus-themes-mixed-fonts t)
 (setq modus-themes-headings
       '((1 . (variable-pitch 1.4))
@@ -59,6 +60,25 @@
 (setq modus-themes-org-blocks 'gray-background)
 (setq modus-themes-mixed-fonts t)
 
+(customize-set-variable 'modus-operandi-palette-overrides
+						'(
+						  (bg-inactive "#aaaaaa")
+						  (bg-main "#FAF9F6")
+						  (fg-main "#21130d")
+
+						  (magenta-intense "#69a995")
+						  (magenta-cooler "#447c69")
+						  (magenta-warmer "#2c4d45")
+
+						  (yellow-faint "#042f66")
+						  (yellow-intense "#e28743")
+						  ;;(yellow-warmer
+
+						  (blue-warmer "#505965")
+						  (blue-intense "#377c8f")
+						  (blue-cooler "#1979a9")
+						  ))
+
 ;; (setq modus-themes-operandi-color-overrides
 ;;       '((blue . "#275ccf")
 ;; 	 (cyan . "#000000")
@@ -66,7 +86,8 @@
 ;; 	 (yellow . "#00ff00")
 ;; 	 (magenta-alt-other . "#115511")
 ;; 	 (magenta-alt . "#00ff00")
-;; 	 (magenta . "#ffff00")))
+;; 	 (magenta . "#ffff00")
+;; 	 (bg-inactive . "#eeeeee")))
 
 ;; Lambda Theme
 ;;(use-package lambda-themes
@@ -74,7 +95,7 @@
 
 ;; Nord theme
 
-;;(use-package nord-theme)
+(use-package nord-theme)
 
 ;; One Themes
 (use-package one-themes)
@@ -97,6 +118,12 @@
 (use-package lab-themes)
 
 (use-package leuven-theme)
+
+(use-package ef-themes)
+
+(use-package sublime-themes)
+
+(use-package modus-themes)
 
 (straight-use-package '(nano-theme :type git :host github
                                    :repo "rougier/nano-theme"))

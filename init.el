@@ -114,7 +114,7 @@
 
 (require 'wgrep)
 
-(load-theme 'doom-gruvbox t)
+(load-theme 'modus-operandi t)
 
 (setq catppuccin-flavor 'latte)
 ;;(load-theme 'catppuccin t)
