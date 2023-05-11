@@ -104,15 +104,9 @@
 
 
 
-;; (setq modus-themes-operandi-color-overrides
-;;       '((blue . "#275ccf")
-;; 	 (cyan . "#000000")
-;; 	 (green . "#00ff00")
-;; 	 (yellow . "#00ff00")
-;; 	 (magenta-alt-other . "#115511")
-;; 	 (magenta-alt . "#00ff00")
-;; 	 (magenta . "#ffff00")
-;; 	 (bg-inactive . "#eeeeee")))
+(customize-set-variable 'modus-vivendi-palette-overrides
+      '((bg-main "#232323")
+				))
 
 ;; Lambda Theme
 ;;(use-package lambda-themes
