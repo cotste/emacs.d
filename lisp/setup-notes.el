@@ -43,7 +43,14 @@
 
 ")
   (setq denote-known-keywords '("emacs" "ecp" "devops"))
-  (setq denote-dired-directories '("~/notes/denote" "~/notes/denote/daily" "~/notes/denote/blog")))
+  (setq denote-dired-directories '("~/notes/denote" "~/notes/denote/daily" "~/notes/denote/blog"))
+
+	(setq denote-link-backlinks-display-buffer-action
+          (quote ((display-buffer-reuse-window
+                   display-buffer-in-side-window)
+                  (side . right)
+                  (slot . 99)
+                  (window-width . 0.3)))))
 
 (add-hook 'dired-mode-hook #'denote-dired-mode-in-directories)
 (add-hook 'denote-dired-mode-hook #'dired-hide-details-mode)

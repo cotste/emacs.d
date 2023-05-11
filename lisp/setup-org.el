@@ -39,7 +39,7 @@
 
 
  (add-hook 'org-mode-hook(lambda ()
-			    (visual-line-mode 0)
+			    (visual-line-mode 1)
 			    (electric-indent-local-mode -1)
 			    (org-indent-mode t)
 			    (variable-pitch-mode 1)
@@ -102,7 +102,7 @@
 	   ((org-agenda-overriding-header "To Refile")))
 	  (agenda
 	   ""
-	   ((org-agenda-overriding-header "Due Today/Tomorrow")
+	   ((org-agenda-overriding-header "Due Today")
 	    (org-agenda-files '("~/notes/gtd/ecp.org"
 				"~/notes/gtd/current-pi.org"
 				"~/notes/gtd/meetings.org"
@@ -110,7 +110,7 @@
 	    (org-agenda-span 'day)
 	    (org-agenda-time-grid nil)
 	    (org-agenda-entry-types '(:deadline))
-	    (org-deadline-warning-days 1)
+	    (org-deadline-warning-days 0)
 	    (org-agenda-show-all-dates nil)))
  	  (agenda
 	   ""

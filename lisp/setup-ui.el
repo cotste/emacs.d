@@ -10,7 +10,7 @@
 ;;(set-face-attribute 'default nil :family "Inconsolata" :height 115 :weight 'Regular)
 (set-face-attribute 'default nil :family "Iosevka Extended" :height 110)
 ;;(set-face-attribute 'variable-pitch nil :family "Source Sans Pro" :height 120)
-(set-face-attribute 'variable-pitch nil :family "iA Writer Quattro V" :height 110)
+(set-face-attribute 'variable-pitch nil :family "iA Writer Quattro V" :weight 'Regular :height 110)
 ;;(set-face-attribute 'fixed-pitch nil :family "RobotoMono Nerd Font" :height 100)
 (set-face-attribute 'fixed-pitch nil :family "Iosevka Extended" :height 105 :weight 'regular)
 ;;(set-face-attribute 'default nil :family "Fantasque Sans Mono" :height 115)
@@ -62,22 +62,47 @@
 
 (customize-set-variable 'modus-operandi-palette-overrides
 						'(
-						  (bg-inactive "#aaaaaa")
+						  (bg-inactive "#e0e0e0")
 						  (bg-main "#FAF9F6")
 						  (fg-main "#21130d")
 
-						  (magenta-intense "#69a995")
-						  (magenta-cooler "#447c69")
-						  (magenta-warmer "#2c4d45")
+						  ;;(magenta-intense "#69a995")
+						  ;;(magenta-cooler "#447c69")
+						  ;;(magenta-warmer "#2c4d45")
 
 						  (yellow-faint "#042f66")
-						  (yellow-intense "#e28743")
+						  (yellow-intense "#f3d000")
 						  ;;(yellow-warmer
 
 						  (blue-warmer "#505965")
 						  (blue-intense "#377c8f")
 						  (blue-cooler "#1979a9")
+							
+							(magenta "#713f94")
+							(magenta-warmer "#653189")
+							(magenta-cooler "#725686")
+
+							(bg-completion "#e0e0e0")
+							(fg-completion-match-0 red-faint)
+							(fg-completion-match-1 blue-intense)
+							(fg-completion-match-2 green-warmer)
+							(fg-completion-match-3 red)
+
+							(bg-paren-match bg-inactive)
+
+							(builtin green-warmer)
+
+							(rainbow-0 fg-main)
+							(rainbow-1 red)
+							(rainbow-2 blue-intense)
+							(rainbow-3 green-intense)
+							(rainbow-4 cyan-intense)
+							(rainbow-5 yellow-intense)
+							
+							(fringe "#FAF9F6")
 						  ))
+
+
 
 ;; (setq modus-themes-operandi-color-overrides
 ;;       '((blue . "#275ccf")
