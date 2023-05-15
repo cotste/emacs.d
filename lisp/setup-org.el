@@ -43,7 +43,7 @@
 			    (electric-indent-local-mode -1)
 			    (org-indent-mode t)
 			    (variable-pitch-mode 1)
-			    (auto-fill-mode 1)
+			    (auto-fill-mode 0)
 			    (flyspell-mode 1)
 			    (org-modern-mode))))
 
