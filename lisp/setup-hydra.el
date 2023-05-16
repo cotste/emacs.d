@@ -76,8 +76,8 @@
     ("t" (find-file "~/notes/gtd/clocktable.org") "Open Time Sheet" :exit t))
    "Dates"
    (("c" calendar "Open Calendar" :exit t)
-    ("D" org-deadline "Set Deadline" :exit t)
-    ("S" org-schedule "Set Schedule" :exit t))))
+    ("d" org-deadline "Set Deadline" :exit t)
+    ("s" org-schedule "Set Schedule" :exit t))))
   
 
 
