@@ -9,7 +9,8 @@
   :straight (:host github :repo "oantolin/orderless")
   :custom
   (completion-styles '(orderless basic))
-  (completion-category-overrides '((file (styles basic partial-completion)))))
+	(completion-category-defaults nil)
+  (completion-category-overrides '((file (styles . (partial-completion))))))
 
 ;; Enable vertico
 (use-package vertico

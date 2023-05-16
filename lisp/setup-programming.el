@@ -47,9 +47,13 @@
 
 ;; Completion setup and config
 (use-package corfu
+	:after orderless
   :custom
   (corfu-cycle t)
   (corfu-auto t)
+	(corfu-separator ?\s)
+	(corfu-quit-no-match t)
+	(corfu-quit-at-boundary nil)
   :init
   (global-corfu-mode))
 
