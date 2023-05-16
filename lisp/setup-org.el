@@ -16,40 +16,41 @@
   :config
 
   ;;; Make Org Agenda headers a bit bigger
-  (set-face-attribute 'org-agenda-structure nil :height 140)
+;;  (set-face-attribute 'org-agenda-structure nil :height 140)
   
   ;;; Set Org heading sizes
-  (set-face-attribute 'org-level-1 nil :height 1.5)
-  (set-face-attribute 'org-level-2 nil :height 1.4)
-  (set-face-attribute 'org-level-3 nil :height 1.3)
-  (set-face-attribute 'org-level-4 nil :height 1.2)
-  (set-face-attribute 'org-level-5 nil :height 1.1)
+  (set-face-attribute 'org-level-1 nil :height 1.3)
+  (set-face-attribute 'org-level-2 nil :height 1.2)
+  (set-face-attribute 'org-level-3 nil :height 1.1)
+  (set-face-attribute 'org-level-4 nil :height 1.0)
+  (set-face-attribute 'org-level-5 nil :height 1.0)
 
   ;;; Set table font to monospace
   (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
+	(set-face-attribute 'org-hide nil :inherit 'fixed-pitch)
 
-  (setq org-hide-emphasis-markers t)
-
-  (setq org-todo-keywords
-	'((sequence "TODO(t)" "PROG(p)" "INTR(i)" "|" "DONE(d)" "CANCELLED(c!)")))
-  (setq org-log-into-drawer "LOGBOOK")
-  (setq org-use-fast-todo-selection t)
+  (setq org-hide-emphasis-markers t
+				org-ellipsis "..."
+				org-pretty-entities t
+				org-todo-keywords
+	      '((sequence "TODO(t)" "PROG(p)" "INTR(i)" "|" "DONE(d)" "CANCELLED(c!)"))
+				;;org-log-into-drawer "LOGBOOK"
+				org-use-fast-todo-selection t
+				org-startup-with-inline-images t)
 
 
  (add-hook 'org-mode-hook(lambda ()
-			    (visual-line-mode 1)
-			    (electric-indent-local-mode -1)
-			    (org-indent-mode t)
+			    (visual-line-mode 0)
 			    (variable-pitch-mode 1)
-			    (auto-fill-mode 0)
+			    (auto-fill-mode 1)
 			    (flyspell-mode 1)
 			    (org-modern-mode))))
 
 ;;; End of org-mode use-package
 
-(setq org-startup-with-inline-images t)
+
 
 (setq org-capture-templates
       '(("m" "Meeting" entry (file "~/notes/gtd/meetings.org")
@@ -58,28 +59,22 @@
         ("g" "TODO" entry (file "~/notes/gtd/inbox.org")
          "* TODO %? :NONE: \nDEADLINE: %^T\n")
 	("f" "Feature" entry (file "~/notes/gtd/inbox.org")
-         "* %? :FEATURE: \nDEADLINE: %^T\n")
+         "* %? :feature: \nDEADLINE: %^T\n")
 	("s" "Story" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? :STORY: \nDEADLINE: %^T\n")
+         "* TODO %? :story: \nDEADLINE: %^T\n")
 	("t" "Task" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? :TASK: \nDEADLINE: %^T\n")))
+         "* TODO %? :task: \nDEADLINE: %^T\n")))
 
 (use-package org-present)
 
 (use-package org-modern)
-
-;; (use-package org-bullets
-;;   :after org
-;;   :hook (org-mode . org-bullets-mode)
-;;   :custom
-;;   (org-bullets-bullet-list '("○" "◉" "●" "○" "●" "○" "●")))
 
 ;; Agenda configuration
 (setq org-agenda-files '("~/notes/gtd"))
 (setq org-agenda-window-setup 'current)
 
 (setq org-use-tag-inheritance t)
-(setq org-tags-exclude-from-inheritance '("FEATURE" "STORY" "TASK"))
+(setq org-tags-exclude-from-inheritance '("feature" "story" "task"))
 
 (setq org-agenda-custom-commands
       '((" " "Agenda"
@@ -121,15 +116,15 @@
 	    (org-deadline-warning-days 0)
 	    (org-agenda-show-all-dates nil)))
 	  (tags
-	   "FEATURE"
+	   "feature"
 	   ((org-agenda-overriding-header "Features")
 	   (org-agenda-files '("~/notes/gtd/current-pi.org"))))
 	  (tags-todo
-	   "STORY"
+	   "story"
 	   ((org-agenda-overriding-header "Stories")
 	   (org-agenda-files '("~/notes/gtd/current-pi.org"))))
 	  (tags-todo
-	   "TASK"
+	   "task"
 	   ((org-agenda-overriding-header "Tasks")
 	   (org-agenda-files '("~/notes/gtd/current-pi.org"))))
 	  (agenda "")))

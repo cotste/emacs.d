@@ -43,10 +43,10 @@
 (setq modus-themes-syntax '(green-strings alt-syntax yellow-comments))
 (setq masodus-themes-mixed-fonts t)
 (setq modus-themes-headings
-      '((1 . (variable-pitch 1.4))
-        (2 . (fixed-pitch-serif 1.3))
-        (3 . (fixed-pitch-serif 1.2))
-        (4 . (fixed-pitch-serif 1.1))
+      '((1 . (variable-pitch 1.3))
+        (2 . (fixed-pitch-serif 1.2))
+        (3 . (fixed-pitch-serif 1.1))
+        (4 . (fixed-pitch-serif 1.0))
         (5 . (fixed-pitch-serif 1.0))
         (6 . (fixed-pitch-serif 1.0))))
 (setq modus-themes-vivendi-color-overrides
