@@ -101,7 +101,8 @@
 	    (org-agenda-files '("~/notes/gtd/ecp.org"
 				"~/notes/gtd/current-pi.org"
 				"~/notes/gtd/meetings.org"
-				"~/notes/gtd/mundality.org"))
+				"~/notes/gtd/mundality.org"
+				"~/notes/gtd/core-systems.org"))
 	    (org-agenda-span 'day)
 	    (org-agenda-time-grid nil)
 	    (org-agenda-entry-types '(:deadline))
@@ -118,15 +119,18 @@
 	  (tags
 	   "feature"
 	   ((org-agenda-overriding-header "Features")
-	   (org-agenda-files '("~/notes/gtd/current-pi.org"))))
+			(org-agenda-files '("~/notes/gtd/current-pi.org"
+													"~/notes/gtd/core-systems.org"))))
 	  (tags-todo
 	   "story"
 	   ((org-agenda-overriding-header "Stories")
-	   (org-agenda-files '("~/notes/gtd/current-pi.org"))))
+			(org-agenda-files '("~/notes/gtd/current-pi.org"
+													"~/notes/gtd/core-systems.org"))))
 	  (tags-todo
 	   "task"
 	   ((org-agenda-overriding-header "Tasks")
-	   (org-agenda-files '("~/notes/gtd/current-pi.org"))))
+			(org-agenda-files '("~/notes/gtd/current-pi.org"
+													"~/notes/gtd/core-systems.org"))))
 	  (agenda "")))
 	("p" "Personal"
 	 ((tags
