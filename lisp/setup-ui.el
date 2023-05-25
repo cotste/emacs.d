@@ -114,7 +114,7 @@
 
 ;; Nord theme
 
-(use-package nord-theme)
+;;(use-package nord-theme)
 
 ;; One Themes
 (use-package one-themes)
