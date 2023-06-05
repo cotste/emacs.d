@@ -21,6 +21,9 @@
 
   ;; Pull mu4e-org for helper functions
   (require 'mu4e-org)
+
+	;; Fix highlight face for doom themes
+	(set-face-attribute 'mu4e-highlight-face nil :inherit font-lock-type-face)
   
   ;;(setq user-mail-address "stephen.cott@expeditors.com")
   (setq mu4e-change-filenames-when-moving t)
@@ -119,7 +122,10 @@
 		  (mu4e-bookmarks . (
 				     ("maildir:/gmail/INBOX" "Inbox" ?i)
 				     ("maildir:/gmail/*" "All Mail" ?a)
-				     ("date:today..now AND to:stephencott@gmail.com AND maildir:/gmail/*" "Today's Mail" ?t)))))))) ;; End of mu4e use-package
+				     ("date:today..now AND to:stephencott@gmail.com AND maildir:/gmail/*" "Today's Mail" ?t))))))))
+
+
+;; End of mu4e use-package
 
 
 (setq mu4e-headers-unread-mark '("u" . "")
