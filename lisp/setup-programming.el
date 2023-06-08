@@ -64,9 +64,16 @@
 (use-package terraform-mode)
 
 ;; YAML setup and config
-(use-package yaml-mode
-  :hook ('yaml-mode-hook . 'display-line-numbers-mode))
+(use-package yaml-mode)
 
+(add-hook 'yaml-mode-hook 'display-line-numbers-mode)
+(add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
+
+(use-package highlight-indent-guides
+	:config
+	(setq highlight-indent-guides-method 'character))
+
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
 ;; Docker/Containerfile mode
 (use-package dockerfile-mode)
@@ -137,8 +144,11 @@
 (straight-use-package '(kafka-cli :type git :host github
 				  :repo "ebbywiselyn/emacs-kafka"))
 
+;;; Kafka stuff
 (setq kafka-cli-bin-path "/home/chq-stephenco/.local/bin/kafka_2.13-3.1.0/bin")
 (setq kafka-cli-config-path "/home/chq-stephenco/.local/bin/kafka_2.13-3.1.0/bin")
+
+(use-package sicp)
 
 (provide 'setup-programming)
 
