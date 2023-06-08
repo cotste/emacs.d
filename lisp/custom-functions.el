@@ -5,8 +5,8 @@
 
 ;; Check if host is chaos
 
-(defvar cotste-light-theme 'doom-tomorrow-day)
-(defvar cotste-dark-theme 'doom-tomorrow-night)
+(defvar cotste-light-theme 'doom-gruvbox-light)
+(defvar cotste-dark-theme 'doom-gruvbox)
 (defvar cotste-current-theme "light")
 
 (defun host-is-chaos ()

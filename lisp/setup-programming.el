@@ -148,6 +148,10 @@
 (setq kafka-cli-bin-path "/home/chq-stephenco/.local/bin/kafka_2.13-3.1.0/bin")
 (setq kafka-cli-config-path "/home/chq-stephenco/.local/bin/kafka_2.13-3.1.0/bin")
 
+;;; GraphQL
+
+(use-package graphql-mode)
+
 (use-package sicp)
 
 (provide 'setup-programming)

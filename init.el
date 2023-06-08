@@ -116,8 +116,11 @@
 
 ;;(load-theme 'modus-operandi t)
 (load-theme 'doom-gruvbox t)
+(setq cotste-current-theme "dark")
+(load-theme 'doom-gruvbox t)
 
-(setq catppuccin-flavor 'latte)
+
+;;(setq catppuccin-flavor 'latte)
 ;;(load-theme 'catppuccin t)
 ;;(load-theme 'nano-light t)
 ;;(nano-modeline-mode)
