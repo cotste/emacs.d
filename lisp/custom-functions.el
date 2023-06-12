@@ -3,12 +3,13 @@
 
 ;;; Code:
 
-;; Check if host is chaos
+
 
 (defvar cotste-light-theme 'doom-gruvbox-light)
 (defvar cotste-dark-theme 'doom-gruvbox)
 (defvar cotste-current-theme "light")
 
+;; Check if host is chaos
 (defun host-is-chaos ()
   "Return non-nil if hostname is chaos."
   (string-equal (system-name) "chaos"))
@@ -24,6 +25,16 @@
 (defun host-is-moros ()
   "Return non-nil if hostname is moros - Fedora 37 at work."
   (string-equal (system-name) "moros"))
+
+(defun zuco-light-theme ()
+	(interactive)
+	(setq cotste-current-theme "light")
+	(load-theme 'doom-gruvbox-light t))
+
+(defun zuco-dark-theme ()
+	(interactive)
+	(setq cotste-current-theme "dark")
+	(load-theme 'doom-gruvbox t))
 
 (defun cotste-theme-switch ()
   "Disable current theme and prompt for new theme."
@@ -110,6 +121,25 @@
 	 (denote
 	  (format-time-string "%A %e %B %Y")
 	  '("journal")))))
+
+;;; Org Mode Hooks
+
+(defun zuco/org-hook-fonts ()
+
+
+  ;;; Set Org heading sizes
+
+  (set-face-attribute 'org-level-1 nil :height 1.4)
+  (set-face-attribute 'org-level-2 nil :height 1.3)
+  (set-face-attribute 'org-level-3 nil :height 1.2)
+  (set-face-attribute 'org-level-4 nil :height 1.1)
+  (set-face-attribute 'org-level-5 nil :height 1.0)
+
+  ;;; Set table font to monospace
+  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-hide nil :inherit 'fixed-pitch))
 
 
 (provide 'custom-functions)

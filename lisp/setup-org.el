@@ -18,18 +18,8 @@
   ;;; Make Org Agenda headers a bit bigger
 ;;  (set-face-attribute 'org-agenda-structure nil :height 140)
   
-  ;;; Set Org heading sizes
-  (set-face-attribute 'org-level-1 nil :height 1.4)
-  (set-face-attribute 'org-level-2 nil :height 1.3)
-  (set-face-attribute 'org-level-3 nil :height 1.2)
-  (set-face-attribute 'org-level-4 nil :height 1.1)
-  (set-face-attribute 'org-level-5 nil :height 1.0)
+  ;;; End of org-mode use-package
 
-  ;;; Set table font to monospace
-  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
-	(set-face-attribute 'org-hide nil :inherit 'fixed-pitch)
 
   (setq org-hide-emphasis-markers t
 				org-ellipsis "..."
@@ -38,7 +28,7 @@
 	      '((sequence "TODO(t)" "PROG(p)" "INTR(i)" "|" "DONE(d)" "CANCELLED(c!)"))
 				;;org-log-into-drawer "LOGBOOK"
 				org-use-fast-todo-selection t
-				org-startup-with-inline-images t)
+				org-startup-with-inline-images t))
 
 
  (add-hook 'org-mode-hook(lambda ()
@@ -46,9 +36,8 @@
 			    (variable-pitch-mode 1)
 			    (auto-fill-mode 1)
 			    (flyspell-mode 1)
-			    (org-modern-mode))))
-
-;;; End of org-mode use-package
+			    (org-modern-mode)
+			    (zuco/org-hook-fonts)))
 
 
 
@@ -116,6 +105,10 @@
 	    (org-agenda-entry-types '(:scheduled))
 	    (org-deadline-warning-days 0)
 	    (org-agenda-show-all-dates nil)))
+		(tags
+		 "support"
+		 ((org-agenda-overriding-header "Support")
+			(org-agenda-files '("~/notes/gtd/current-pi.org"))))
 	  (tags
 	   "feature"
 	   ((org-agenda-overriding-header "Features")

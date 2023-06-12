@@ -144,6 +144,8 @@
 
 (use-package modus-themes)
 
+(use-package tron-legacy-theme)
+
 (straight-use-package '(nano-theme :type git :host github
                                    :repo "rougier/nano-theme"))
 
