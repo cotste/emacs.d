@@ -6,12 +6,12 @@
 
 (use-package lsp-mode
   :hook
-  ((c++-mode terraform-mode yaml-mode js-mode rust-mode shell-script-mode go-mode json-mode) . lsp-deferred)
+  ((python-mode c++-mode terraform-mode yaml-mode js-mode rust-mode shell-script-mode go-mode json-mode) . lsp-deferred)
   :commands lsp
   :config
   (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
   (setq lsp-headerline-breadcrumb-enable nil)
-  (setq lsp-disabled-clients '(tfls))
+  (setq lsp-disabled-clients '(tfls pylsp))
   (setq lsp-completion-provider :none))
 
 (setq lsp-semantic-tokens-enable t)
@@ -27,7 +27,7 @@
 
 (use-package lsp-ui
   :commands lsp-ui-mode
-  :config (setq lsp-ui-doc-max-width 50)
+  :config (setq lsp-ui-doc-max-width 100)
   (setq lsp-ui-doc-position 'top)
   (setq lsp-ui-doc-border "dark violet"))
 
@@ -137,7 +137,7 @@
 
 ;;; Markdown configurations
 (setq markdown-command "cmark")
-(add-hook 'markdown-mode-hook 'auto-fill-mode)
+;;(add-hook 'markdown-mode-hook 'auto-fill-mode)
 
 ;;(use-package company)
 
@@ -147,6 +147,11 @@
 ;;; Kafka stuff
 (setq kafka-cli-bin-path "/home/chq-stephenco/.local/bin/kafka_2.13-3.1.0/bin")
 (setq kafka-cli-config-path "/home/chq-stephenco/.local/bin/kafka_2.13-3.1.0/bin")
+
+;;; Python Configuration
+(setq python-shell-interpreter "/usr/bin/python3.10")
+(setq python-interpreter "/usr/bin/python3.10")
+(use-package lsp-pyright)
 
 ;;; GraphQL
 

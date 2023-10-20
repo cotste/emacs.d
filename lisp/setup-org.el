@@ -34,7 +34,7 @@
  (add-hook 'org-mode-hook(lambda ()
 			    (visual-line-mode 0)
 			    (variable-pitch-mode 1)
-			    (auto-fill-mode 1)
+;;			    (auto-fill-mode 1)
 			    (flyspell-mode 1)
 			    (org-modern-mode)
 			    (zuco/org-hook-fonts)))

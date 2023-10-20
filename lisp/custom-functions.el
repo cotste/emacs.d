@@ -3,10 +3,8 @@
 
 ;;; Code:
 
-
-
-(defvar cotste-light-theme 'doom-gruvbox-light)
-(defvar cotste-dark-theme 'doom-gruvbox)
+(defvar cotste-light-theme 'modus-operandi)
+(defvar cotste-dark-theme 'modus-vivendi)
 (defvar cotste-current-theme "light")
 
 ;; Check if host is chaos
@@ -29,12 +27,12 @@
 (defun zuco-light-theme ()
 	(interactive)
 	(setq cotste-current-theme "light")
-	(load-theme 'doom-gruvbox-light t))
+	(load-theme 'modus-operandi t))
 
 (defun zuco-dark-theme ()
 	(interactive)
 	(setq cotste-current-theme "dark")
-	(load-theme 'doom-gruvbox t))
+	(load-theme 'modus-vivendi t))
 
 (defun cotste-theme-switch ()
   "Disable current theme and prompt for new theme."

@@ -116,13 +116,15 @@
 
 
 ;;(setq catppuccin-flavor 'latte)
-;;(nano-modeline-mode)
+
 (recentf-mode)
+
+(setq dired-kill-when-opening-new-dired-buffer t)
 
 ;;; Custom Font settings
 (set-face-attribute 'xref-file-header nil :weight 'bold)
 
-(add-hook 'window-setup-hook 'zuco-dark-theme)
+(add-hook 'window-setup-hook 'zuco-light-theme)
 
 (provide 'init)
 
