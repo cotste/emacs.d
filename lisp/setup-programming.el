@@ -3,6 +3,7 @@
 ;;; Code:
 ;; LSP Setup and config
 
+(setq-default indent-tabs-mode nil)
 
 (use-package lsp-mode
   :hook
@@ -50,7 +51,7 @@
 	:after orderless
   :custom
   (corfu-cycle t)
-  (corfu-auto t)
+  (corfu-auto nil)
 	(corfu-separator ?\s)
 	(corfu-quit-no-match t)
 	(corfu-quit-at-boundary nil)
