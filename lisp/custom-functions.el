@@ -27,12 +27,16 @@
 (defun zuco-light-theme ()
 	(interactive)
 	(setq cotste-current-theme "light")
-	(load-theme 'modus-operandi t))
+	;;(load-theme 'modus-operandi t))
+  (setq catppuccin-flavor 'latte)
+  (load-theme 'catppuccin t))
 
 (defun zuco-dark-theme ()
 	(interactive)
 	(setq cotste-current-theme "dark")
-	(load-theme 'modus-vivendi t))
+	;;(load-theme 'modus-vivendi t))
+  (setq catppuccin-flavor 'macchiato)
+  (load-theme 'catppuccin t))
 
 (defun cotste-theme-switch ()
   "Disable current theme and prompt for new theme."
