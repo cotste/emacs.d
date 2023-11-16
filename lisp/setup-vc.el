@@ -10,10 +10,12 @@
   :config
   (setq magit-push-always-verify nil)
   (setq git-commit-summary-max-length 70)
-  (set-face-attribute 'magit-section-heading nil :family "Monaspace Neon" :height 160)
-  (set-face-attribute 'magit-branch-remote nil :family "Monaspace Neon" :height 140 :weight 'bold)
-  (set-face-attribute 'magit-branch-local nil :family "Monaspace Neon" :height 140 :weight 'bold)
+  (set-face-attribute 'magit-section-heading nil :family "Monaspace Xenon" :height 160)
+  (set-face-attribute 'magit-branch-remote nil :family "Monaspace Xenon" :height 140 :weight 'bold)
+  (set-face-attribute 'magit-branch-local nil :family "Monaspace Xenon" :height 140 :weight 'bold)
   (set-face-attribute 'magit-diff-file-heading nil :family "Monaspace Neon" :height 110))
+
+(add-to-list 'project-switch-commands '(magit-project-status "Magit") t)
 
 (use-package magit-popup)
 		       
