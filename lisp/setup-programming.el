@@ -7,7 +7,7 @@
 
 (use-package lsp-mode
   :hook
-  ((python-mode c++-mode terraform-mode yaml-mode js-mode rust-mode shell-script-mode go-mode json-mode) . lsp-deferred)
+  ((python-mode c++-mode terraform-mode yaml-mode js-mode rust-mode shell-script-mode go-mode json-mode java) . lsp-deferred)
   :commands lsp
   :config
   (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
@@ -33,18 +33,21 @@
   (setq lsp-ui-doc-border "dark violet"))
 
 ;; Java LSP
-;; (use-package lsp-java
-;;   :config
-;;   (setq lsp-java-configuration-runtimes '[(:name "JavaSE-1.8"
-;;                                                  :path "/usr/lib/jvm/java-1.8.0-openjdk-amd64"
-;;                                                  :default nil)
-;; 					  (:name "JavaSE-17"
-;; 						 :path "/usr/lib/jvm/java-1.17.0-openjdk-amd64"
-;; 						 :default t)]))
+(use-package lsp-java
+  :config
+  (setq lsp-java-configuration-runtimes '[(:name "JavaSE-1.8"
+                                                 :path "/usr/lib/jvm/java-21"
+                                                 :default nil)
+					                                (:name "JavaSE-17"
+						                                     :path "/usr/lib/jvm/java-17"
+						                                     :default t)])
+  :custom
+  (lsp-java-server-install-dir (expand-file-name "~/.cache/emacs/eclipse.jdt.ls/server/"))
+  (lsp-java-workspace-dir (expand-file-name "~/.cache/emacs/eclipse.jdt.ls/workspace/")))
 
-;;(require 'dap-java)
+(require 'dap-java)
 
-;;(require 'lsp-java-boot)
+(require 'lsp-java-boot)
 
 ;; Completion setup and config
 (use-package corfu
