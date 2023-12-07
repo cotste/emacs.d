@@ -25,18 +25,20 @@
   (string-equal (system-name) "moros"))
 
 (defun zuco-light-theme ()
+  "Switch to the light version of a theme."
 	(interactive)
 	(setq cotste-current-theme "light")
 	;;(load-theme 'modus-operandi t))
-  (setq catppuccin-flavor 'latte)
+  (customize-set-variable catppuccin-flavor 'latte)
   (load-theme 'catppuccin t))
 
 (defun zuco-dark-theme ()
+  "Switch to the dark version of a theme."
 	(interactive)
 	(setq cotste-current-theme "dark")
 	;;(load-theme 'modus-vivendi t))
   (setq catppuccin-flavor 'macchiato)
-  (load-theme 'catppuccin t))
+  (load-theme 'doom-nord t))
 
 (defun cotste-theme-switch ()
   "Disable current theme and prompt for new theme."
@@ -52,7 +54,7 @@
     (setq cotste-current-theme "light"))))
 
 (defun cotste/confirm-babel-evaluate (lang body)
-  "Add languages to babel evaluate for no confirm."
+  "Add LANG to babel evaluate for no confirm in BODY."
   (not (member lang '("C" "sh" "shell"))))
 
 (defun cotste/auto-push ()
@@ -79,7 +81,7 @@
 
 (require 'url-parse)
 (defun cotste/decode-safelink (url)
-  "Given a url string this function returns the corresponding decoded url."
+  "Given a URL string this function returns the corresponding decoded url."
       (let* ((query (url-filename (url-generic-parse-url url)))
              (url (cadr (assoc ".*/?url" (url-parse-query-string query) (lambda (pat x) (string-match-p x pat)))))
              (path (replace-regexp-in-string "3Dhttps" "https" (url-unhex-string url))))
@@ -116,7 +118,7 @@
      (notes-list))))
 
 (defun sjc/new-diary-note ()
-  "Create a diary entry tagged 'journal'."
+  "Create a diary entry tagged \=journal\=."
   (interactive
    (let ((default-directory "~/notes/denote/daily")
 	 (denote-directory "~/notes/denote/daily"))
@@ -131,17 +133,18 @@
 
   ;;; Set Org heading sizes
 
-  (set-face-attribute 'org-level-1 nil :height 1.4)
-  (set-face-attribute 'org-level-2 nil :height 1.3)
-  (set-face-attribute 'org-level-3 nil :height 1.2)
-  (set-face-attribute 'org-level-4 nil :height 1.1)
-  (set-face-attribute 'org-level-5 nil :height 1.0)
+  (set-face-attribute 'org-level-1 nil :family "Jost" :height 1.4)
+  (set-face-attribute 'org-level-2 nil :family "Jost" :height 1.3)
+  (set-face-attribute 'org-level-3 nil :family "Jost" :height 1.2)
+  (set-face-attribute 'org-level-4 nil :family "Jost" :height 1.1)
+  (set-face-attribute 'org-level-5 nil :family "Jost" :height 1.0)
 
   ;;; Set table font to monospace
   (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-hide nil :inherit 'fixed-pitch))
+  (set-face-attribute 'org-hide nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-document-title nil :family "Jost" :height 1.0))
 
 
 (provide 'custom-functions)
