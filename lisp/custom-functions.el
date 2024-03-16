@@ -28,9 +28,9 @@
   "Switch to the light version of a theme."
 	(interactive)
 	(setq cotste-current-theme "light")
-	;;(load-theme 'modus-operandi t))
   (customize-set-variable catppuccin-flavor 'latte)
-  (load-theme 'catppuccin t))
+  (disable-theme 'doom-gruvbox)
+  (load-theme 'doom-gruvbox-light t))
 
 (defun zuco-dark-theme ()
   "Switch to the dark version of a theme."
@@ -38,7 +38,8 @@
 	(setq cotste-current-theme "dark")
 	;;(load-theme 'modus-vivendi t))
   (setq catppuccin-flavor 'macchiato)
-  (load-theme 'doom-nord t))
+  (disable-theme 'doom-gruvbox-light)
+  (load-theme 'doom-gruvbox t))
 
 (defun cotste-theme-switch ()
   "Disable current theme and prompt for new theme."

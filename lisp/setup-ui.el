@@ -7,14 +7,14 @@
 ;; Set up fonts
 
 ;;(set-face-attribute 'default nil :family "RobotoMono Nerd Font" :height 125)
-(set-face-attribute 'default nil :family "Monaspace Neon" :height 125)
+(set-face-attribute 'default nil :family "MonaspiceNe NF" :height 125)
 ;;(set-face-attribute 'default nil :family "Inconsolata" :height 115 :weight 'Regular)
 ;;(set-face-attribute 'default nil :family "Iosevka" :height 110)
 ;;(set-face-attribute 'variable-pitch nil :family "Source Sans Pro" :height 120)
 ;;(set-face-attribute 'variable-pitch nil :family "Monaspace Krypton" :height 125)
 (set-face-attribute 'variable-pitch nil :family "Vollkorn" :height 125)
 ;;(set-face-attribute 'variable-pitch nil :family "iA Writer Quattro V" :weight 'Regular :height 125)
-(set-face-attribute 'fixed-pitch nil :family "Monaspace Neon" :height 125)
+(set-face-attribute 'fixed-pitch nil :family "MonaspiceNe NF" :height 125)
 ;;(set-face-attribute 'fixed-pitch nil :family "Iosevka Extended" :height 105 :weight 'regular)
 
 

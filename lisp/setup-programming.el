@@ -36,10 +36,10 @@
 (use-package lsp-java
   :config
   (setq lsp-java-configuration-runtimes '[(:name "JavaSE-1.8"
-                                                 :path "/usr/lib/jvm/java-21"
+                                                 :path "/usr/lib/jvm/jre-21"
                                                  :default nil)
 					                                (:name "JavaSE-17"
-						                                     :path "/usr/lib/jvm/java-17"
+						                                     :path "/usr/lib/jvm/jre-17"
 						                                     :default t)])
   :custom
   (lsp-java-server-install-dir (expand-file-name "~/.cache/emacs/eclipse.jdt.ls/server/"))
@@ -47,7 +47,7 @@
 
 (require 'dap-java)
 
-(require 'lsp-java-boot)
+;;(require 'lsp-java-boot)
 
 ;; Completion setup and config
 (use-package corfu
@@ -162,6 +162,8 @@
 (use-package graphql-mode)
 
 (use-package sicp)
+
+(use-package ansible)
 
 (provide 'setup-programming)
 

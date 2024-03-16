@@ -6,6 +6,7 @@
 
 ;; Configure Kill prefix
 (global-set-key (kbd "C-c k w") 'kill-buffer-and-window)
+(global-set-key (kbd "C-c r") 'async-shell-command)
 
 
 (provide 'setup-keybindings)
