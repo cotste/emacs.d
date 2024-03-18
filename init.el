@@ -130,6 +130,9 @@
   (setq catpuccin-flavor 'frappe)
   ('zuco-dark-theme))
 
+(when (string-equal system-name "moros")
+  (load-theme 'doom-gruvbox t))
+
 (when (string-equal system-name "persephone")
   (setq catpuccin-flavor 'frappe)
   (load-theme 'catppuccin t))
