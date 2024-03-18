@@ -124,7 +124,15 @@
 ;;; Custom Font settings
 (set-face-attribute 'xref-file-header nil :weight 'bold)
 
-(add-hook 'window-setup-hook 'zuco-dark-theme)
+;;(add-hook 'window-setup-hook 'zuco-dark-theme)
+
+(when (string-equal system-name "pan")
+  (setq catpuccin-flavor 'frappe)
+  ('zuco-dark-theme))
+
+(when (string-equal system-name "persephone")
+  (setq catpuccin-flavor 'frappe)
+  (load-theme 'catppuccin t))
 
 (provide 'init)
 
