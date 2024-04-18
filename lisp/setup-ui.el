@@ -5,17 +5,23 @@
 (eval-when-compile (require 'use-package))
 
 ;; Set up fonts
-
+(set-face-attribute 'default nil :family "MonaspiceNe NF" :height 110)
+(set-face-attribute 'variable-pitch nil :family "iA Writer Quattro V" :weight 'Regular :height 110)
+(set-face-attribute 'fixed-pitch nil :family "MonaspiceNe NF" :height 110)
 ;;(set-face-attribute 'default nil :family "RobotoMono Nerd Font" :height 125)
-(set-face-attribute 'default nil :family "MonaspiceNe NF" :height 125)
 ;;(set-face-attribute 'default nil :family "Inconsolata" :height 115 :weight 'Regular)
 ;;(set-face-attribute 'default nil :family "Iosevka" :height 110)
-;;(set-face-attribute 'variable-pitch nil :family "Source Sans Pro" :height 120)
+;;(set-face-attribute 'variable-pitch nil :family "Vollkorn" :height 110)
 ;;(set-face-attribute 'variable-pitch nil :family "Monaspace Krypton" :height 125)
-(set-face-attribute 'variable-pitch nil :family "Vollkorn" :height 125)
-;;(set-face-attribute 'variable-pitch nil :family "iA Writer Quattro V" :weight 'Regular :height 125)
-(set-face-attribute 'fixed-pitch nil :family "MonaspiceNe NF" :height 125)
+;;(set-face-attribute 'variable-pitch nil :family "Source Sans Pro" :height 120)
 ;;(set-face-attribute 'fixed-pitch nil :family "Iosevka Extended" :height 105 :weight 'regular)
+
+(defface org-headers
+  '((t :family "Monaspace Krypton"
+       :height 110
+       ))
+  "my org headers face.")
+  
 
 
 ;;; Tab settings
@@ -41,71 +47,71 @@
 ;; (defvar modus-themes-completions
 ;;       '((matches . (extrabold background intense))))
 
-;; (setq modus-themes-syntax '(green-strings alt-syntax yellow-comments))
-;; (setq masodus-themes-mixed-fonts t)
-;; (setq modus-themes-headings
-;;       '((1 . (variable-pitch 1.2))
-;;         (2 . (fixed-pitch-serif 1.1))
-;;         (3 . (fixed-pitch-serif 1.0))
-;;         (4 . (fixed-pitch-serif 1.0))
-;;         (5 . (fixed-pitch-serif 1.0))
-;;         (6 . (fixed-pitch-serif 1.0))))
-;; (setq modus-themes-vivendi-color-overrides
-;;       '((bg-main . "#24283b")
-;;         (bg-dim . "#24283b")
-;;         (bg-alt . "#35394c")))
-;; (setq modus-themes-fringes 'nil)
-;; (setq modus-themes-bold-constructs t)
-;; (setq modus-themes-italic-constructs t)
-;; (setq modus-themes-modeline '(3d moody accented))
-;; (setq modus-themes-org-blocks 'gray-background)
-;; (setq modus-themes-mixed-fonts t)
+(setq modus-themes-syntax '(green-strings alt-syntax yellow-comments))
+(setq masodus-themes-mixed-fonts t)
+(setq modus-themes-headings
+      '((1 . (org-headers 1.2))
+        (2 . (org-headers 1.1))
+        (3 . (fixed-pitch-serif 1.0))
+        (4 . (fixed-pitch-serif 1.0))
+        (5 . (fixed-pitch-serif 1.0))
+        (6 . (fixed-pitch-serif 1.0))))
+(setq modus-themes-vivendi-color-overrides
+      '((bg-main . "#24283b")
+        (bg-dim . "#24283b")
+        (bg-alt . "#35394c")))
+(setq modus-themes-fringes 'nil)
+(setq modus-themes-bold-constructs t)
+(setq modus-themes-italic-constructs t)
+(setq modus-themes-modeline '(3d moody accented))
+(setq modus-themes-org-blocks 'gray-background)
+(setq modus-themes-mixed-fonts t)
 
-;; (customize-set-variable 'modus-operandi-palette-overrides
-;; 						'(
-;; 						  (bg-inactive "#e0e0e0")
-;; 						  (bg-main "#FAF9F6")
-;; 						  (fg-main "#21130d")
+(setq modus-operandi-palette-overrides
+						'(
+						  (bg-inactive "#e0e0e0")
+						  (bg-main "#FAF9F6")
+						  (fg-main "#21130d")
 
-;; 						  ;;(magenta-intense "#69a995")
-;; 						  ;;(magenta-cooler "#447c69")
-;; 						  ;;(magenta-warmer "#2c4d45")
+						  ;;(magenta-intense "#69a995")
+						  ;;(magenta-cooler "#447c69")
+						  ;;(magenta-warmer "#2c4d45")
 
-;; 						  (yellow-faint "#042f66")
-;; 						  (yellow-intense "#f3d000")
-;; 						  ;;(yellow-warmer
+						  (yellow-faint "#042f66")
+						  (yellow-intense "#f3d000")
+						  ;;(yellow-warmer
 
-;; 						  (blue-warmer "#505965")
-;; 						  (blue-intense "#377c8f")
-;; 						  (blue-cooler "#1979a9")
+						  (blue-warmer "#505965")
+						  (blue-intense "#377c8f")
+						  (blue-cooler "#1979a9")
 							
-;; 							(magenta "#713f94")
-;; 							(magenta-warmer "#653189")
-;; 							(magenta-cooler "#725686")
+							(magenta "#713f94")
+							(magenta-warmer "#653189")
+							(magenta-cooler "#725686")
 
-;; 							(bg-completion "#e0e0e0")
-;; 							(fg-completion-match-0 red-faint)
-;; 							(fg-completion-match-1 blue-intense)
-;; 							(fg-completion-match-2 green-warmer)
-;; 							(fg-completion-match-3 red)
+							(bg-completion "#e0e0e0")
+							(fg-completion-match-0 red-faint)
+							(fg-completion-match-1 blue-intense)
+							(fg-completion-match-2 green-warmer)
+							(fg-completion-match-3 red)
 
-;; 							(bg-paren-match bg-inactive)
+							(bg-paren-match bg-inactive)
 
-;; 							(builtin green-warmer)
+							(builtin green-warmer)
 
-;; 							(rainbow-0 fg-main)
-;; 							(rainbow-1 red)
-;; 							(rainbow-2 blue-intense)
-;; 							(rainbow-3 green-intense)
-;; 							(rainbow-4 cyan-intense)
-;; 							(rainbow-5 yellow-intense)
+							(rainbow-0 fg-main)
+							(rainbow-1 red)
+							(rainbow-2 blue-intense)
+							(rainbow-3 green-intense)
+							(rainbow-4 cyan-intense)
+							(rainbow-5 yellow-intense)
 							
-;; 							(fringe "#FAF9F6")
-;; 						  ))
+							(fringe "#FAF9F6")
+						  ))
 
-;; (customize-set-variable 'modus-vivendi-palette-overrides
-;;       '((bg-main "#232323")
-;; 				))
+(setq modus-vivendi-palette-overrides
+      '((bg-main "#232323")
+				))
 
 ;; Lambda Theme
 ;;(use-package lambda-themes
@@ -144,6 +150,8 @@
 (use-package modus-themes)
 
 (use-package tron-legacy-theme)
+
+(use-package kanagawa-theme)
 
 (straight-use-package '(nano-theme :type git :host github
                                    :repo "rougier/nano-theme"))

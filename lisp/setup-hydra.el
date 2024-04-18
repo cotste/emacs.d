@@ -16,7 +16,7 @@
 (use-package hydra-posframe
   :straight (:type git :host github :repo "ladicle/hydra-posframe")
   :config (setq hydra-posframe-parameters '((right-fringe . 20) (left-fringe . 5)))
-  :hook (after-init . hydra-posframe-enable))
+  :hook (after-init . hydra-posframe-mode))
 
 (use-package major-mode-hydra)
 

@@ -27,19 +27,41 @@
 (defun zuco-light-theme ()
   "Switch to the light version of a theme."
 	(interactive)
+	(setq zuco-current-theme "light")
+  (setq catppuccin-flavor 'latte)
+  (disable-theme 'catppuccin)
+  (load-theme 'catppuccin t))
+
+(defun cotste-light-theme ()
+  "Switch to the light version of a theme."
+	(interactive)
 	(setq cotste-current-theme "light")
-  (customize-set-variable catppuccin-flavor 'latte)
-  (disable-theme 'doom-gruvbox)
-  (load-theme 'doom-gruvbox-light t))
+  (disable-theme 'modus-vivendi)
+  (load-theme 'modus-operandi t))
 
 (defun zuco-dark-theme ()
   "Switch to the dark version of a theme."
 	(interactive)
+	(setq zuco-current-theme "dark")
+  (setq catppuccin-flavor 'frappe)
+  (disable-theme 'catppuccin)
+  (load-theme 'catppuccin t))
+
+(defun cotste-dark-theme ()
+  "Switch to the dark version of a theme."
+	(interactive)
 	(setq cotste-current-theme "dark")
-	;;(load-theme 'modus-vivendi t))
-  (setq catppuccin-flavor 'macchiato)
-  (disable-theme 'doom-gruvbox-light)
-  (load-theme 'doom-gruvbox t))
+  (disable-theme 'modus-operandi)
+  (load-theme 'modus-vivendi t))
+
+(defun zuco-switch-theme ()
+  "Swap between light and dark themes."
+  (interactive)
+  (cond
+   ((string-equal zuco-current-theme "light")
+    (zuco-dark-theme))
+   ((string-equal zuco-current-theme "dark")
+    (zuco-light-theme))))
 
 (defun cotste-theme-switch ()
   "Disable current theme and prompt for new theme."

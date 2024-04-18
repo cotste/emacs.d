@@ -5,16 +5,27 @@
 
 (setq-default indent-tabs-mode nil)
 
+;; (use-package cape)
+
+;; (use-package eglot
+;;   :ensure t
+;;   :hook ((( java-mode python-mode rust-mode) . eglot-ensure)))
+
+;; (setq completion-category-overrides '((eglot (styles orderless))
+;;                                       (eglot-capf (styles orderless))))
+
+;; (use-package eglot-java)
+
 (use-package lsp-mode
   :hook
-  ((python-mode c++-mode terraform-mode yaml-mode js-mode rust-mode shell-script-mode go-mode json-mode java) . lsp-deferred)
+  ((python-mode c++-mode terraform-mode yaml-mode js-mode rust-mode shell-script-mode go-mode json-mode java-mode) . lsp-deferred)
   :commands lsp
   :config
   (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
   (setq lsp-headerline-breadcrumb-enable nil)
-  (setq lsp-disabled-clients '(tfls pylsp))
-  (setq lsp-completion-provider :none))
+  (setq lsp-disabled-clients '(tfls pylsp)))
 
+(setq lsp-completion-provider :none)
 (setq lsp-semantic-tokens-enable t)
 (setq lsp-semantic-tokens-honor-refresh-requests t)
 (setq lsp-terraform-ls-enable-show-reference t)
@@ -26,28 +37,36 @@
 
 ;;(add-hook 'lsp-mode-hook #'corfu-lsp-setup)
 
+;; (add-to-list 'completion-at-point-functions #'lsp-completion-at-point)
+;; (add-to-list 'completion-at-point-functions #'eglot-completion-at-point)
+
 (use-package lsp-ui
   :commands lsp-ui-mode
   :config (setq lsp-ui-doc-max-width 100)
-  (setq lsp-ui-doc-position 'top)
-  (setq lsp-ui-doc-border "dark violet"))
+  (setq lsp-ui-doc-position 'top))
+  ;;(setq lsp-ui-doc-border "dark violet"))
 
 ;; Java LSP
 (use-package lsp-java
+  :after lsp-mode
   :config
-  (setq lsp-java-configuration-runtimes '[(:name "JavaSE-1.8"
-                                                 :path "/usr/lib/jvm/jre-21"
-                                                 :default nil)
+  (setq lsp-java-configuration-runtimes '[;;(:name "JavaSE-21"
+                                          ;;       :path "/usr/lib/jvm/jre-21"
+                                          ;;       :default nil)
 					                                (:name "JavaSE-17"
 						                                     :path "/usr/lib/jvm/jre-17"
 						                                     :default t)])
+  (add-hook 'java-mode-hook 'lsp)
   :custom
-  (lsp-java-server-install-dir (expand-file-name "~/.cache/emacs/eclipse.jdt.ls/server/"))
-  (lsp-java-workspace-dir (expand-file-name "~/.cache/emacs/eclipse.jdt.ls/workspace/")))
+  (lsp-java-server-install-dir (expand-file-name "~/.emacs.d/.cache/lsp/eclipse.jdt.ls/"))
+;;  (lsp-java-workspace-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/workspace/"))
+  )
 
-(require 'dap-java)
+;; (require 'dap-java)
 
-;;(require 'lsp-java-boot)
+;; (require 'lsp-java-boot)
+
+;; (use-package company)
 
 ;; Completion setup and config
 (use-package corfu
@@ -101,7 +120,7 @@
 
 (use-package treemacs
   :bind (:map global-map
-	      ("C-x t t" . treemacs)
+	            ("C-x t t" . treemacs)
               ("C-x t s" . treemacs-select-window))
   :config
   (progn
@@ -164,6 +183,10 @@
 (use-package sicp)
 
 (use-package ansible)
+
+;; Override the html modes with my keybinds
+(add-hook 'html-mode-hook 'zuco-mode)
+(add-hook 'mhtml-mode-hook 'zuco-mode)
 
 (provide 'setup-programming)
 

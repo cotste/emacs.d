@@ -111,6 +111,7 @@
 (require 'setup-programming)
 (require 'setup-rss)
 (require 'setup-hydra)
+(require 'setup-modes)
 
 (require 'wgrep)
 
@@ -127,15 +128,20 @@
 ;;(add-hook 'window-setup-hook 'zuco-dark-theme)
 
 (when (string-equal system-name "pan")
-  (setq catpuccin-flavor 'frappe)
   ('zuco-dark-theme))
 
 (when (string-equal system-name "moros")
-  (load-theme 'doom-gruvbox t))
-
+  (setq catppuccin-flavor 'frappe)
+  (add-hook 'window-setup-hook 'cotste-light-theme))
+  
 (when (string-equal system-name "persephone")
-  (setq catpuccin-flavor 'frappe)
+  (setq catppuccin-flavor 'frappe)
   (load-theme 'catppuccin t))
+
+(set-face-attribute 'completions-common-part nil :inherit 'orderless-match-face-0)
+(set-face-attribute 'completions-first-difference nil :inherit 'orderless-match-face-0)
+(set-face-foreground 'completions-common-part
+                     (face-foreground 'orderless-match-face-0))
 
 (provide 'init)
 
