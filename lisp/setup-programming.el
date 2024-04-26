@@ -156,7 +156,7 @@
 (add-hook 'hcl-mode-hook 'display-line-numbers-mode)
 (add-hook 'terraform-mode-hook 'display-line-numbers-mode)
 (add-hook 'prog-mode-hook (lambda ()
-					(setq tab-width 2)))
+					(setq tab-width 4)))
 
 ;;; Markdown configurations
 (setq markdown-command "cmark")
@@ -174,10 +174,14 @@
 ;;; Python Configuration
 (setq python-shell-interpreter "/usr/bin/python3.10")
 (setq python-interpreter "/usr/bin/python3.10")
+
 (use-package lsp-pyright)
 
-;;; GraphQL
+(use-package pyenv)
 
+(use-package pyvenv)
+
+;;; GraphQL
 (use-package graphql-mode)
 
 (use-package sicp)

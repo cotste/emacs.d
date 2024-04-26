@@ -4,29 +4,66 @@
 
 ;;(require 'custom-functions)
 
+(require 'disp-table)
+
+(setq default-frame-alist
+      (append (list
+	           '(min-height . 1)
+               '(height     . 45)
+	           '(min-width  . 1)
+               '(width      . 81)
+               '(vertical-scroll-bars . nil)
+               '(internal-border-width . 24)
+               '(left-fringe    . 1)
+               '(right-fringe   . 1)
+               '(tool-bar-lines . 0)
+               '(menu-bar-lines . 0))))
+
+(setq inhibit-startup-screen t
+      inhibit-startup-message t
+      inhibit-startup-echo-area-message t
+      initial-scratch-message nil)
+(when (fboundp 'tool-bar-mode) (tool-bar-mode nil))
+(tooltip-mode 0)
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode nil))
+(menu-bar-mode 0)
+;; (global-hl-line-mode 1)
+(setq x-underline-at-descent-line t)
+
+;; Vertical window divider
+(setq window-divider-default-right-width 24)
+(setq window-divider-default-places 'right-only)
+(window-divider-mode 1)
+
+;; No ugly button for checkboxes
+(setq widget-image-enable nil)
+
+;; Hide org markup for README
+(setq org-hide-emphasis-markers t)
+
 (defun host-is-moros ()
   "Return non-nil if hostname is moros"
   (string-equal (system-name) "moros"))
 
-(when (host-is-moros)
-  (setq-default initial-frame-alist
-		(append (list
-;;			 '(fullscreen . maximized)
-;;                         '(width . 200)
-;;                         '(height . 52)
-			 '(internal-border-width . 18)
-			 '(tool-bar-lines . 0)
-			 '(vertical-scroll-bars . nil)
-			 '(horizontal-scroll-bars . nil)
-			 )))
-  (setq-default default-frame-alist
-		(append (list
-			 '(frame-title-format . nil)
-			 '(internal-border-width . 18)
-			 '(tool-bar-lines . 0)
-			 '(vertical-scroll-bars . nil)
-			 '(horizontal-scroll-bars . nil)
-			 ))))
+;; (when (host-is-moros)
+;;   (setq-default initial-frame-alist
+;; 		(append (list
+;; ;;			 '(fullscreen . maximized)
+;; ;;                         '(width . 200)
+;; ;;                         '(height . 52)
+;; 			 '(internal-border-width . 18)
+;; 			 '(tool-bar-lines . 0)
+;; 			 '(vertical-scroll-bars . nil)
+;; 			 '(horizontal-scroll-bars . nil)
+;; 			 )))
+;;   (setq-default default-frame-alist
+;; 		(append (list
+;; 			 '(frame-title-format . nil)
+;; 			 '(internal-border-width . 18)
+;; 			 '(tool-bar-lines . 0)
+;; 			 '(vertical-scroll-bars . nil)
+;; 			 '(horizontal-scroll-bars . nil)
+;; 			 ))))
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -38,7 +75,7 @@
 ;; There are some issues with VcXsrv and full screen applications
 ;;(setq default-frame-alist '((undecorated . t)))
 
-(setq inhibit-splash-screen t)
+;;(setq inhibit-splash-screen t)
 
 ;; Turn off package
 (setq package-enable-at-startup nil)
