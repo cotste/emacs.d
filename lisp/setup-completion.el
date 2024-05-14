@@ -65,14 +65,6 @@
   ;; Enable recursive minibuffers
   (setq enable-recursive-minibuffers t))
 
-;; Install and configure Vertico
-;; (use-package vertico
-;;   :straight (:host github :repo "minad/vertico"
-;;   :includes (vertico-directory)
-;;   :files (:defaults "extensions/vertico-directory.el"))
-;;   :init
-;;   (vertico-mode))
-
 ;; (use-package savehist
 ;;   :init
 ;;   (savehist-mode))
@@ -87,7 +79,8 @@
 (use-package consult
   :bind
   (("C-x b" . consult-buffer)
-   ("M-y" . consult-yank-pop)))
+   ("M-y" . consult-yank-pop)
+   ("C-s" . consult-line)))
 
  (provide 'setup-completion)
 

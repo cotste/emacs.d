@@ -9,7 +9,8 @@
   :bind
   ("C-c b" . hydra-browse/body)
   ("C-c n" . hydra-note/body)
-  ("C-c t" . hydra-time/body))
+  ("C-c t" . hydra-time/body)
+  ("C-c e" . hydra-config/body))
 
 (use-package posframe)
 
@@ -38,6 +39,7 @@
   ("e" (cotste/browse-url-with-eww) :exit t))
 
 (defvar hydra--browse-title (all-the-icons-faicon "firefox" 1 -0.05 :height 3.0))
+(defvar hydra--emacs-title (all-the-icons-fileicon "emacs" 1 -0.05 :height 3.0))
 (defvar hydra--note-title (all-the-icons-faicon "sticky-note-o" 1 -0.05 :height 3.0))
 (defvar hydra--time-title (all-the-icons-faicon "clock-o" 1 -0.05 :height 6.0))
 
@@ -53,7 +55,7 @@
 (pretty-hydra-define hydra-note
   (:title hydra--note-title :quit-key "q")
   ("Denote"
-   (("n" denote-create-note "New Denote" :exit t)
+   (("n" denote-signature "New Denote" :exit t)
     ("t" denote-type "New Denote - Type" :exit t)
     ("r" denote-rename-file "Rename to Denote" :exit t)
     ("s" sjc-select-denote-silo "Select Denote Silo" :exit t))
@@ -78,6 +80,17 @@
    (("c" calendar "Open Calendar" :exit t)
     ("d" org-deadline "Set Deadline" :exit t)
     ("s" org-schedule "Set Schedule" :exit t))))
+
+(pretty-hydra-define hydra-config
+  (:title hydra--emacs-title :quit-key "q")
+  ("Init"
+   (("e" (find-file "~/.emacs.d/init.el") "Edit Init" :exit t)
+    ("o" (dired "~/.emacs.d") "Open Config Dir" :exit t)
+    ("l" (dired "~/.emacs.d/lisp") "Open Lisp Dir" :exit t)
+    ("f" (consult-find "~/.emacs.d") "Search for file" :exit t))
+   "Git"
+   (("m" (magit-status "~/.emacs.d") "Magit" :exit t))))
+
   
 
 

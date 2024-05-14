@@ -26,10 +26,10 @@
 ;;   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 ;; Turn off vc-mode
-(with-eval-after-load 'vc
-  (remove-hook 'find-file-hook 'vc-find-file-hook)
-  (remove-hook 'find-file-hook 'vc-refresh-state)
-  (setq vc-handled-backends nil))
+;; (with-eval-after-load 'vc
+;;   (remove-hook 'find-file-hook 'vc-find-file-hook)
+;;   (remove-hook 'find-file-hook 'vc-refresh-state)
+;;   (setq vc-handled-backends nil))
 
 (use-package magit-popup)
 		       

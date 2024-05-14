@@ -112,18 +112,15 @@
 	  (tags
 	   "feature"
 	   ((org-agenda-overriding-header "Features")
-			(org-agenda-files '("~/notes/gtd/current-pi.org"
-													"~/notes/gtd/core-systems.org"))))
+			(org-agenda-files '("~/notes/gtd/current-pi.org"))))
 	  (tags-todo
 	   "story"
 	   ((org-agenda-overriding-header "Stories")
-			(org-agenda-files '("~/notes/gtd/current-pi.org"
-													"~/notes/gtd/core-systems.org"))))
+			(org-agenda-files '("~/notes/gtd/current-pi.org"))))
 	  (tags-todo
 	   "task"
 	   ((org-agenda-overriding-header "Tasks")
-			(org-agenda-files '("~/notes/gtd/current-pi.org"
-													"~/notes/gtd/core-systems.org"))))
+			(org-agenda-files '("~/notes/gtd/current-pi.org"))))
 	  (agenda "")))
 	("p" "Personal"
 	 ((tags
@@ -146,6 +143,22 @@
     (setq pub-dir (concat org-export-output-directory-prefix (substring extension 1)))
     (when (not (file-directory-p pub-dir))
       (make-directory pub-dir))))
+
+;; Export org to a nice looking PDF file
+(with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes
+               '("org-notes"
+                 "\\documentclass[12pt]{article}
+                  [NO-DEFAULT-PACKAGES]
+                  [EXTRA]
+                  \\input{/home/chq-stephenco/.emacs.d/.local/custom-org-latex-classes/notes-setup-file.tex}"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
+(setq org-latex-compiler "xelatex")
 
 (use-package ox-hugo)
 

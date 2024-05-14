@@ -5,8 +5,10 @@
 
 (defun my-mode-hooks ()
   (add-hook 'prog-mode-hook            #'my-prog-mode-hook)
+  (add-hook 'conf-mode-hook            #'my-conf-mode-hook)
   (add-hook 'text-mode-hook            #'my-text-mode-hook)
   (add-hook 'org-mode-hook             #'my-org-mode-hook)
+  (add-hook 'org-agenda-mode-hook      #'my-agenda-mode-hook)
   (add-hook 'magit-mode-hook           #'my-magit-mode-hook)
   (add-hook 'pdf-view-mode-hook        #'nano-modeline-pdf-mode)
   (add-hook 'mu4e-headers-mode-hook    #'nano-modeline-mu4e-headers-mode)
@@ -25,8 +27,16 @@
   (add-hook 'prog-mode-hook            #'nano-modeline-prog-mode)
   (setq mode-line-format nil))
 
+(defun my-conf-mode-hook ()
+  (add-hook 'conf-mode-hook            #'nano-modeline-prog-mode)
+  (setq mode-line-format nil))
+
 (defun my-org-mode-hook ()
   (add-hook 'org-mode-hook            #'nano-modeline-org-mode)
+  (setq mode-line-format nil))
+
+(defun my-agenda-mode-hook ()
+  (add-hook 'org-agenda-mode-hook     #'nano-modeline-org-mode)
   (setq mode-line-format nil))
 
 (defun my-text-mode-hook ()
@@ -213,6 +223,16 @@
   (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-hide nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-document-title nil :family "Jost" :height 1.0))
+
+(defun zuco/org-export-pdf-notes ()
+"Export subtree of notes to PDF file. Note uses a distinctive quote style."
+(interactive)
+(let ((org-latex-default-quote-environment "quote-b"))
+  (org-narrow-to-subtree)
+  (save-excursion
+    (goto-char (point-min))
+    (org-latex-export-to-pdf t t nil nil '(:latex-class "org-notes")))
+  (widen)))
 
 
 (provide 'custom-functions)
