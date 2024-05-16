@@ -43,7 +43,7 @@
 
 ")
   (setq denote-known-keywords '("emacs" "ecp" "devops"))
-  (setq denote-dired-directories '("~/notes/denote" "~/notes/denote/daily" "~/notes/denote/blog"))
+  (setq denote-dired-directories '("~/notes/denote" "~/notes/denote/daily" "~/notes/denote/blog" "~/notes/denote/expd"))
 
 	(setq denote-link-backlinks-display-buffer-action
           (quote ((display-buffer-reuse-window
