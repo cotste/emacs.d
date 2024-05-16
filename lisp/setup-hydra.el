@@ -11,6 +11,7 @@
   ("C-c n" . hydra-note/body)
   ("C-c t" . hydra-time/body)
   ("C-c e" . hydra-config/body)
+  ("C-c f" . hydra-fonts/body)
   ("C-c m" . hydra-magit/body))
 
 (use-package posframe)
@@ -44,6 +45,7 @@
 (defvar hydra--note-title (all-the-icons-faicon "sticky-note-o" 1 -0.05 :height 3.0))
 (defvar hydra--time-title (all-the-icons-faicon "clock-o" 1 -0.05 :height 6.0))
 (defvar hydra--magit-title (all-the-icons-faicon "git" 1 -0.05 :height 6.0))
+(defvar hydra--fonts-title (all-the-icons-faicon "font" 1 -0.05 :height 6.0))
 
 (pretty-hydra-define hydra-browse
   (:color pink :title hydra--browse-title :quit-key "q")
@@ -53,6 +55,12 @@
     ("s" cotste/browse-safelink-url "Browse Safelink" :exit t))
    "URL's"
    (("c" shr-copy-url "Copy URL" :exit t))))
+
+(pretty-hydra-define hydra-fonts
+  (:color pink :title hydra--browse-title :quit-key "q")
+  ("Browser"
+   (("u" (set-face-attribute 'default nil :height 130) "Scale fonts to 130" :exit t)
+    ("d" (set-face-attribute 'default nil :height 110) "Scale fonts to 110" :exit t))))
 
 (pretty-hydra-define hydra-note
   (:title hydra--note-title :quit-key "q")
