@@ -40,6 +40,7 @@
 #+identifier: %s
 #+summary: %1$s
 #+icon: octicons/note
+#+options: ^:{}
 
 ")
   (setq denote-known-keywords '("emacs" "ecp" "devops"))
