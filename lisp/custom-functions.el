@@ -169,10 +169,12 @@
 (defvar sjc-denote-silos
   '("~/notes/denote"
     "~/notes/denote/daily"
-    "~/notes/denote/blog"))
+    "~/notes/denote/blog"
+    "~/notes/denote/expd"))
 
 (defvar sjc-denote-silo-commands
-  '(denote
+  '(denote-signature
+    denote
     denote-template))
 
 (defun sjc-select-denote-silo (silo command)
@@ -234,6 +236,15 @@
     (org-latex-export-to-pdf t t nil nil '(:latex-class "org-notes")))
   (widen)))
 
+(defun sjc-clone-ecp-repo ()
+  "Clone an ECP repo."
+  (interactive)
+   (let ((repo (read-from-minibuffer "Enter the group/repo or repo to clone: ")))
+     (let ((repo-dir (format "~/repos/expd/ecp/%s" repo)))
+       (setq magit-clone-set-remote.pushDefault t )
+       (magit-clone-internal (format "git@gitlab.chq.ei:enterprise-core-platform/%s" repo)
+                            (format "%s" repo-dir)
+                            '()))))
 
 (provide 'custom-functions)
 

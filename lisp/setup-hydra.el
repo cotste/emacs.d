@@ -10,7 +10,8 @@
   ("C-c b" . hydra-browse/body)
   ("C-c n" . hydra-note/body)
   ("C-c t" . hydra-time/body)
-  ("C-c e" . hydra-config/body))
+  ("C-c e" . hydra-config/body)
+  ("C-c m" . hydra-magit/body))
 
 (use-package posframe)
 
@@ -42,6 +43,7 @@
 (defvar hydra--emacs-title (all-the-icons-fileicon "emacs" 1 -0.05 :height 3.0))
 (defvar hydra--note-title (all-the-icons-faicon "sticky-note-o" 1 -0.05 :height 3.0))
 (defvar hydra--time-title (all-the-icons-faicon "clock-o" 1 -0.05 :height 6.0))
+(defvar hydra--magit-title (all-the-icons-faicon "git" 1 -0.05 :height 6.0))
 
 (pretty-hydra-define hydra-browse
   (:color pink :title hydra--browse-title :quit-key "q")
@@ -91,8 +93,22 @@
    "Git"
    (("m" (magit-status "~/.emacs.d") "Magit" :exit t))))
 
-  
-
+;;Hydra for general Magit tasks
+(pretty-hydra-define hydra-magit
+  (:title hydra--magit-title :quit-key "q")
+  ("Clone"
+   (("c" (magit-clone) "Clone Repo" :exit t)
+    ("e" (sjc-clone-ecp-repo) "Clone ECP Repo" :color blue))
+   "Stage"
+   (("s" (magit-stage-file (buffer-file-name)) "Stage File" :exit t)
+    ("u" (magit-unstage-file (buffer-file-name)) "Unstage File" :exit t)
+    ("a" (magit-stage-modified) "Stage Modified" :exit t))
+   "Diff"
+   (("df" (magit-diff-buffer-file) "Diff File" :exit t)
+    ("ds" (magit-diff-staged) "Diff Staged" :exit t)
+    ("du" (magit-diff-unstaged) "Diff Unstaged" :exit t))
+   "Status"
+   (("rp" (magit-project-status) "Project Status" :exit t))))
 
 (define-key elfeed-show-mode-map "B" 'hydra-browse/body)
 
