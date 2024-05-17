@@ -107,6 +107,10 @@
   ("Clone"
    (("c" (magit-clone) "Clone Repo" :exit t)
     ("e" (sjc-clone-ecp-repo) "Clone ECP Repo" :color blue))
+   "Branch"
+   (("bs" (magit-branch) "Select Branch - Not Impl" :exit t)
+    ("bm" (magit-main-branch) "Switch to Main" :exit t)
+    ("bc" (magit-branch-create) "Create Branch Not Impl" :exit t))
    "Stage"
    (("s" (magit-stage-file (buffer-file-name)) "Stage File" :exit t)
     ("u" (magit-unstage-file (buffer-file-name)) "Unstage File" :exit t)
