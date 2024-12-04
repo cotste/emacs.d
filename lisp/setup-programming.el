@@ -51,10 +51,10 @@
   :after lsp-mode
   :config
   (setq lsp-java-configuration-runtimes '[;;(:name "JavaSE-21"
-                                          ;;       :path "/usr/lib/jvm/jre-21"
+                                          ;;       :path "/usr/lib/jvm/java-21"
                                           ;;       :default nil)
 					                                (:name "JavaSE-17"
-						                                     :path "/usr/lib/jvm/jre-17"
+						                                     :path "/usr/lib/jvm/java-17"
 						                                     :default t)])
   (add-hook 'java-mode-hook 'lsp)
   :custom
@@ -94,7 +94,8 @@
 
 (use-package highlight-indent-guides
 	:config
-	(setq highlight-indent-guides-method 'character))
+	(setq highlight-indent-guides-method 'character)
+    (setq highlight-indent-guides-auto-character-face-perc 50))
 
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
@@ -191,6 +192,13 @@
 ;; Override the html modes with my keybinds
 (add-hook 'html-mode-hook 'zuco-mode)
 (add-hook 'mhtml-mode-hook 'zuco-mode)
+
+;; Tree Sitter
+(use-package tree-sitter)
+(use-package tree-sitter-langs)
+
+(add-hook 'prog-mode-hook 'tree-sitter-hl-mode)
+
 
 (provide 'setup-programming)
 

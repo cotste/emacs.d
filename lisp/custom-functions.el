@@ -4,12 +4,16 @@
 ;;; Code:
 
 (defun my-mode-hooks ()
+  "Setting all of my hooks for nano modeline."
+  
   (add-hook 'prog-mode-hook            #'my-prog-mode-hook)
   (add-hook 'conf-mode-hook            #'my-conf-mode-hook)
   (add-hook 'text-mode-hook            #'my-text-mode-hook)
   (add-hook 'org-mode-hook             #'my-org-mode-hook)
   (add-hook 'org-agenda-mode-hook      #'my-agenda-mode-hook)
   (add-hook 'magit-mode-hook           #'my-magit-mode-hook)
+  (add-hook 'magit-log-mode-hook       #'my-magit-mode-hook)
+  (add-hook 'magit-diff-mode-hook      #'my-magit-mode-hook)
   (add-hook 'pdf-view-mode-hook        #'nano-modeline-pdf-mode)
   (add-hook 'mu4e-headers-mode-hook    #'nano-modeline-mu4e-headers-mode)
   (add-hook 'mu4e-view-mode-hook       #'nano-modeline-mu4e-message-mode)
@@ -236,8 +240,9 @@
     (org-latex-export-to-pdf t t nil nil '(:latex-class "org-notes")))
   (widen)))
 
-(defun sjc-clone-ecp-repo ()
+(defun zuco/clone-ecp-repo ()
   "Clone an ECP repo."
+  (require 'magit)
   (interactive)
    (let ((repo (read-from-minibuffer "Enter the group/repo or repo to clone: ")))
      (let ((repo-dir (format "~/repos/expd/ecp/%s" repo)))
@@ -245,6 +250,57 @@
        (magit-clone-internal (format "git@gitlab.chq.ei:enterprise-core-platform/%s" repo)
                             (format "%s" repo-dir)
                             '()))))
+
+(defun zuco/clone-ecp-service-repo ()
+  "Clone an ECP repo."
+  (require 'magit)
+  (interactive)
+   (let ((repo (read-from-minibuffer "Enter the group/repo or repo to clone: ")))
+     (let ((repo-dir (format "~/repos/expd/ecp/%s" repo)))
+       (setq magit-clone-set-remote.pushDefault t )
+       (magit-clone-internal (format "git@gitlab.chq.ei:enterprise-platform-services/%s" repo)
+                            (format "%s" repo-dir)
+                            '()))))
+
+(defvar zuco/font-size)
+(defun zuco/scale-up-fonts ()
+  (setq zuco/font-size 130)
+  (set-face-attribute 'default nil :height zuco/font-size)
+  (set-face-attribute 'variable-pitch nil :height zuco/font-size)
+  (set-face-attribute 'fixed-pitch nil :height zuco/font-size))
+
+(defun zuco/scale-down-fonts ()
+  (setq zuco/font-size 100)
+  (set-face-attribute 'default nil :height zuco/font-size)
+  (set-face-attribute 'variable-pitch nil :height zuco/font-size)
+  (set-face-attribute 'fixed-pitch nil :height zuco/font-size))
+
+;;Fixing uppercase drawers
+;; (defun zuco/org-property-lowercase-a (orig-fn pom prop value)
+;;     (funcall orig-fn pom (downcase prop) value))
+
+;; (advice-add 'org-entry-put :after #'zuco/org-property-lowercase-a)
+
+(defun get-ecp-token ()
+  (interactive)
+  (load "~/.keycloaksecret.gpg")
+
+   (let ((keycloak-endpoint "https://auth.preprod.ecp.expeditors.com/auth/realms/preprod/protocol/openid-connect/token")
+       (url-request-method "POST")
+       (url-request-extra-headers '(("Content-Type" . "application/x-www-form-urlencoded")))
+       (url-request-data (concat "client_id=chq-stephenco&grant_type=client_credentials&client_secret=" keycloak-secret)))
+
+     (with-current-buffer (url-retrieve-synchronously keycloak-endpoint)
+    (goto-char (point-min))
+    (goto-char url-http-end-of-headers)
+  (prog1
+      (setq keycloak-token (cdar (json-read)))
+    (kill-buffer)))))
+
+(defun setup-graphql ()
+
+  (setq graphql-extra-headers (concat "{\"Authorization\": Bearer " keycloak-token "\"}"))
+  (setq graphql-url "https://router.preprod.ecp.expeditors.com"))
 
 (provide 'custom-functions)
 

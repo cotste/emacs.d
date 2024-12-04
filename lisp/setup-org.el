@@ -42,17 +42,17 @@
 
 
 (setq org-capture-templates
-      '(("m" "Meeting" entry (file "~/notes/gtd/meetings.org")
-         "* TODO %? :MEETING: \nSCHEDULED: %^T\n")
+      '(("m" "Meeting" entry (file "~/notes/gtd/inbox.org")
+         "* TODO %? :MEETING: \nSCHEDULED: %^T\n:properties:\n:taxonomy:\n:end:\n")
 
         ("g" "TODO" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? :NONE: \nDEADLINE: %^T\n")
+         "* TODO %? :NONE: \nDEADLINE: %^T\n:properties:\n:taxonomy:\n:end:\n")
 	("f" "Feature" entry (file "~/notes/gtd/inbox.org")
-         "* %? :feature: \nDEADLINE: %^T\n")
+         "* %? :feature: \nDEADLINE: %^T\n:properties:\n:taxonomy:\n:end:\n")
 	("s" "Story" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? :story: \nDEADLINE: %^T\n")
+         "* TODO %? :story: \nDEADLINE: %^T\n:properties:\n:taxonomy:\n:end:\n")
 	("t" "Task" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? :task: \nDEADLINE: %^T\n")))
+         "* TODO %? :task: \nDEADLINE: %^T\n:properties:\n:taxonomy:\n:end:\n")))
 
 (use-package org-present)
 
@@ -108,6 +108,10 @@
 		(tags
 		 "support"
 		 ((org-agenda-overriding-header "Support")
+		  (org-agenda-files '("~/notes/gtd/current-pi.org"))))
+        (tags
+		 "taxonomy={architecture}"
+		 ((org-agenda-overriding-header "Architecture")
 			(org-agenda-files '("~/notes/gtd/current-pi.org"))))
 	  (tags
 	   "feature"
@@ -127,8 +131,7 @@
 	   "PERS"
 	   ((org-agenda-overriding-header "Tagged Personal")))))))
 
-
-
+;; Org Refile Targets
 (setq org-refile-targets '((nil :maxlevel . 3)
 			   (org-agenda-files :maxlevel . 3)))
 
@@ -161,6 +164,8 @@
 (setq org-latex-compiler "xelatex")
 
 (use-package ox-hugo)
+
+(use-package ox-pandoc)
 
 (use-package ox-gfm)
 

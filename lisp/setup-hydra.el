@@ -59,8 +59,8 @@
 (pretty-hydra-define hydra-fonts
   (:color pink :title hydra--browse-title :quit-key "q")
   ("Browser"
-   (("u" (set-face-attribute 'default nil :height 130) "Scale fonts to 130" :exit t)
-    ("d" (set-face-attribute 'default nil :height 110) "Scale fonts to 110" :exit t))))
+   (("u" (zuco/scale-up-fonts) "Scale fonts to 130" :exit t)
+    ("d" (zuco/scale-down-fonts) "Scale fonts to 110" :exit t))))
 
 (pretty-hydra-define hydra-note
   (:title hydra--note-title :quit-key "q")
@@ -71,7 +71,8 @@
     ("s" sjc-select-denote-silo "Select Denote Silo" :exit t))
    "Notes"
    (("l" notes-list "Notes List" :exit t)
-    ("d" (dired "~/notes/denote") "Notes Directory" :exit t)
+    ("dd" (dired "~/notes/denote") "Main Notes Directory" :exit t)
+    ("de" (dired "~/notes/denote/expd") "EXPD Notes Directory" :exit t)
     ("f" sjc-denote-regex-search "Search Notes (text)" :exit t))
    "Journal"
    (("e" sjc/list-diary-notes "Journal Notes" :exit t)
@@ -82,14 +83,15 @@
 (pretty-hydra-define hydra-time
   (:title hydra--time-title :quit-key "q")
   ("Time Clock"
-   (("i" org-clock-in "Clock In" :exit t)
+   (("i" (org-clock-in) "Clock In" :exit t)
+    ("s" (org-clock-select-task) "Select Task" :exit t)
     ("o" org-clock-out "Clock Out" :exit t)
     ("g" org-clock-goto "Goto Current Clock" :exit t)
     ("t" (find-file "~/notes/gtd/clocktable.org") "Open Time Sheet" :exit t))
    "Dates"
-   (("c" calendar "Open Calendar" :exit t)
-    ("d" org-deadline "Set Deadline" :exit t)
-    ("s" org-schedule "Set Schedule" :exit t))))
+   (("C" calendar "Open Calendar" :exit t)
+    ("D" org-deadline "Set Deadline" :exit t)
+    ("S" org-schedule "Set Schedule" :exit t))))
 
 (pretty-hydra-define hydra-config
   (:title hydra--emacs-title :quit-key "q")
@@ -105,8 +107,9 @@
 (pretty-hydra-define hydra-magit
   (:title hydra--magit-title :quit-key "q")
   ("Clone"
-   (("c" (magit-clone) "Clone Repo" :exit t)
-    ("e" (sjc-clone-ecp-repo) "Clone ECP Repo" :color blue))
+   (("cc" (magit-clone) "Clone Repo" :exit t)
+    ("ce" (zuco/clone-ecp-repo) "Clone ECP Repo" :color blue)
+    ("cs" (zuco/clone-ecp-service-repo) "Clone ECP Service Repo" :color blue))
    "Branch"
    (("bs" (magit-branch) "Select Branch - Not Impl" :exit t)
     ("bm" (magit-main-branch) "Switch to Main" :exit t)

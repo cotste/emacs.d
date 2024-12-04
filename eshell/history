@@ -1,3 +1,10 @@
 git branch -m main
 git status
 exit
+ping google.com
+ls
+(setq test "test")
+(message test)
+exit
+(message keycloak-token)
+clear
