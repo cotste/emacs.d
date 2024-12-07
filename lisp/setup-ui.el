@@ -58,6 +58,7 @@
       '((bg-main . "#24283b")
         (bg-dim . "#24283b")
         (bg-alt . "#35394c")))
+
 (setq modus-themes-fringes 'nil)
 (setq modus-themes-bold-constructs t)
 (setq modus-themes-italic-constructs t)
@@ -107,13 +108,11 @@
 							(fringe "#FAF9F6")
 						  ))
 
-(setq modus-vivendi-palette-overrides
-      '((bg-main "#232323")
-				))
-
 ;; Lambda Theme
-;;(use-package lambda-themes
-;;  :straight (:type git :host github :repo "lambda-emacs/lambda-themes"))
+(use-package lambda-themes
+  :straight (:type git :host github :repo "lambda-emacs/lambda-themes"))
+
+(use-package material-theme)
 
 ;; Nord theme
 
@@ -151,8 +150,14 @@
 
 (use-package github-theme)
 
-;;(use-package kanagawa-theme)
+(use-package kanagawa-themes)
 
+;;(setq kanagawa-themes-custom-colors
+;;      '((bg "#FFFFFF")))
+
+(straight-use-package '(dracula-theme
+                        :type git :host github
+                        :repo "dracula/emacs"))
 ;;; Nano Setup
 
 (straight-use-package '(nano-theme
@@ -207,7 +212,10 @@
   :init
   (doom-modeline-mode 1))
 
-(global-set-key (kbd "M-o") 'ace-window)
+(use-package ace-window
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  (global-set-key (kbd "M-o") 'ace-window))
 
 (use-package rainbow-mode)
 

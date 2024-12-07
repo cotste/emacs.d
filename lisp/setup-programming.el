@@ -197,7 +197,7 @@
 (use-package tree-sitter)
 (use-package tree-sitter-langs)
 
-(add-hook 'prog-mode-hook 'tree-sitter-hl-mode)
+;;(add-hook 'prog-mode-hook 'tree-sitter-hl-mode)
 
 
 (provide 'setup-programming)

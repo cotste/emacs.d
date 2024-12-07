@@ -59,8 +59,10 @@
 (pretty-hydra-define hydra-fonts
   (:color pink :title hydra--browse-title :quit-key "q")
   ("Browser"
-   (("u" (zuco/scale-up-fonts) "Scale fonts to 130" :exit t)
-    ("d" (zuco/scale-down-fonts) "Scale fonts to 110" :exit t))))
+   (("b" (zuco/scale-up-fonts) "Scale fonts to 130" :exit t)
+    ("s" (zuco/scale-down-fonts) "Scale fonts to 110" :exit t)
+    ("u" (zuco/scale-fonts-inc) "Scale fonts up by 5")
+    ("d" (zuco/scale-fonts-dec) "Scale fonts down by 5"))))
 
 (pretty-hydra-define hydra-note
   (:title hydra--note-title :quit-key "q")

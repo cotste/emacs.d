@@ -3,64 +3,7 @@
 
 ;;; Code:
 
-(defun my-mode-hooks ()
-  "Setting all of my hooks for nano modeline."
-  
-  (add-hook 'prog-mode-hook            #'my-prog-mode-hook)
-  (add-hook 'conf-mode-hook            #'my-conf-mode-hook)
-  (add-hook 'text-mode-hook            #'my-text-mode-hook)
-  (add-hook 'org-mode-hook             #'my-org-mode-hook)
-  (add-hook 'org-agenda-mode-hook      #'my-agenda-mode-hook)
-  (add-hook 'magit-mode-hook           #'my-magit-mode-hook)
-  (add-hook 'magit-log-mode-hook       #'my-magit-mode-hook)
-  (add-hook 'magit-diff-mode-hook      #'my-magit-mode-hook)
-  (add-hook 'pdf-view-mode-hook        #'nano-modeline-pdf-mode)
-  (add-hook 'mu4e-headers-mode-hook    #'nano-modeline-mu4e-headers-mode)
-  (add-hook 'mu4e-view-mode-hook       #'nano-modeline-mu4e-message-mode)
-  (add-hook 'elfeed-show-mode-hook     #'nano-modeline-elfeed-entry-mode)
-  (add-hook 'elfeed-search-mode-hook   #'nano-modeline-elfeed-search-mode)
-  (add-hook 'term-mode-hook            #'my-term-mode-hook)
-  (add-hook 'vterm-mode-hook           #'my-vterm-mode-hook)
-  (add-hook 'xwidget-webkit-mode-hook  #'nano-modeline-xwidget-mode)
-  (add-hook 'messages-buffer-mode-hook #'nano-modeline-message-mode)
-  (add-hook 'org-capture-mode-hook     #'nano-modeline-org-capture-mode)
-  (add-hook 'org-agenda-mode-hook      #'nano-modeline-org-agenda-mode)
-  (add-hook 'dired-mode-hook           #'my-dired-mode-hook))
 
-(defun my-prog-mode-hook ()
-  (add-hook 'prog-mode-hook            #'nano-modeline-prog-mode)
-  (setq mode-line-format nil))
-
-(defun my-conf-mode-hook ()
-  (add-hook 'conf-mode-hook            #'nano-modeline-prog-mode)
-  (setq mode-line-format nil))
-
-(defun my-org-mode-hook ()
-  (add-hook 'org-mode-hook            #'nano-modeline-org-mode)
-  (setq mode-line-format nil))
-
-(defun my-agenda-mode-hook ()
-  (add-hook 'org-agenda-mode-hook     #'nano-modeline-org-mode)
-  (setq mode-line-format nil))
-
-(defun my-text-mode-hook ()
-  (add-hook 'text-mode-hook            #'nano-modeline-text-mode)
-  (setq mode-line-format nil))
-
-(defun my-term-mode-hook ()
-  (add-hook 'term-mode-hook            #'nano-modeline-term-mode)
-  (setq mode-line-format nil))
-
-(defun my-vterm-mode-hook ()
-  (add-hook 'vterm-mode-hook            #'nano-modeline-term-mode)
-  (setq mode-line-format nil))
-
-(defun my-magit-mode-hook ()
-  (add-hook 'magit-mode-hook            #'nano-modeline-text-mode)
-  (setq mode-line-format nil))
-
-(defun my-dired-mode-hook ()
-  (setq mode-line-format nil))
 
 (defvar cotste-light-theme 'modus-operandi)
 (defvar cotste-dark-theme 'modus-vivendi)
@@ -275,6 +218,19 @@
   (set-face-attribute 'variable-pitch nil :height zuco/font-size)
   (set-face-attribute 'fixed-pitch nil :height zuco/font-size))
 
+(defun zuco/scale-fonts-dec ()
+  (setq zuco/font-size ( - (face-attribute 'default :height t 'default) 5))
+  (set-face-attribute 'default nil :height zuco/font-size)
+  (set-face-attribute 'variable-pitch nil :height zuco/font-size)
+  (set-face-attribute 'fixed-pitch nil :height zuco/font-size))
+
+(defun zuco/scale-fonts-inc ()
+  (setq zuco/font-size
+        (+ 5 (face-attribute 'default :height t 'default)))
+  (set-face-attribute 'default nil :height zuco/font-size)
+  (set-face-attribute 'variable-pitch nil :height zuco/font-size)
+  (set-face-attribute 'fixed-pitch nil :height zuco/font-size))
+
 ;;Fixing uppercase drawers
 ;; (defun zuco/org-property-lowercase-a (orig-fn pom prop value)
 ;;     (funcall orig-fn pom (downcase prop) value))
@@ -301,6 +257,65 @@
 
   (setq graphql-extra-headers (concat "{\"Authorization\": Bearer " keycloak-token "\"}"))
   (setq graphql-url "https://router.preprod.ecp.expeditors.com"))
+
+(defun my-mode-hooks ()
+  "Setting all of my hooks for nano modeline."
+  
+  (add-hook 'prog-mode-hook            #'my-prog-mode-hook)
+  (add-hook 'conf-mode-hook            #'my-conf-mode-hook)
+  (add-hook 'text-mode-hook            #'my-text-mode-hook)
+  (add-hook 'org-mode-hook             #'my-org-mode-hook)
+  (add-hook 'org-agenda-mode-hook      #'my-agenda-mode-hook)
+  (add-hook 'magit-mode-hook           #'my-magit-mode-hook)
+  (add-hook 'magit-log-mode-hook       #'my-magit-mode-hook)
+  (add-hook 'magit-diff-mode-hook      #'my-magit-mode-hook)
+  (add-hook 'pdf-view-mode-hook        #'nano-modeline-pdf-mode)
+  (add-hook 'mu4e-headers-mode-hook    #'nano-modeline-mu4e-headers-mode)
+  (add-hook 'mu4e-view-mode-hook       #'nano-modeline-mu4e-message-mode)
+  (add-hook 'elfeed-show-mode-hook     #'nano-modeline-elfeed-entry-mode)
+  (add-hook 'elfeed-search-mode-hook   #'nano-modeline-elfeed-search-mode)
+  (add-hook 'term-mode-hook            #'my-term-mode-hook)
+  (add-hook 'vterm-mode-hook           #'my-vterm-mode-hook)
+  (add-hook 'xwidget-webkit-mode-hook  #'nano-modeline-xwidget-mode)
+  (add-hook 'messages-buffer-mode-hook #'nano-modeline-message-mode)
+  (add-hook 'org-capture-mode-hook     #'nano-modeline-org-capture-mode)
+  (add-hook 'org-agenda-mode-hook      #'nano-modeline-org-agenda-mode)
+  (add-hook 'dired-mode-hook           #'my-dired-mode-hook))
+
+(defun my-prog-mode-hook ()
+  (add-hook 'prog-mode-hook            #'nano-modeline-prog-mode)
+  (setq mode-line-format nil))
+
+(defun my-conf-mode-hook ()
+  (add-hook 'conf-mode-hook            #'nano-modeline-prog-mode)
+  (setq mode-line-format nil))
+
+(defun my-org-mode-hook ()
+  (add-hook 'org-mode-hook            #'nano-modeline-org-mode)
+  (setq mode-line-format nil))
+
+(defun my-agenda-mode-hook ()
+  (add-hook 'org-agenda-mode-hook     #'nano-modeline-org-mode)
+  (setq mode-line-format nil))
+
+(defun my-text-mode-hook ()
+  (add-hook 'text-mode-hook            #'nano-modeline-text-mode)
+  (setq mode-line-format nil))
+
+(defun my-term-mode-hook ()
+  (add-hook 'term-mode-hook            #'nano-modeline-term-mode)
+  (setq mode-line-format nil))
+
+(defun my-vterm-mode-hook ()
+  (add-hook 'vterm-mode-hook            #'nano-modeline-term-mode)
+  (setq mode-line-format nil))
+
+(defun my-magit-mode-hook ()
+  (add-hook 'magit-mode-hook            #'nano-modeline-text-mode)
+  (setq mode-line-format nil))
+
+(defun my-dired-mode-hook ()
+  (setq mode-line-format nil))
 
 (provide 'custom-functions)
 
