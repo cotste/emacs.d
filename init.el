@@ -143,20 +143,10 @@
 
 (require 'wgrep)
 
-
-;;(setq catppuccin-flavor 'latte)
-
 (recentf-mode)
 
 (setq dired-kill-when-opening-new-dired-buffer t)
 
-;;; Custom Font settings
-;;(set-face-attribute 'xref-file-header nil :weight 'bold)
-
-;;(add-hook 'window-setup-hook 'zuco-dark-theme)
-
-
-  
 (when (string-equal system-name "moros")
   (setq nano-font-family-monospaced "Monaspace Xenon")
   (setq nano-font-family-proportional (face-attribute 'variable-pitch :family))
@@ -191,7 +181,9 @@
 ;;(set-face-foreground 'completions-common-part
 ;;                     (face-foreground 'orderless-match-face-0))
 
+;;(put 'narrow-to-region 'disabled nil)
+
 (provide 'init)
 
 ;;; init.el ends here
-(put 'narrow-to-region 'disabled nil)
+
