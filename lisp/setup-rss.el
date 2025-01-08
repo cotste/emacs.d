@@ -5,6 +5,7 @@
 (eval-when-compile (require 'use-package))
 
 (use-package elfeed
+  :ensure t
   :config
   (setq elfeed-feeds
 	'("https://fasterthanli.me/rss"

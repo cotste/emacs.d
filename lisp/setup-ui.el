@@ -109,115 +109,119 @@
 						  ))
 
 ;; Lambda Theme
-(use-package lambda-themes
-  :straight (:type git :host github :repo "lambda-emacs/lambda-themes"))
+;;(use-package lambda-themes)
 
-(use-package material-theme)
+;;(use-package material-theme)
 
 ;; Nord theme
-
 ;;(use-package nord-theme)
 
 ;; ;; One Themes
 ;; (use-package one-themes)
 
-;; ;; Kaolin Themes
-;; (use-package kaolin-themes)
+;; SanityInc Tomorrow theme
+;;(use-package color-theme-sanityinc-tomorrow)
 
-;; ;; SanityInc Tomorrow theme
-(use-package color-theme-sanityinc-tomorrow)
-
-;; ;; FlucUI (FlatUI) Theme
-;; (use-package flucui-themes)
-
-;; ;;(use-package flatui-theme)
-
-;; (use-package doom-themes)
+;; FlucUI (FlatUI) Theme
+;;(use-package flucui-themes)
 
 ;; (use-package catppuccin-theme)
 
-;; (use-package lab-themes)
-
-;; (use-package leuven-theme)
-
-;; (use-package ef-themes)
-
-;; (use-package sublime-themes)
-
-;; (use-package modus-themes)
-
-;; (use-package tron-legacy-theme)
-
-(use-package github-theme)
-
-(use-package kanagawa-themes)
+(elpaca kanagawa-themes)
 
 ;;(setq kanagawa-themes-custom-colors
 ;;      '((bg "#FFFFFF")))
 
-(straight-use-package '(dracula-theme
-                        :type git :host github
-                        :repo "dracula/emacs"))
-;;; Nano Setup
+;; (straight-use-package '(dracula-theme
+;;                         :type git :host github
+;;                         :repo "dracula/emacs"))
+;; ;;; Nano Setup
 
-(straight-use-package '(nano-theme
-                        :type git :host github
-                        :repo "rougier/nano-theme"))
+(use-package nano-theme
+  :ensure (:type git :host github :repo "rougier/nano-theme")
+  :config
+  (require 'nano-theme)
+  (load-theme 'nano t))
 
-(straight-use-package '(nano-modeline
+(use-package nano-modeline :ensure (
                         :type git
                         :host github
                         :repo "rougier/nano-modeline"))
 
-;; (straight-use-package '(nano
+;; (use-package nano :ensure (
 ;;                         :type git
 ;;                         :host github
 ;;                         :repo "rougier/nano-emacs"))
 
-(straight-use-package '(minibuffer-header
-                        :type git
-                        :host github
-                        :repo "rougier/minibuffer-header"))
+;; (straight-use-package '(minibuffer-header
+;;                         :type git
+;;                         :host github
+;;                         :repo "rougier/minibuffer-header"))
 
 ;; (straight-use-package '(nano-vertico
 ;;                         :type git
 ;;                         :host github
 ;;                         :repo "rougier/nano-vertico"))
 
-(straight-use-package '(nano-splash
-                        :type git
-                        :host github
-                        :repo "rougier/nano-splash"))
-
-
+;; (use-package nano-splash :ensure (
+;;                         :type git
+;;                         :host github
+;;                         :repo "rougier/nano-splash"))
 
 ;; Nerd icons
-(use-package nerd-icons)
+(elpaca nerd-icons)
 
 ;; All the icons stuff
-(use-package all-the-icons
-  :if (display-graphic-p))
+(elpaca all-the-icons)
 
 ;; All the icons
-(use-package all-the-icons-completion
+(elpaca all-the-icons-completion
   :config
   (all-the-icons-completion-mode)
   (add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup))
 
 ;;; Modeline configs
 
-(use-package doom-modeline
-  :config
+;;(use-package doom-modeline
+  ;;:config
   ;;(setq doom-modeline-height 28)
-  :init
-  (doom-modeline-mode 1))
+  ;;:init
+  ;;(doom-modeline-mode 0))
 
 (use-package ace-window
+  :ensure t
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   (global-set-key (kbd "M-o") 'ace-window))
 
-(use-package rainbow-mode)
+;;(use-package rainbow-mode :ensure t)
+
+(when (string-equal system-name "pan")
+  ;;(require 'nano-theme)
+  (setq nano-font-family-monospaced "Monaspace Xenon")
+  (setq nano-font-family-proportional (face-attribute 'variable-pitch :family))
+  (setq nano-font-size 12)
+  (setq mode-line-format nil)
+  ;;(require 'nano)
+  ;;(require 'nano-base-colors)
+  ;;(require 'nano-colors)
+  ;;(require 'nano-faces)
+  ;;(require 'nano-theme-support)
+  ;;(require 'nano-theme-dark)
+  ;;(require 'nano-theme-light)
+  ;;(require 'nano-modeline)
+  ;;(require 'nano-layout)
+  ;;(require 'nano-defaults)
+  ;;(require 'nano-compact)
+  ;;(require 'nano-splash)
+  ;;(nano-modeline-text-mode t)
+  (my-mode-hooks)
+  ;;(load-theme 'nano t)
+  ;;(load-theme 'modus-operandi t)
+  ;;(add-hook 'after-init-hook (lambda () (load-theme 'kanagawa-wave t nil)))
+  ;;(load-theme 'kanagawa-wave t)
+  ;;(load-theme 'modus-operandi t)
+  )
 
 (provide 'setup-ui)
 

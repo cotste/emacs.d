@@ -6,11 +6,12 @@
 (eval-when-compile (require 'use-package))
 
 ;; Install and configure Marginalia
-(use-package marginalia
+(elpaca marginalia
   :init
   (marginalia-mode))
 
 (use-package embark
+  :ensure t
   :bind
   (("C-." . embark-act)
    ("C-;" . embark-dwim)
@@ -23,6 +24,7 @@
                  (window-parameters (mode-line-format . none)))))
 
 (use-package embark-consult
+  :ensure t
   :after (embark consult))
 
 (provide 'setup-minibuffer)

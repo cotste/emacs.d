@@ -3,7 +3,10 @@
 
 ;; Install and configure Magit
 
+(use-package transient :ensure t)
+
 (use-package magit
+  :ensure t
   :defer t
   :bind
   (("C-x g" . magit-status))
@@ -15,7 +18,7 @@
   (set-face-attribute 'magit-branch-local nil :family "Monaspace Xenon" :height 140 :weight 'bold)
   (set-face-attribute 'magit-diff-file-heading nil :family "Monaspace Xenon" :height 130))
 
-(add-to-list 'project-switch-commands '(magit-project-status "Magit") t)
+;;(add-to-list 'project-switch-commands '(magit-project-status "Magit") t)
 
 ;; (use-package projectile
 ;;   :ensure t
@@ -31,6 +34,6 @@
 ;;   (remove-hook 'find-file-hook 'vc-refresh-state)
 ;;   (setq vc-handled-backends nil))
 
-(use-package magit-popup)
+(use-package magit-popup :ensure t)
 		       
 (provide 'setup-vc)

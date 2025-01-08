@@ -10,6 +10,7 @@
 ;;   :hook ((org-mode mu4e-view-mode mu4e-compose-mode info-mode) . olivetti-mode))
 
 (use-package flyspell-correct
+  :ensure t
   :after flyspell
   :bind
   (:map flyspell-mode-map ("C-;" . 'flyspell-correct-wrapper)))

@@ -7,7 +7,7 @@
 		   
 ;; Install Org - prefer built-in
 (use-package org
-  :straight (:type built-in)
+  :ensure nil
   :bind (("C-c c" . org-capture)
    ("C-c a" . org-agenda)
    ("C-c x i" . org-clock-in)
@@ -54,9 +54,9 @@
 	("t" "Task" entry (file "~/notes/gtd/inbox.org")
          "* TODO %? :task: \nDEADLINE: %^T\n:properties:\n:taxonomy:\n:end:\n")))
 
-(use-package org-present)
+(use-package org-present :ensure t)
 
-(use-package org-modern)
+(use-package org-modern :ensure t)
 
 ;; Agenda configuration
 (setq org-agenda-files '("~/notes/gtd"))
@@ -112,7 +112,8 @@
         (tags
 		 "taxonomy={architecture}"
 		 ((org-agenda-overriding-header "Architecture")
-			(org-agenda-files '("~/notes/gtd/current-pi.org"))))
+		  (org-agenda-files '("~/notes/gtd/current-pi.org"
+                              "~/notes/gtd/meetings.org"))))
 	  (tags
 	   "feature"
 	   ((org-agenda-overriding-header "Features")
@@ -163,11 +164,11 @@
 
 (setq org-latex-compiler "xelatex")
 
-(use-package ox-hugo)
+(use-package ox-hugo :ensure t)
 
-(use-package ox-pandoc)
+(use-package ox-pandoc :ensure t)
 
-(use-package ox-gfm)
+(use-package ox-gfm :ensure t)
 
 ;; Org Babel
 (org-babel-do-load-languages

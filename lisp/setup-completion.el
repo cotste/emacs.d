@@ -5,20 +5,25 @@
 (eval-when-compile (require 'use-package))
 		   
 ;; Install and setup Orderless
-(use-package orderless
-  :straight (:host github :repo "oantolin/orderless")
+(elpaca (orderless :host github :repo "oantolin/orderless")
+	(use-package orderless
   :custom
   (completion-styles '(orderless basic))
 	(completion-category-defaults nil)
-  (completion-category-overrides '((file (styles . (partial-completion))))))
+  (completion-category-overrides '((file (styles . (partial-completion)))))))
 
 ;; Enable vertico
-(use-package vertico
-  :straight (:host github :repo "minad/vertico"
-  :includes (vertico-directory)
-  :files (:defaults "extensions/vertico-directory.el"))
+(elpaca (vertico :host github :repo "minad/vertico")
+		 (use-package vertico
+;;  :includes (vertico-directory)
+;;  :files (:defaults "extensions/vertico-directory.el")
   :init
   (vertico-mode)
+  :config
+  (keymap-set vertico-map "RET" #'vertico-directory-enter)
+  (keymap-set vertico-map "DEL" #'vertico-directory-delete-char)
+  (keymap-set vertico-map "M-DEL" #'vertico-directory-delete-word)
+  (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
 
   ;; Different scroll margin
   ;; (setq vertico-scroll-margin 0)
@@ -31,15 +36,17 @@
 
   ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
   ;; (setq vertico-cycle t)
-  )
+  ))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
+  :ensure nil
   :init
   (savehist-mode))
 
 ;; A few more useful configurations...
 (use-package emacs
+  :ensure nil
   :init
   ;; Add prompt indicator to `completing-read-multiple'.
   ;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.
@@ -69,14 +76,16 @@
 ;;   :init
 ;;   (savehist-mode))
 
- (use-package vertico-directory
-   :after vertico
-   :bind (:map vertico-map
- 	      ("DEL" . vertico-directory-delete-char)
- 	      ("M-DEL" . vertico-directory-delete-word))
-   :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
+;; (use-package vertico-directory
+;;   :ensure t
+;;    :after vertico
+;;    :bind (:map vertico-map
+;;  	      ("DEL" . vertico-directory-delete-char)
+;;  	      ("M-DEL" . vertico-directory-delete-word))
+;;    :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
 
 (use-package consult
+  :ensure t
   :bind
   (("C-x b" . consult-buffer)
    ("M-y" . consult-yank-pop)

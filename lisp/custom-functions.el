@@ -276,6 +276,7 @@
   (add-hook 'elfeed-search-mode-hook   #'nano-modeline-elfeed-search-mode)
   (add-hook 'term-mode-hook            #'my-term-mode-hook)
   (add-hook 'vterm-mode-hook           #'my-vterm-mode-hook)
+  (add-hook 'eat-mode-hook             #'my-eat-mode-hook)
   (add-hook 'xwidget-webkit-mode-hook  #'nano-modeline-xwidget-mode)
   (add-hook 'messages-buffer-mode-hook #'nano-modeline-message-mode)
   (add-hook 'org-capture-mode-hook     #'nano-modeline-org-capture-mode)
@@ -308,6 +309,10 @@
 
 (defun my-vterm-mode-hook ()
   (add-hook 'vterm-mode-hook            #'nano-modeline-term-mode)
+  (setq mode-line-format nil))
+
+(defun my-eat-mode-hook ()
+  (add-hook 'eat-mode-hook            #'nano-modeline-term-mode)
   (setq mode-line-format nil))
 
 (defun my-magit-mode-hook ()

@@ -31,6 +31,7 @@
 
 ;; Install and configure denote
 (use-package denote
+  :ensure t
   :config
   (setq denote-directory (expand-file-name "~/notes/denote"))
   (setq denote-org-front-matter
@@ -57,8 +58,8 @@
 (add-hook 'dired-mode-hook #'denote-dired-mode-in-directories)
 (add-hook 'denote-dired-mode-hook #'dired-hide-details-mode)
 
-(require 'notes-list)
-(setq notes-list-directories '("~/notes/denote/"))
+;;(require 'notes-list)
+;;(setq notes-list-directories '("~/notes/denote/"))
 
 
 (provide 'setup-notes)

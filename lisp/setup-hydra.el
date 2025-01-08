@@ -5,23 +5,24 @@
 
 (require 'custom-functions)
 
+
+
+(use-package posframe :ensure t)
+
+(use-package pretty-hydra :ensure t)
+
+(elpaca major-mode-hydra)
+
 (use-package hydra
-  :bind
-  ("C-c b" . hydra-browse/body)
-  ("C-c n" . hydra-note/body)
-  ("C-c t" . hydra-time/body)
-  ("C-c e" . hydra-config/body)
-  ("C-c f" . hydra-fonts/body)
-  ("C-c m" . hydra-magit/body))
-
-(use-package posframe)
-
-(use-package hydra-posframe
-  :straight (:type git :host github :repo "ladicle/hydra-posframe")
-  :config (setq hydra-posframe-parameters '((right-fringe . 20) (left-fringe . 5)))
-  :hook (after-init . hydra-posframe-mode))
-
-(use-package major-mode-hydra)
+   :ensure t
+   :bind
+   ("C-c b" . hydra-browse/body)
+   ("C-c n" . hydra-note/body)
+   ("C-c t" . hydra-time/body)
+   ("C-c e" . hydra-config/body)
+   ("C-c f" . hydra-fonts/body)
+   ("C-c m" . hydra-magit/body)
+   :config
 
 (defhydra hydra-browser (nil nil)
   "
@@ -127,7 +128,12 @@
    "Status"
    (("rp" (magit-project-status) "Project Status" :exit t))))
 
-(define-key elfeed-show-mode-map "B" 'hydra-browse/body)
+(define-key elfeed-show-mode-map "B" 'hydra-browse/body))
+
+(use-package hydra-posframe
+  :ensure (:type git :host github :repo "ladicle/hydra-posframe")
+  :config (setq hydra-posframe-parameters '((right-fringe . 20) (left-fringe . 5)))
+  :hook (elpaca-after-init . hydra-posframe-mode))
 
 (provide 'setup-hydra)
 
