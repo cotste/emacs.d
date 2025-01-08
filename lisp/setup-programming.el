@@ -131,10 +131,11 @@
 (use-package terraform-mode :ensure t)
 
 ;; YAML setup and config
-(use-package yaml-mode :ensure t)
-
-(add-hook 'yaml-mode-hook 'display-line-numbers-mode)
-(add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
+(use-package yaml-mode
+  :ensure t
+  :config
+  (add-hook 'yaml-mode-hook 'display-line-numbers-mode)
+  (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode))
 
 (use-package highlight-indent-guides
   :ensure t
@@ -182,15 +183,17 @@
 
 ;; Set up Rust
 
-(elpaca (rust-mode))
+(use-package rust-mode
+  :ensure t
+  :config
+  ;; Force indents to use spaces instead of tabs in rust-mode
+  (add-hook 'rust-mode-hook
+            (lambda () (setq indent-tabs-mode nil)))
 
-;; Force indents to use spaces instead of tabs in rust-mode
-(add-hook 'rust-mode-hook
-          (lambda () (setq indent-tabs-mode nil)))
 
-;; Prettify symbols in Rust mode
-(add-hook 'rust-mode-hook
-          (lambda () (prettify-symbols-mode)))
+  ;; Prettify symbols in Rust mode
+  (add-hook 'rust-mode-hook
+          (lambda () (prettify-symbols-mode))))
 
 (elpaca (cargo))
 
@@ -210,8 +213,6 @@
 ;;; Markdown configurations
 (setq markdown-command "cmark")
 ;;(add-hook 'markdown-mode-hook 'auto-fill-mode)
-
-;;(use-package company)
 
 ;; (elpaca (kafka-cli :type git :host github
 ;; 				  :repo "ebbywiselyn/emacs-kafka"))
