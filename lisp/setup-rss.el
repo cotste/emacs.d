@@ -13,7 +13,8 @@
 	  "https://codewalkers.net/feed/"
 	  "https://karthinks.com/index.xml"
 	  "https://ochagavia.nl/blog/index.xml"
-	  "https://takeonrules.com/index.xml")))
+	  "https://takeonrules.com/index.xml"
+      "https://www.blogbyben.com/rss.xml")))
 
 (provide 'setup-rss)
 
