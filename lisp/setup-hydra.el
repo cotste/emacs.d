@@ -58,8 +58,8 @@
    (("c" shr-copy-url "Copy URL" :exit t))))
 
 (pretty-hydra-define hydra-fonts
-  (:color pink :title hydra--browse-title :quit-key "q")
-  ("Browser"
+  (:color pink :title hydra--fonts-title :quit-key "q")
+  ("Font Size"
    (("b" (zuco/scale-up-fonts) "Scale fonts to 130" :exit t)
     ("s" (zuco/scale-down-fonts) "Scale fonts to 110" :exit t)
     ("u" (zuco/scale-fonts-inc) "Scale fonts up by 5")
