@@ -43,16 +43,16 @@
 
 (setq org-capture-templates
       '(("m" "Meeting" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? :MEETING: \nSCHEDULED: %^T\n:properties:\n:taxonomy:\n:end:\n")
+         "* TODO %? :MEETING: \nSCHEDULED: %^T\n:properties:\n:taxonomy: %^{Taxonomy}\n:end:\n")
 
         ("g" "TODO" entry (file "~/notes/gtd/inbox.org")
          "* TODO %? \nDEADLINE: %^T\n:properties:\n:taxonomy: %^{Taxonomy}\n:type: %^{Type e.g. Meeting, Research}\n:end:\n")
 	("f" "Feature" entry (file "~/notes/gtd/inbox.org")
-         "* %? :feature: \nDEADLINE: %^T\n:properties:\n:taxonomy:\n:end:\n")
+         "* %? \nDEADLINE: %^T\n:properties:\n:taxonomy: Iteration\n:type Feature\n:end:\n")
 	("s" "Story" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? :story: \nDEADLINE: %^T\n:properties:\n:taxonomy:\n:end:\n")
+         "* TODO %? \nDEADLINE: %^T\n:properties:\n:taxonomy: Sprint\n:type: Story\n:end:\n")
 	("t" "Task" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? :task: \nDEADLINE: %^T\n:properties:\n:taxonomy:\n:end:\n")))
+         "* TODO %? :task: \nDEADLINE: %^T\n:properties:\n:taxonomy Sprint\n:type Task\n:end:\n")))
 
 (use-package org-present :ensure t)
 
