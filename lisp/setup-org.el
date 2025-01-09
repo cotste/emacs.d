@@ -56,7 +56,7 @@
 
 (use-package org-present :ensure t)
 
-(use-package org-modern :ensure t)
+;;(use-package org-modern :ensure t)
 
 ;; Agenda configuration
 (setq org-agenda-files '("~/notes/gtd"))
@@ -108,7 +108,8 @@
 		(tags
 		 "type={General}"
 		 ((org-agenda-overriding-header "General")
-		  (org-agenda-files '("~/notes/gtd/general.org"))))
+		  (org-agenda-files '("~/notes/gtd/general.org"
+                              "~/notes/gtd/current-pi.org"))))
         (tags-todo
 		 "taxonomy={architecture}"
 		 ((org-agenda-overriding-header "Architecture")
