@@ -56,7 +56,7 @@
 
 (use-package org-present :ensure t)
 
-;;(use-package org-modern :ensure t)
+(use-package org-modern :ensure t)
 
 ;; Agenda configuration
 (setq org-agenda-files '("~/notes/gtd"))
@@ -174,7 +174,8 @@
 (org-babel-do-load-languages
 'org-babel-load-languages
 '((shell . t)
-  (sql . t)))
+  (sql . t)
+  (python . t)))
 
 (setq org-confirm-babel-evaluate 'cotste/confirm-babel-evaluate)
 
