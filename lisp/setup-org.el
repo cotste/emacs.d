@@ -43,7 +43,7 @@
 
 (setq org-capture-templates
       '(("m" "Meeting" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? :MEETING: \nSCHEDULED: %^T\n:properties:\n:taxonomy: %^{Taxonomy}\n:end:\n")
+         "* TODO %? \nSCHEDULED: %^T\n:properties:\n:taxonomy: %^{Taxonomy}\n:type: Meeting\n:end:\n")
 
         ("g" "TODO" entry (file "~/notes/gtd/inbox.org")
          "* TODO %? \nDEADLINE: %^T\n:properties:\n:taxonomy: %^{Taxonomy}\n:type: %^{Type e.g. Meeting, Research}\n:end:\n")
