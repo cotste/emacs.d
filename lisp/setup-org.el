@@ -87,9 +87,9 @@
 	  (agenda
 	   ""
 	   ((org-agenda-overriding-header "Due Today")
-	    (org-agenda-files '("~/notes/gtd/ecp.org"
+	    (org-agenda-files '(;;"~/notes/gtd/ecp.org"
 				"~/notes/gtd/current-pi.org"
-				"~/notes/gtd/meetings.org"
+				;; "~/notes/gtd/meetings.org"
 				"~/notes/gtd/general.org"
 				"~/notes/gtd/core-systems.org"))
 	    (org-agenda-span 'day)
