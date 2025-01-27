@@ -24,10 +24,10 @@
   :ensure nil
   :hook ((( clojure-mode clojurec-mode clojurescript-mode
             java-mode scala-mode python-ts-mode yaml-ts-mode
-            terraform-mode python-mode)
+            terraform-mode python-mode rust-mode rust-ts-mode rustic-mode)
           . eglot-ensure))
-;;         ((cider-mode eglot-managed-mode) . eglot-disable-in-cider))
-  ;; :preface
+        ;;((cider-mode eglot-managed-mode) . eglot-disable-in-cider)
+  :preface
   ;; (defun eglot-disable-in-cider ()
   ;;   (when (eglot-managed-p)
   ;;     (if (bound-and-true-p cider-mode)
@@ -36,22 +36,24 @@
   ;;           (remove-hook 'xref-backend-functions 'eglot-xref-backend t))
   ;;       (add-hook 'completion-at-point-functions 'eglot-completion-at-point nil t)
   ;;       (add-hook 'xref-backend-functions 'eglot-xref-backend nil t))))
-  ;;:custom
-  ;;(eglot-autoshutdown t)
-  ;;(eglot-events-buffer-size 0)
-  ;;(eglot-extend-to-xref nil)
-  ;;(eglot-ignored-server-capabilities
-   ;; '(:hoverProvider
-   ;;   :documentHighlightProvider
-   ;;   :documentFormattingProvider
-   ;;   :documentRangeFormattingProvider
-   ;;   :documentOnTypeFormattingProvider
-   ;;   :colorProvider
-   ;;   :foldingRangeProvider))
-  ;;(eglot-stay-out-of '(yasnippet))
+  :custom
+  (eglot-autoshutdown t)
+  (eglot-events-buffer-size 0)
+  (eglot-extend-to-xref nil)
+  (eglot-ignored-server-capabilities
+   '(:hoverProvider
+     ;;:documentHighlightProvider
+     ;;:documentFormattingProvider
+     ;;:documentRangeFormattingProvider
+     ;;:documentOnTypeFormattingProvider
+     ;;:colorProvider
+     ;;:foldingRangeProvider))
+  (eglot-stay-out-of '(yasnippet))
   :config
   (setq completion-category-overrides '((eglot (styles orderless))
-                                        (eglot-capf (styles orderless)))))
+                                        (eglot-capf (styles orderless))))
+  (add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1)))
+  (add-to-list 'completion-at-point-functions #'eglot-completion-at-point))))
 
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
@@ -66,28 +68,28 @@
 ;;   :config
 ;;   (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
 ;;   (setq lsp-headerline-breadcrumb-enable nil)
-;;   (setq lsp-disabled-clients '(tfls pylsp)))
+;;   (setq lsp-disabled-clients '(tfls pylsp))
+;;   (setq lsp-completion-provider :none)
+;;   (setq lsp-semantic-tokens-enable t)
+;;   (setq lsp-semantic-tokens-honor-refresh-requests t)
+;;   (setq lsp-terraform-ls-enable-show-reference t)
+;;   (add-to-list 'completion-at-point-functions #'lsp-completion-at-point))
 
-;; (setq lsp-completion-provider :none)
-;; (setq lsp-semantic-tokens-enable t)
-;; (setq lsp-semantic-tokens-honor-refresh-requests t)
-;; (setq lsp-terraform-ls-enable-show-reference t)
 
-;; ;; (defun corfu-lsp-setup ()
-;; ;;   ;;; Attempt to make corfu use orderless.
-;; ;;   (setq-local completion-styles '(orderless)
-;; ;; 	      completion-category-defaults nil))
 
-;; ;;(add-hook 'lsp-mode-hook #'corfu-lsp-setup)
+;; (defun corfu-lsp-setup ()
+;;   ;;; Attempt to make corfu use orderless.
+;;   (setq-local completion-styles '(orderless)
+;; 	      completion-category-defaults nil))
 
-;; ;; (add-to-list 'completion-at-point-functions #'lsp-completion-at-point)
-;; (add-to-list 'completion-at-point-functions #'eglot-completion-at-point)
+;;(add-hook 'lsp-mode-hook #'corfu-lsp-setup)
 
 ;; (use-package lsp-ui
+;;   :ensure t
 ;;   :commands lsp-ui-mode
 ;;   :config (setq lsp-ui-doc-max-width 100)
 ;;   (setq lsp-ui-doc-position 'top))
-;;   ;;(setq lsp-ui-doc-border "dark violet"))
+  ;;(setq lsp-ui-doc-border "dark violet"))
 
 ;; ;; Java LSP
 ;; (use-package lsp-java
@@ -193,12 +195,15 @@
 
   ;; Prettify symbols in Rust mode
   (add-hook 'rust-mode-hook
-          (lambda () (prettify-symbols-mode))))
+         ( lambda () (prettify-symbols-mode))))
 
 (elpaca (cargo))
 
 ;; Install rustic
-(elpaca (rustic))
+(use-package rustic
+  :ensure t
+  :config
+  (setq rustic-lsp-client 'eglot))
 
 ;; Install go-mode
 (elpaca (go-mode))
