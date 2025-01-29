@@ -143,10 +143,14 @@
   (require 'nano-theme)
   (load-theme 'nano t))
 
-(use-package nano-modeline :ensure (
-                        :type git
-                        :host github
-                        :repo "rougier/nano-modeline"))
+(use-package nano-modeline
+  :ensure (:type git :host github :repo "rougier/nano-modeline")
+  :config
+  (setq nano-font-family-monospaced "Monaspace Xenon")
+  (setq nano-font-family-proportional (face-attribute 'variable-pitch :family))
+  (setq nano-font-size 12)
+  :after
+  (my-mode-hooks))
 
 ;; (use-package nano :ensure (
 ;;                         :type git
@@ -182,11 +186,11 @@
 
 ;;; Modeline configs
 
-;;(use-package doom-modeline
-  ;;:config
-  ;;(setq doom-modeline-height 28)
-  ;;:init
-  ;;(doom-modeline-mode 0))
+;; (use-package doom-modeline
+;;   :config
+;;   (setq doom-modeline-height 28)
+;;   :init
+;;   (doom-modeline-mode 0))
 
 (use-package ace-window
   :ensure t
