@@ -140,6 +140,7 @@
 (require 'setup-modes)
 (require 'setup-ai)
 (require 'override-functions)
+(require 'setup-graphql)
 
 (require 'wgrep)
 
