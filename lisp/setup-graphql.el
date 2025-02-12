@@ -31,7 +31,7 @@
   (interactive "sEnter scope(s):")
   (message "Scopes: %s" scope))
 
-(message keycloak-token)
+;;(message keycloak-token)
 ;; (let ((scope "unacceptablecommoditydescription"))
 ;;   (message (concat "client_id=chq-stephenco&grant_type=client_credentials&client_secret=" keycloak-secret "&scope=" scope)))
 

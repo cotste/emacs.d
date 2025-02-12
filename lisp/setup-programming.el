@@ -20,6 +20,14 @@
 
 (use-package eldoc :ensure nil)
 
+
+;; (use-package eldoc-box
+;;   :ensure t
+;;   :hook
+;;   (eglot-managed-mode-hook . eldoc-box-hover-mode))
+
+(use-package eglot-java :ensure t)
+
 (use-package eglot
   :ensure nil
   :hook ((( clojure-mode clojurec-mode clojurescript-mode
@@ -41,7 +49,7 @@
   (eglot-events-buffer-size 0)
   (eglot-extend-to-xref nil)
   (eglot-ignored-server-capabilities
-   '(:hoverProvider
+   '(;;:hoverProvider
      ;;:documentHighlightProvider
      ;;:documentFormattingProvider
      ;;:documentRangeFormattingProvider
@@ -49,11 +57,13 @@
      ;;:colorProvider
      ;;:foldingRangeProvider))
   (eglot-stay-out-of '(yasnippet))
-  :config
   (setq completion-category-overrides '((eglot (styles orderless))
                                         (eglot-capf (styles orderless))))
   (add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1)))
-  (add-to-list 'completion-at-point-functions #'eglot-completion-at-point))))
+  (add-to-list 'completion-at-point-functions #'eglot-completion-at-point)))
+  :config
+  (setq eldoc-echo-area-prefer-doc-buffer t)
+  (setq eldoc-echo-area-use-multiline-p nil))
 
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs

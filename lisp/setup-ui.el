@@ -5,9 +5,9 @@
 (eval-when-compile (require 'use-package))
 
 ;; Set up fonts
-(set-face-attribute 'default nil :family "MonaspiceNe NF" :height 100)
-(set-face-attribute 'variable-pitch nil :family "iA Writer Quattro V" :weight 'Regular :height 100)
-(set-face-attribute 'fixed-pitch nil :family "MonaspiceNe NF" :height 100)
+(set-face-attribute 'default nil :family "MonaspiceNe NF" :height 110)
+(set-face-attribute 'variable-pitch nil :family "iA Writer Quattro V" :weight 'Regular :height 110)
+(set-face-attribute 'fixed-pitch nil :family "MonaspiceNe NF" :height 110)
 ;;(set-face-attribute 'default nil :family "RobotoMono Nerd Font" :height 100)
 ;;(set-face-attribute 'default nil :family "Inconsolata" :height 115 :weight 'Regular)
 ;;(set-face-attribute 'default nil :family "Iosevka" :height 110)
@@ -127,7 +127,10 @@
 
 ;; (use-package catppuccin-theme)
 
-(elpaca kanagawa-themes)
+(use-package kanagawa-themes
+  :ensure t
+  :init
+  (load-theme 'kanagawa-wave t))
 
 ;;(setq kanagawa-themes-custom-colors
 ;;      '((bg "#FFFFFF")))
@@ -137,20 +140,16 @@
 ;;                         :repo "dracula/emacs"))
 ;; ;;; Nano Setup
 
-(use-package nano-theme
-  :ensure (:type git :host github :repo "rougier/nano-theme")
-  :config
-  (require 'nano-theme)
-  (load-theme 'nano t))
+;; (use-package nano-theme
+;;   :ensure (:type git :host github :repo "rougier/nano-theme")
+;;   :config
+;;   (require 'nano-theme)
+;;   (load-theme 'nano t))
 
-(use-package nano-modeline
-  :ensure (:type git :host github :repo "rougier/nano-modeline")
-  :config
-  (setq nano-font-family-monospaced "Monaspace Xenon")
-  (setq nano-font-family-proportional (face-attribute 'variable-pitch :family))
-  (setq nano-font-size 12)
-  :after
-  (my-mode-hooks))
+;; (use-package nano-modeline :ensure (
+;;                         :type git
+;;                         :host github
+;;                         :repo "rougier/nano-modeline"))
 
 ;; (use-package nano :ensure (
 ;;                         :type git
@@ -176,21 +175,26 @@
 (elpaca nerd-icons)
 
 ;; All the icons stuff
-(elpaca all-the-icons)
+(use-package all-the-icons
+  :ensure t)
 
 ;; All the icons
-(elpaca all-the-icons-completion
+(use-package all-the-icons-completion
+  :ensure t
   :config
   (all-the-icons-completion-mode)
-  (add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup))
+  :hook
+  (marginalia-mode-hook . all-the-icons-completion-marginalia-setup))
 
 ;;; Modeline configs
 
-;; (use-package doom-modeline
-;;   :config
-;;   (setq doom-modeline-height 28)
-;;   :init
-;;   (doom-modeline-mode 0))
+(use-package doom-modeline
+  :ensure t
+  :config
+  (setq doom-modeline-height 28)
+  ;;:init
+  ;;(doom-modeline-mode 1)
+  :hook (elpaca-after-init . doom-modeline-mode))
 
 (use-package ace-window
   :ensure t
@@ -219,7 +223,7 @@
   ;;(require 'nano-compact)
   ;;(require 'nano-splash)
   ;;(nano-modeline-text-mode t)
-  (my-mode-hooks)
+  ;;(my-mode-hooks)
   ;;(load-theme 'nano t)
   ;;(load-theme 'modus-operandi t)
   ;;(add-hook 'after-init-hook (lambda () (load-theme 'kanagawa-wave t nil)))

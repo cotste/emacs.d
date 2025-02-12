@@ -8,3 +8,5 @@ ls
 exit
 (message keycloak-token)
 clear
+ls
+exit
