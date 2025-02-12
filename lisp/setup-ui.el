@@ -128,9 +128,14 @@
 ;; (use-package catppuccin-theme)
 
 (use-package kanagawa-themes
-  :ensure t
+  :ensure t)
+  ;;:init
+  ;;(load-theme 'kanagawa-wave t))
+
+(use-package modus-themes
+  :ensure nil
   :init
-  (load-theme 'kanagawa-wave t))
+  (load-theme 'modus-operandi t))
 
 ;;(setq kanagawa-themes-custom-colors
 ;;      '((bg "#FFFFFF")))
