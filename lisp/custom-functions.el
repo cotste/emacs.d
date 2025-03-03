@@ -3,8 +3,6 @@
 
 ;;; Code:
 
-
-
 (defvar cotste-light-theme 'modus-operandi)
 (defvar cotste-dark-theme 'modus-vivendi)
 (defvar cotste-current-theme "light")
@@ -156,10 +154,7 @@
 ;;; Org Mode Hooks
 
 (defun zuco/org-hook-fonts ()
-
-
   ;;; Set Org heading sizes
-
   (set-face-attribute 'org-level-1 nil :family "Jost" :height 1.4)
   (set-face-attribute 'org-level-2 nil :family "Jost" :height 1.3)
   (set-face-attribute 'org-level-3 nil :family "Jost" :height 1.2)
@@ -254,7 +249,6 @@
     (kill-buffer)))))
 
 (defun setup-graphql ()
-
   (setq graphql-extra-headers (concat "{\"Authorization\": Bearer " keycloak-token "\"}"))
   (setq graphql-url "https://router.preprod.ecp.expeditors.com"))
 

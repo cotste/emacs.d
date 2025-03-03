@@ -27,13 +27,10 @@
          `((user-agent . "emacs")
            (Authorization . ,(concat "Bearer " keycloak-token)))))
 
-(defun sjc-set-graphql-scope (scope)
-  (interactive "sEnter scope(s):")
-  (message "Scopes: %s" scope))
-
-;;(message keycloak-token)
-;; (let ((scope "unacceptablecommoditydescription"))
-;;   (message (concat "client_id=chq-stephenco&grant_type=client_credentials&client_secret=" keycloak-secret "&scope=" scope)))
-
+(defun sjc-graphql-setup ()
+  (interactive)
+  (sjc-load-keycloak-secret)
+  (sjc-get-keycloak-token (read-string "Scope: "))
+  (sjc-set-graphql-extra-headers))
 
 (provide 'setup-graphql)
