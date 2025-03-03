@@ -67,7 +67,7 @@
 
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
-               '(python-mode . ("ruff" "server"))
+               ';;(python-mode . ("ruff" "server"))
                ;;'(python-ts-mode . ("ruff" "server"))
                '(python-ts-mode . ("pyright" "-w"))))
 
