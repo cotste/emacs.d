@@ -14,12 +14,10 @@
    ("C-c x o" . org-clock-out))
 
   :config
+  (setq org-refile-use-outline-path 'file)
 
   ;;; Make Org Agenda headers a bit bigger
 ;;  (set-face-attribute 'org-agenda-structure nil :height 140)
-  
-  ;;; End of org-mode use-package
-
 
   (setq org-hide-emphasis-markers t
 				org-ellipsis "..."
@@ -28,18 +26,15 @@
 	      '((sequence "TODO(t)" "PROG(p)" "INTR(i)" "|" "DONE(d)" "CANCELLED(c!)"))
 				;;org-log-into-drawer "LOGBOOK"
 				org-use-fast-todo-selection t
-				org-startup-with-inline-images t))
-
-
+				org-startup-with-inline-images t)
+ 
  (add-hook 'org-mode-hook(lambda ()
 			    (visual-line-mode 0)
 			    (variable-pitch-mode 1)
 ;;			    (auto-fill-mode 1)
 			    (flyspell-mode 1)
-			    (org-modern-mode)
+			    ;;(org-modern-mode)
 			    (zuco/org-hook-fonts)))
-
-
 
 (setq org-capture-templates
       '(("m" "Meeting" entry (file "~/notes/gtd/inbox.org")
@@ -52,7 +47,8 @@
 	("s" "Story" entry (file "~/notes/gtd/inbox.org")
          "* TODO %? \nDEADLINE: %^T\n:properties:\n:taxonomy: Sprint\n:type: Story\n:end:\n")
 	("t" "Task" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? :task: \nDEADLINE: %^T\n:properties:\n:taxonomy Sprint\n:type Task\n:end:\n")))
+     "* TODO %? :task: \nDEADLINE: %^T\n:properties:\n:taxonomy Sprint\n:type Task\n:end:\n"))))
+  ;;; End of org-mode use-package
 
 (use-package org-present :ensure t)
 
