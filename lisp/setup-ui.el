@@ -45,7 +45,8 @@
 (defvar modus-themes-completions
       '((matches . (extrabold background intense))))
 
-(setq modus-themes-syntax '(green-strings alt-syntax yellow-comments))
+;;(setq modus-themes-syntax '(green-strings alt-syntax yellow-comments))
+(setq modus-themes-syntax '(green-strings yellow-comments))
 (setq masodus-themes-mixed-fonts t)
 (setq modus-themes-headings
       '((1 . (org-headers 1.2))
@@ -132,17 +133,23 @@
   ;;:init
   ;;(load-theme 'kanagawa-wave t))
 
-(use-package modus-themes
-  :ensure nil
+;; (use-package modus-themes
+;;   :ensure nil
+;;   :init
+;;   (load-theme 'modus-operandi t))
+
+(use-package mindre-theme
+  :ensure t
   :init
-  (load-theme 'modus-operandi t))
+  (load-theme 'mindre t))
 
 ;;(setq kanagawa-themes-custom-colors
 ;;      '((bg "#FFFFFF")))
 
-;; (straight-use-package '(dracula-theme
-;;                         :type git :host github
-;;                         :repo "dracula/emacs"))
+(use-package dracula-theme
+  :ensure t)
+
+
 ;; ;;; Nano Setup
 
 ;; (use-package nano-theme
