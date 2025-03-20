@@ -11,10 +11,10 @@
 
 (global-set-key (kbd "C-c C-t") 'zuco-switch-theme)
 
-(use-package evil
-  :ensure t
-  :config
-  (evil-mode 0))
+;; (use-package evil
+;;   :ensure t
+;;   :config
+;;   (evil-mode 0))
 
 (provide 'setup-keybindings)
 
