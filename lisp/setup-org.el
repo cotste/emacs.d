@@ -26,14 +26,15 @@
 	      '((sequence "TODO(t)" "PROG(p)" "INTR(i)" "|" "DONE(d)" "CANCELLED(c!)"))
 				;;org-log-into-drawer "LOGBOOK"
 				org-use-fast-todo-selection t
-				org-startup-with-inline-images t)
+				org-startup-with-inline-images t
+                org-blank-before-new-entry '((heading . t) (plain-list-item . auto)))
  
  (add-hook 'org-mode-hook(lambda ()
 			    (visual-line-mode 0)
 			    (variable-pitch-mode 1)
 ;;			    (auto-fill-mode 1)
 			    (flyspell-mode 1)
-			    ;;(org-modern-mode)
+			    (org-modern-mode)
 			    (zuco/org-hook-fonts)))
 
 (setq org-capture-templates
