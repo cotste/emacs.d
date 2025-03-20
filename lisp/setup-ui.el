@@ -6,8 +6,8 @@
 
 ;; Set up fonts
 (set-face-attribute 'default nil :family "MonaspiceNe NF" :height 110)
-(set-face-attribute 'variable-pitch nil :family "iA Writer Quattro V" :weight 'Regular :height 110)
-(set-face-attribute 'fixed-pitch nil :family "MonaspiceNe NF" :height 110)
+(set-face-attribute 'variable-pitch nil :family "iA Writer Quattro V" :weight 'Regular :height 1.05)
+(set-face-attribute 'fixed-pitch nil :family "MonaspiceNe NF" :height 1.05)
 ;;(set-face-attribute 'default nil :family "RobotoMono Nerd Font" :height 100)
 ;;(set-face-attribute 'default nil :family "Inconsolata" :height 115 :weight 'Regular)
 ;;(set-face-attribute 'default nil :family "Iosevka" :height 110)
@@ -18,7 +18,7 @@
 
 (defface org-headers
   '((t :family "Monaspace Krypton"
-       :height 110
+       :height 1.1
        ))
   "my org headers face.")
   
