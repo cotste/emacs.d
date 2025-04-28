@@ -21,7 +21,7 @@
    ("C-c t" . hydra-time/body)
    ("C-c e" . hydra-config/body)
    ("C-c f" . hydra-fonts/body)
-   ("C-c m" . hydra-magit/body)
+;;   ("C-c m" . hydra-magit/body)
    :config
 
 (defhydra hydra-browser (nil nil)

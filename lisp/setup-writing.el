@@ -20,7 +20,10 @@
   :config
   (setq grip-command 'go-grip)
   (setq grip-preview-use-webkit t)
-  :hook
-  ((markdown-mode org-mode) . grip-mode))
+  :bind
+  (:map markdown-mode-command-map
+        ("C-c g" . grip-mode))
+  (:map org-mode-map
+        ("C-c g" . grip-mode)))
 
 (provide 'setup-writing)

@@ -58,6 +58,17 @@
 (add-hook 'dired-mode-hook #'denote-dired-mode-in-directories)
 (add-hook 'denote-dired-mode-hook #'dired-hide-details-mode)
 
+(setq denote-templates
+      `((briefing . sjc-briefing-note-template)))
+
+(defun sjc-briefing-note-template ()
+  (interactive)
+  (with-temp-buffer
+    (insert-file-contents "~/briefing_note.template")
+    (buffer-substring-no-properties
+       (point-min)
+       (point-max))))
+
 ;;(require 'notes-list)
 ;;(setq notes-list-directories '("~/notes/denote/"))
 

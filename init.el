@@ -74,6 +74,9 @@
 (add-to-list 'exec-path "/home/chq-stephenco/go/bin")
 (add-to-list 'exec-path "/home/chq-stephenco/.local/bin")
 
+;;; Windows clipboard fix
+(setq select-active-regions nil)
+
 ;;; wl-clip integration
   ;; credit: yorickvP on Github
 ;;   (setq wl-copy-process nil)
@@ -125,7 +128,7 @@
 (require 'setup-ui)
 (require 'setup-org)
 (require 'setup-notes)
-;;(require 'setup-mail)
+(require 'setup-mail)
 (require 'setup-vc)
 (require 'setup-writing)
 (require 'setup-shell)

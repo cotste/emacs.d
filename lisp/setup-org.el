@@ -34,12 +34,14 @@
 			    (variable-pitch-mode 1)
 ;;			    (auto-fill-mode 1)
 			    (flyspell-mode 1)
-			    (org-modern-mode)
+			    ;;(org-modern-mode)
 			    (zuco/org-hook-fonts)))
 
 (setq org-capture-templates
       '(("m" "Meeting" entry (file "~/notes/gtd/inbox.org")
          "* TODO %? \nSCHEDULED: %^T\n:properties:\n:taxonomy: %^{Taxonomy}\n:type: Meeting\n:end:\n")
+        ("l" "Meeting" entry (file "~/notes/gtd/inbox.org")
+         "* TODO %? \nSCHEDULED: %^T\n:properties:\n:type: Mail\n:end:\n%a\n")
 
         ("g" "TODO" entry (file "~/notes/gtd/inbox.org")
          "* TODO %? \nDEADLINE: %^T\n:properties:\n:taxonomy: %^{Taxonomy}\n:type: %^{Type e.g. Meeting, Research}\n:end:\n")
@@ -53,7 +55,7 @@
 
 (use-package org-present :ensure t)
 
-(use-package org-modern :ensure t)
+;;(use-package org-modern :ensure t)
 
 ;; Agenda configuration
 (setq org-agenda-files '("~/notes/gtd"))
@@ -111,18 +113,18 @@
 		 "taxonomy={architecture}"
 		 ((org-agenda-overriding-header "Architecture")
 		  (org-agenda-files '("~/notes/gtd/current-pi.org"))))
-	  (tags
-	   "type={feature}"
-	   ((org-agenda-overriding-header "Features")
-			(org-agenda-files '("~/notes/gtd/current-pi.org"))))
-	  (tags-todo
-	   "type={story}"
-	   ((org-agenda-overriding-header "Stories")
-			(org-agenda-files '("~/notes/gtd/current-pi.org"))))
-	  (tags-todo
-	   "type={task}"
-	   ((org-agenda-overriding-header "Tasks")
-			(org-agenda-files '("~/notes/gtd/current-pi.org"))))
+	  ;; (tags
+	  ;;  "type={feature}"
+	  ;;  ((org-agenda-overriding-header "Features")
+	  ;;   	(org-agenda-files '("~/notes/gtd/current-pi.org"))))
+	  ;; (tags-todo
+	  ;;  "type={story}"
+	  ;;  ((org-agenda-overriding-header "Stories")
+	  ;;   	(org-agenda-files '("~/notes/gtd/current-pi.org"))))
+	  ;; (tags-todo
+	  ;;  "type={task}"
+	  ;;  ((org-agenda-overriding-header "Tasks")
+	  ;;   	(org-agenda-files '("~/notes/gtd/current-pi.org"))))
 	  (agenda "")))
 	("p" "Personal"
 	 ((tags
