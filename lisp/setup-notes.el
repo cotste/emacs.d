@@ -39,10 +39,6 @@
        (point-min)
        (point-max))))
 
-;;(require 'notes-list)
-;;(setq notes-list-directories '("~/notes/denote/"))
-
-
 (provide 'setup-notes)
 
 ;;; setup-notes.el ends here
