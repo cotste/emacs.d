@@ -115,7 +115,7 @@
   '("~/notes/denote"
     "~/notes/denote/daily"
     "~/notes/denote/blog"
-    "~/notes/denote/expd"))
+    "~/notes/expd"))
 
 (defvar sjc-denote-silo-commands
   '(denote-signature
