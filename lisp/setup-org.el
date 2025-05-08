@@ -40,17 +40,16 @@
 (setq org-capture-templates
       '(("m" "Meeting" entry (file "~/notes/gtd/inbox.org")
          "* TODO %? \nSCHEDULED: %^T\n:properties:\n:taxonomy: %^{Taxonomy}\n:type: Meeting\n:end:\n")
-        ("l" "Meeting" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? \nSCHEDULED: %^T\n:properties:\n:type: Mail\n:end:\n%a\n")
-
+        ("l" "Link" entry (file "~/notes/gtd/inbox.org")
+         "* TODO %? \nSCHEDULED: %^T\n:properties:\n:type: link\n:end:\n%a\n")
         ("g" "TODO" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? \nDEADLINE: %^T\n:properties:\n:taxonomy: %^{Taxonomy}\n:type: %^{Type e.g. Meeting, Research}\n:end:\n")
-	("f" "Feature" entry (file "~/notes/gtd/inbox.org")
-         "* %? \nDEADLINE: %^T\n:properties:\n:taxonomy: Iteration\n:type Feature\n:end:\n")
-	("s" "Story" entry (file "~/notes/gtd/inbox.org")
-         "* TODO %? \nDEADLINE: %^T\n:properties:\n:taxonomy: Sprint\n:type: Story\n:end:\n")
-	("t" "Task" entry (file "~/notes/gtd/inbox.org")
-     "* TODO %? :task: \nDEADLINE: %^T\n:properties:\n:taxonomy Sprint\n:type Task\n:end:\n"))))
+         "* TODO %? \nDEADLINE: %^T\n:properties:\n:taxonomy: %^{Taxonomy}\n:type: %^{Type e.g. Meeting, Research}\n:end:\n"))))
+	;; ("f" "Feature" entry (file "~/notes/gtd/inbox.org")
+    ;;      "* %? \nDEADLINE: %^T\n:properties:\n:taxonomy: Iteration\n:type Feature\n:end:\n")
+	;; ("s" "Story" entry (file "~/notes/gtd/inbox.org")
+    ;;      "* TODO %? \nDEADLINE: %^T\n:properties:\n:taxonomy: Sprint\n:type: Story\n:end:\n")
+	;; ("t" "Task" entry (file "~/notes/gtd/inbox.org")
+    ;;  "* TODO %? :task: \nDEADLINE: %^T\n:properties:\n:taxonomy Sprint\n:type Task\n:end:\n"))))
   ;;; End of org-mode use-package
 
 (use-package org-present :ensure t)
