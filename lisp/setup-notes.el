@@ -3,7 +3,7 @@
 (use-package denote
   :ensure t
   :config
-  (setq denote-directory (expand-file-name "~/notes/denote"))
+  (setq denote-directory (expand-file-name "~/exoganglia"))
   (setq denote-org-front-matter
 	"#+title: %s
 #+date: %s
@@ -15,8 +15,8 @@
 
 ")
   (setq denote-known-keywords '("emacs" "ecp" "devops"))
-  (setq denote-dired-directories '("~/notes/denote" "~/notes/denote/daily" "~/notes/denote/blog" "~/notes/expd"))
-  (setq denote-silo-extras-directories '("~/notes/denote" "~/notes/denote/daily" "~/notes/denote/blog" "~/notes/expd"))
+  (setq denote-dired-directories '("~/exoganglia/personal/denote" "~/exoganglia/personal/denote/daily" "~/exoganglia/personal/blog" "~/exoganglia/expd/denote"))
+  (setq denote-silo-extras-directories '("~/exoganglia" "~/exoganglia/personal/denote" "~/exoganglia/expd/denote"))
 
 	(setq denote-link-backlinks-display-buffer-action
           (quote ((display-buffer-reuse-window

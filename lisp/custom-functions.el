@@ -112,10 +112,9 @@
       url)
 
 (defvar sjc-denote-silos
-  '("~/notes/denote"
-    "~/notes/denote/daily"
-    "~/notes/denote/blog"
-    "~/notes/expd"))
+  '("~/exoganglia"
+    "~/exoganglia/personal/denote"
+    "~/exoganglia/expd/denote"))
 
 (defvar sjc-denote-silo-commands
   '(denote-signature

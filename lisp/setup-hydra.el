@@ -73,9 +73,8 @@
     ("r" denote-rename-file "Rename to Denote" :exit t)
     ("s" sjc-select-denote-silo "Select Denote Silo" :exit t))
    "Notes"
-   (("l" notes-list "Notes List" :exit t)
-    ("dd" (dired "~/notes/denote") "Main Notes Directory" :exit t)
-    ("de" (dired "~/notes/denote/expd") "EXPD Notes Directory" :exit t)
+   (("dp" (dired "~/exoganglia/personal/denote") "Personal Notes Directory" :exit t)
+    ("de" (dired "~/exoganglia/expd/denote") "EXPD Notes Directory" :exit t)
     ("f" sjc-denote-regex-search "Search Notes (text)" :exit t))
    "Journal"
    (("e" sjc/list-diary-notes "Journal Notes" :exit t)
@@ -90,7 +89,7 @@
     ("s" (org-clock-select-task) "Select Task" :exit t)
     ("o" org-clock-out "Clock Out" :exit t)
     ("g" org-clock-goto "Goto Current Clock" :exit t)
-    ("t" (find-file "~/notes/gtd/clocktable.org") "Open Time Sheet" :exit t))
+    ("t" (find-file "~/exoganglia/expd/gtd/clocktable.org") "Open Time Sheet" :exit t))
    "Dates"
    (("C" calendar "Open Calendar" :exit t)
     ("D" org-deadline "Set Deadline" :exit t)
