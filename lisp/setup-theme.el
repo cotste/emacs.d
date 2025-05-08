@@ -1,4 +1,0 @@
-
-
-
-(provide 'setup-theme)
