@@ -130,6 +130,10 @@
    (let ((denote-directory silo))
      (call-interactively command)))
 
+(defun sjc-open-denote-silo-dired (silo)
+  (let ((denote-directory silo))
+    (dired silo)))
+  
 (defun sjc-denote-regex-search ()
   (interactive
   (let ((default-directory "~/notes/denote"))
