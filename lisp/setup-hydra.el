@@ -73,8 +73,8 @@
     ("r" denote-rename-file "Rename to Denote" :exit t)
     ("s" sjc-select-denote-silo "Select Denote Silo" :exit t))
    "Notes"
-   (("dp" (dired "~/exoganglia/personal/denote") "Personal Notes Directory" :exit t)
-    ("de" (sjc-open-denote-silo-dired "~/exoganglia/expd/denote") "EXPD Notes Directory" :exit t)
+   (("dp" (dired "~/notes/personal/denote") "Personal Notes Directory" :exit t)
+    ("de" (sjc-open-denote-silo-dired "~/notes/expd/denote") "EXPD Notes Directory" :exit t)
     ("f" sjc-denote-regex-search "Search Notes (text)" :exit t))
    "Journal"
    (("e" sjc/list-diary-notes "Journal Notes" :exit t)

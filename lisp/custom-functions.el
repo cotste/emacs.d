@@ -136,20 +136,19 @@
   
 (defun sjc-denote-regex-search ()
   (interactive
-  (let ((default-directory "~/notes/denote"))
+  (let ((default-directory "~/notes"))
     (project-find-regexp (read-regexp "Notes search (regex): ")))))
 
 (defun sjc/list-diary-notes ()
   (interactive
-   (let ((default-directory "~/notes/denote/daily")
-	 (notes-list-directories '("~/notes/denote/daily/")))
-     (notes-list))))
+   (let ((default-directory "~/notes/personal/denote/daily")
+	 (dired "~/notes/personal/denote/daily/")))))
 
 (defun sjc/new-diary-note ()
   "Create a diary entry tagged \=journal\=."
   (interactive
-   (let ((default-directory "~/notes/denote/daily")
-	 (denote-directory "~/notes/denote/daily"))
+   (let ((default-directory "~/notes/personal/denote/daily")
+	 (denote-directory "~/notes/personal/denote/daily"))
 	 (denote
 	  (format-time-string "%A %e %B %Y")
 	  '("journal")))))

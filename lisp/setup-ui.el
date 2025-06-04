@@ -55,10 +55,12 @@
         (4 . (fixed-pitch-serif 1.0))
         (5 . (fixed-pitch-serif 1.0))
         (6 . (fixed-pitch-serif 1.0))))
-(setq modus-themes-vivendi-color-overrides
-      '((bg-main . "#24283b")
-        (bg-dim . "#24283b")
-        (bg-alt . "#35394c")))
+(setq modus-vivendi-palette-overrides
+      '((bg-main "#24283b")
+        ;;(bg-dim "#24283b")
+        (bg-inactive "#35394c")
+        (bg-dim "#35394c")
+        (bg-alt "#35394c")))
 
 (setq modus-themes-fringes 'nil)
 (setq modus-themes-bold-constructs t)
@@ -133,15 +135,15 @@
   ;;:init
   ;;(load-theme 'kanagawa-wave t))
 
-;; (use-package modus-themes
-;;   :ensure nil
-;;   :init
-;;   (load-theme 'modus-operandi t))
-
-(use-package mindre-theme
-  :ensure t
+(use-package modus-themes
+  :ensure nil
   :init
-  (load-theme 'mindre t))
+  (load-theme 'modus-operandi t))
+
+;; (use-package mindre-theme
+;;   :ensure t
+;;   :init
+;;   (load-theme 'mindre t))
 
 ;;(setq kanagawa-themes-custom-colors
 ;;      '((bg "#FFFFFF")))

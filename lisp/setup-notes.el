@@ -3,7 +3,7 @@
 (use-package denote
   :ensure t
   :config
-  (setq denote-directory (expand-file-name "~/exoganglia"))
+  (setq denote-directory (expand-file-name "~/notes"))
   (setq denote-org-front-matter
 	"#+title: %s
 #+date: %s
@@ -14,9 +14,9 @@
 #+options: ^:{}
 
 ")
-  (setq denote-known-keywords '("emacs" "ecp" "devops"))
-  (setq denote-dired-directories '("~/exoganglia/personal/denote" "~/exoganglia/personal/denote/daily" "~/exoganglia/personal/blog" "~/exoganglia/expd/denote"))
-  (setq denote-silo-extras-directories '("~/exoganglia" "~/exoganglia/personal/denote" "~/exoganglia/expd/denote"))
+  (setq denote-known-keywords '("emacs"))
+  (setq denote-dired-directories '("~/notes/personal/denote" "~/notes/personal/denote/daily" "~/notes/personal/blog" "~/notes/expd/denote"))
+  (setq denote-silo-directories '("~/notes" "~/notes/personal/denote" "~/notes/expd/denote"))
 
 	(setq denote-link-backlinks-display-buffer-action
           (quote ((display-buffer-reuse-window
@@ -24,6 +24,9 @@
                   (side . right)
                   (slot . 99)
                   (window-width . 0.3)))))
+
+(use-package denote-silo
+  :ensure (:host github :repo "protesilaos/denote-silo"))
 
 (add-hook 'dired-mode-hook #'denote-dired-mode-in-directories)
 (add-hook 'denote-dired-mode-hook #'dired-hide-details-mode)
@@ -38,6 +41,13 @@
     (buffer-substring-no-properties
        (point-min)
        (point-max))))
+
+(defvar denote-project-list)
+
+(defun denote-project-open-or-create ()
+  (interactive
+   (list (completing-read "Select a project: " denote-project-list nil t))))
+  
 
 (provide 'setup-notes)
 

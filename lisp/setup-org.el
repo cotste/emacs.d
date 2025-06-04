@@ -30,7 +30,7 @@
                 org-blank-before-new-entry '((heading . t) (plain-list-item . auto)))
  
  (add-hook 'org-mode-hook(lambda ()
-			    (visual-line-mode 0)
+			    (visual-line-mode 1)
 			    (variable-pitch-mode 1)
 ;;			    (auto-fill-mode 1)
 			    (flyspell-mode 1)
@@ -57,7 +57,7 @@
 ;;(use-package org-modern :ensure t)
 
 ;; Agenda configuration
-(setq org-agenda-files '("~/notes/gtd"))
+(setq org-agenda-files '("~/notes/expd/denote"))
 (setq org-agenda-window-setup 'current)
 
 (setq org-use-tag-inheritance t)
