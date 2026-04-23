@@ -10,3 +10,5 @@ exit
 clear
 ls
 exit
+grep elpaca-menu
+exit

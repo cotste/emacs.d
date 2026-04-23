@@ -32,7 +32,8 @@
   :ensure nil
   :hook ((( clojure-mode clojurec-mode clojurescript-mode
             java-mode scala-mode python-ts-mode yaml-ts-mode
-            terraform-mode python-mode rust-mode rust-ts-mode rustic-mode)
+            terraform-mode python-mode rust-mode rust-ts-mode rustic-mode
+            kotlin-mode)
           . eglot-ensure))
         ;;((cider-mode eglot-managed-mode) . eglot-disable-in-cider)
   :preface
@@ -159,6 +160,9 @@
 
 ;; Docker/Containerfile mode
 (use-package dockerfile-mode :ensure t)
+
+(use-package kotlin-mode
+  :ensure t)
 
 ;; Flycheck
 ;;(use-package flycheck

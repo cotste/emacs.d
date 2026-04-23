@@ -5,12 +5,12 @@
 (eval-when-compile (require 'use-package))
 
 ;; Set up fonts
-(set-face-attribute 'default nil :family "MonaspiceNe NF" :height 110)
+;;(set-face-attribute 'default nil :family "MonaspiceNe NF" :height 120)
 (set-face-attribute 'variable-pitch nil :family "iA Writer Quattro V" :weight 'Regular :height 1.05)
-(set-face-attribute 'fixed-pitch nil :family "MonaspiceNe NF" :height 1.05)
-;;(set-face-attribute 'default nil :family "RobotoMono Nerd Font" :height 100)
+;;(set-face-attribute 'fixed-pitch nil :family "MonaspiceNe NF" :height 1.05)
+(set-face-attribute 'default nil :family "RobotoMono Nerd Font" :height 120)
 ;;(set-face-attribute 'default nil :family "Inconsolata" :height 115 :weight 'Regular)
-;;(set-face-attribute 'default nil :family "Iosevka" :height 110)
+;;(set-face-attribute 'default nil :family "Iosevka" :height 130)
 ;;(set-face-attribute 'variable-pitch nil :family "Vollkorn" :height 110)
 ;;(set-face-attribute 'variable-pitch nil :family "Monaspace Krypton" :height 125)
 ;;(set-face-attribute 'variable-pitch nil :family "Source Sans Pro" :height 120)
@@ -117,7 +117,16 @@
 ;;(use-package material-theme)
 
 ;; Nord theme
+<<<<<<< Updated upstream
 ;;(use-package nord-theme)
+=======
+(use-package nord-theme
+  :ensure t)
+
+;; Doom Themes
+;; (use-package doom-themes
+;;   :ensure t)
+>>>>>>> Stashed changes
 
 ;; ;; One Themes
 ;; (use-package one-themes)
@@ -202,13 +211,18 @@
 
 ;;; Modeline configs
 
-(use-package doom-modeline
+;; (use-package doom-modeline
+;;   :ensure t
+;;   :config
+;;   (setq doom-modeline-height 28)
+;;   ;;:init
+;;   ;;(doom-modeline-mode 1)
+;;   :hook (elpaca-after-init . doom-modeline-mode))
+
+(use-package mood-line
   :ensure t
   :config
-  (setq doom-modeline-height 28)
-  ;;:init
-  ;;(doom-modeline-mode 1)
-  :hook (elpaca-after-init . doom-modeline-mode))
+  (mood-line-mode))
 
 (use-package ace-window
   :ensure t

@@ -91,6 +91,11 @@
 
 ;; Set up plugin and customization directory
 (add-to-list 'load-path (concat user-emacs-directory "lisp/"))
+(add-to-list 'load-path (concat user-emacs-directory "lisp/ai"))
+
+;; Recursively add all subdirectories of lisp/ to load-path
+;;(let ((default-directory (expand-file-name "lisp/" user-emacs-directory)))
+;;  (normal-top-level-add-subdirs-to-load-path))
 
 ;; Auto save backup location
 ;;(setq backup-directory-alist

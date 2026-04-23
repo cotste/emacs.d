@@ -68,13 +68,12 @@
 (pretty-hydra-define hydra-note
   (:title hydra--note-title :quit-key "q")
   ("Denote"
-   (("n" denote-signature "New Denote" :exit t)
+   (("n" denote "New Denote" :exit t)
     ("t" denote-type "New Denote - Type" :exit t)
     ("r" denote-rename-file "Rename to Denote" :exit t)
     ("s" sjc-select-denote-silo "Select Denote Silo" :exit t))
    "Notes"
-   (("dp" (dired "~/notes/personal/denote") "Personal Notes Directory" :exit t)
-    ("de" (sjc-open-denote-silo-dired "~/notes/expd/denote") "EXPD Notes Directory" :exit t)
+   (("d" (dired "~/notes") "Denote Directory" :exit t)
     ("f" sjc-denote-regex-search "Search Notes (text)" :exit t))
    "Journal"
    (("e" sjc/list-diary-notes "Journal Notes" :exit t)
@@ -89,7 +88,7 @@
     ("s" (org-clock-select-task) "Select Task" :exit t)
     ("o" org-clock-out "Clock Out" :exit t)
     ("g" org-clock-goto "Goto Current Clock" :exit t)
-    ("t" (find-file "~/exoganglia/expd/gtd/clocktable.org") "Open Time Sheet" :exit t))
+    ("t" (find-file "~/notes/expd/gtd/clocktable.org") "Open Time Sheet" :exit t))
    "Dates"
    (("C" calendar "Open Calendar" :exit t)
     ("D" org-deadline "Set Deadline" :exit t)
@@ -98,10 +97,10 @@
 (pretty-hydra-define hydra-config
   (:title hydra--emacs-title :quit-key "q")
   ("Init"
-   (("e" (find-file "~/.emacs.d/init.el") "Edit Init" :exit t)
-    ("o" (dired "~/.emacs.d") "Open Config Dir" :exit t)
-    ("l" (dired "~/.emacs.d/lisp") "Open Lisp Dir" :exit t)
-    ("f" (consult-find "~/.emacs.d") "Search for file" :exit t))
+   (("e" (find-file "~/.config/emacs/init.el") "Edit Init" :exit t)
+    ("o" (dired "~/.config/emacs") "Open Config Dir" :exit t)
+    ("l" (dired "~/.config/emacs/lisp") "Open Lisp Dir" :exit t)
+    ("f" (consult-find "~/.config/emacs") "Search for file" :exit t))
    "Git"
    (("m" (magit-status "~/.emacs.d") "Magit" :exit t))))
 

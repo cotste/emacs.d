@@ -15,8 +15,8 @@
 
 ")
   (setq denote-known-keywords '("emacs"))
-  (setq denote-dired-directories '("~/notes/personal/denote" "~/notes/personal/denote/daily" "~/notes/personal/blog" "~/notes/expd/denote"))
-  (setq denote-silo-directories '("~/notes" "~/notes/personal/denote" "~/notes/expd/denote"))
+  (setq denote-dired-directories '("~/notes/" "~/notes/expd/denote"))
+  (setq denote-silo-directories '("~/notes"))
 
 	(setq denote-link-backlinks-display-buffer-action
           (quote ((display-buffer-reuse-window
@@ -47,6 +47,8 @@
 (defun denote-project-open-or-create ()
   (interactive
    (list (completing-read "Select a project: " denote-project-list nil t))))
+
+
   
 
 (provide 'setup-notes)
