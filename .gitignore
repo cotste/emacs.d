@@ -18,11 +18,13 @@ projects
 /workspace/
 network-security.data
 recentf
-%*%~
-
-
-eshell
+eshell/
 eshell/history
 /eclipse.jdt.ls/
 /elpa/
 /tree-sitter/
+%*%~
+
+
+
+
